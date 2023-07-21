@@ -1,5 +1,10 @@
 import { createGlobalStyle } from "styled-components";
 
+export enum colors {
+  primary = "#e50914",
+  secondary = "#333",
+}
+
 const GlobalStyles = createGlobalStyle`
     * {
         margin: 0;
@@ -11,25 +16,6 @@ const GlobalStyles = createGlobalStyle`
         background: black;
         font-family:  sans-serif;
         color: white;
-    }
-
-    h1, h2, h3, button {
-        text-transform: capitalize;
-    }
-
-    a {
-        text-decoration: none;
-        color: white;
-    }
-
-    button {
-        background: #e50914;
-        color: white;
-        font-weight: bolder;
-        padding: 0.5rem 1rem;
-        border-radius: 3px;
-        border: none;
-        cursor: pointer;
     }
 `;
 
