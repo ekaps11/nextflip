@@ -3,7 +3,6 @@ import { colors } from "../../GlobalStyles";
 
 export const StoryCardContainer = styled.div`
   border-top: 8px solid ${colors.secondary};
-  padding: 5%;
 
   p {
     margin: 1em 0;
@@ -13,14 +12,14 @@ export const StoryCardContainer = styled.div`
 export const Contents = styled.div<{ $direction: string }>`
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
 
   @media screen and (min-width: 60em) {
-    flex-direction: ${(props) => props.$direction};
+    flex-direction: ${({ $direction }) => $direction};
 
     img {
       width: 50%;
-      margin-left: 1em;
     }
   }
 `;

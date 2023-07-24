@@ -3,7 +3,7 @@ import GlobalStyles from "./GlobalStyles";
 import { Route, Routes } from "react-router-dom";
 
 const Navigation = lazy(() => import("./components/navigation/Navigation"));
-const Home = lazy(() => import("./pages/home/Home"));
+const Home = lazy(() => import("./pages/Home"));
 
 const App = () => {
   return (

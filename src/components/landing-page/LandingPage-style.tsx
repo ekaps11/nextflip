@@ -1,14 +1,13 @@
 import { styled } from "styled-components";
-import { BaseLayoutContainer } from "../base-layout/BaseLayout-style";
+import { BaseLayout as Layout } from "../../GlobalStyles";
 
-export const LandingPageContainer = styled.div`
+export const LandingPageWrapper = styled.div`
   background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3)),
     url("https://raw.githubusercontent.com/thatanjan/netflix-clone-yt/youtube/media//banner.jpg");
   background-size: cover;
-  padding: 5%;
 `;
 
-export const Layout = styled(BaseLayoutContainer)`
+export const BaseLayout = styled(Layout)`
   text-align: center;
 
   h1 {

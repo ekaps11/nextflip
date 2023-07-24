@@ -3,8 +3,6 @@ import { colors } from "../../GlobalStyles";
 
 export const FooterContainer = styled.footer`
   border-top: 8px solid ${colors.secondary};
-  margin: unset;
-  padding: 5%;
 
   span {
     text-decoration: underline;

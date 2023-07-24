@@ -1,23 +1,22 @@
 import { Outlet, Link } from "react-router-dom";
 import { NavContainer } from "./Navigation.styles";
-import Header1 from "../header/Header1";
 import Select from "../select/Select";
-import Button from "../button/Button";
 import Footer from "../footer/Footer";
 import { languages } from "../../assets/data";
+import { Box } from "../../GlobalStyles";
 
 const Navigation = () => {
   return (
     <>
       <NavContainer>
         <Link to="/">
-          <Header1>nextflip</Header1>
+          <h1>nextflip</h1>
         </Link>
 
-        <div>
+        <Box>
           <Select options={languages} />
-          <Button title="sign in" />
-        </div>
+          <button>sign in</button>
+        </Box>
       </NavContainer>
       <Outlet />
       <Footer />

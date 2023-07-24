@@ -1,7 +1,5 @@
 import { CONTENTS } from "../../assets/data";
-import BaseLayout from "../base-layout/BaseLayout";
-import Header1 from "../header/Header1";
-import Paragraph from "../paragraph/Paragraph";
+import { BaseLayout } from "../../GlobalStyles";
 import { Contents, HeaderDetails, StoryCardContainer } from "./StoryCard-style";
 
 const StoryCard = () => {
@@ -12,10 +10,10 @@ const StoryCard = () => {
           <BaseLayout>
             <Contents $direction={direction}>
               <HeaderDetails>
-                <Header1>{title}</Header1>
-                <Paragraph>{description}</Paragraph>
+                <h1>{title}</h1>
+                <p>{description}</p>
               </HeaderDetails>
-              <img src={imageUrl} alt={title} width="95%" />
+              <img src={imageUrl} alt={title} width="95%" loading="lazy" />
             </Contents>
           </BaseLayout>
         </StoryCardContainer>

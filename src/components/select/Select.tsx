@@ -1,15 +1,16 @@
 import { FC } from "react";
-import { SelectContainer } from "./Select-style";
 
-type SelectProps = { options: string[] };
+type SelectProps = {
+  options: string[];
+};
 
 const Select: FC<SelectProps> = ({ options }) => {
   return (
-    <SelectContainer>
+    <select>
       {options.map((option) => (
         <option key={option}>{option}</option>
       ))}
-    </SelectContainer>
+    </select>
   );
 };
 

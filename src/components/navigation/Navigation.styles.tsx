@@ -7,7 +7,7 @@ export const NavContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 5%;
+  padding: 1em 5%;
 
   a {
     color: ${colors.primary};
@@ -20,7 +20,11 @@ export const NavContainer = styled.div`
     margin-right: 1em;
   }
 
+  button {
+    padding: 0.6em 1.3em;
+  }
+
   @media screen and (min-width: 60em) {
-    padding: 1rem 13%;
+    padding: 1em 13%;
   }
 `;
