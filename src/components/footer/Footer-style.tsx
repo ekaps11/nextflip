@@ -10,6 +10,7 @@ export const FooterContainer = styled.footer`
 
   a {
     color: white;
+    text-decoration: underline;
   }
 
   p {
@@ -27,7 +28,7 @@ export const Links = styled.div`
   grid-template-columns: repeat(2, 1fr);
   gap: 1em;
 
-  @media screen and (min-width: 30em) {
+  @media (min-width: 30em) {
     grid-template-columns: repeat(3, 1fr);
   }
 `;

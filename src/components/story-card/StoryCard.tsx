@@ -1,5 +1,5 @@
 import { CONTENTS } from "../../assets/data";
-import { BaseLayout } from "../../GlobalStyles";
+import BaseLayout from "../base-layout/BaseLayout";
 import { Contents, HeaderDetails, StoryCardContainer } from "./StoryCard-style";
 
 const StoryCard = () => {

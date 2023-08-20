@@ -15,7 +15,7 @@ export const Contents = styled.div<{ $direction: string }>`
   justify-content: center;
   flex-direction: column;
 
-  @media screen and (min-width: 60em) {
+  @media (min-width: 60em) {
     flex-direction: ${({ $direction }) => $direction};
 
     img {
@@ -28,7 +28,7 @@ export const HeaderDetails = styled.div`
   flex-direction: column;
   text-align: center;
 
-  @media screen and (min-width: 60em) {
+  @media (min-width: 60em) {
     text-align: left;
   }
 `;

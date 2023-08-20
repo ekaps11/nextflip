@@ -9,22 +9,23 @@ export const NavContainer = styled.div`
   align-items: center;
   padding: 1em 5%;
 
+  button {
+    min-width: 6em;
+  }
+
   a {
     color: ${colors.primary};
     font-family: "Bebas Neue", sans-serif;
-    letter-spacing: 0.1em;
-    text-decoration: none;
+    letter-spacing: 0.2em;
   }
 
-  select {
-    margin-right: 1em;
+  div {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
   }
 
-  button {
-    padding: 0.6em 1.3em;
-  }
-
-  @media screen and (min-width: 60em) {
+  @media (min-width: 60em) {
     padding: 1em 13%;
   }
 `;

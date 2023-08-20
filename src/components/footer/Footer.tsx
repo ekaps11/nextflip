@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { FOOTER_LINKS, languages } from "../../assets/data";
-import { BaseLayout } from "../../GlobalStyles";
-import { FooterContainer, Links } from "./Footer-style";
+import BaseLayout from "../base-layout/BaseLayout";
 import Select from "../select/Select";
+import { FooterContainer, Links } from "./Footer-style";
 
 const Footer = () => {
   return (

@@ -2,10 +2,12 @@ import { configureStore } from "@reduxjs/toolkit";
 import { useSelector } from "react-redux";
 import { TypedUseSelectorHook } from "react-redux/es/types";
 import uiReducer from "./slices/uiSlice";
+import userReducer from "./slices/userSlice";
 
 export const store = configureStore({
   reducer: {
     ui: uiReducer,
+    user: userReducer,
   },
 });
 

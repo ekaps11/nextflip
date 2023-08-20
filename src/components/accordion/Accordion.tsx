@@ -1,8 +1,7 @@
-import { FC } from "react";
-import AccordionContent from "./AccordionContent";
 import { useDispatch } from "react-redux";
 import { useAppSelector } from "../../store/store";
 import { toggleAccordion } from "../../store/slices/uiSlice";
+import { Header, HeaderIcon, Content, Inner } from "./Accordion-style";
 
 type AccordionProps = {
   items: {
@@ -11,7 +10,7 @@ type AccordionProps = {
   }[];
 };
 
-const Accordion: FC<AccordionProps> = ({ items }) => {
+const Accordion = ({ items }: AccordionProps) => {
   const dispatch = useDispatch();
   const active = useAppSelector(({ ui }) => ui.accordion);
 
@@ -24,13 +23,15 @@ const Accordion: FC<AccordionProps> = ({ items }) => {
         const isActive = active === header;
 
         return (
-          <AccordionContent
-            key={header}
-            itemName={header}
-            itemContent={content}
-            isActive={isActive}
-            onClick={() => toggleActive(header)}
-          />
+          <div key={header}>
+            <Header key={header} onClick={() => toggleActive(header)}>
+              {header}
+              <HeaderIcon $isActive={isActive} />
+            </Header>
+            <Content $itemName={header} $isActive={isActive}>
+              <Inner id={header}>{content}</Inner>
+            </Content>
+          </div>
         );
       })}
     </>
