@@ -8,11 +8,6 @@ export const FooterContainer = styled.footer`
     text-decoration: underline;
   }
 
-  a {
-    color: white;
-    text-decoration: underline;
-  }
-
   p {
     letter-spacing: unset;
   }

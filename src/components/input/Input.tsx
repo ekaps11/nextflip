@@ -1,10 +1,11 @@
 import { InputHTMLAttributes, forwardRef } from "react";
 import { Error, InputContainer, InputField, Label } from "./Input-style";
 import { FaRegTimesCircle } from "react-icons/fa";
+import { initToUpper } from "../../helper/helper";
 
 type InputProps = {
   label: string;
-  errors?: string;
+  errors?: string | boolean;
 } & InputHTMLAttributes<HTMLInputElement>;
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
@@ -16,14 +17,14 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       <InputContainer>
         <>
           <InputField
-            ref={ref}
             placeholder=" "
-            {...props}
+            aria-label={labelName}
+            autoComplete="on"
+            ref={ref}
             $error={Boolean(errors)}
+            {...props}
           />
-          <Label htmlFor={labelName} aria-labelledby={labelName}>
-            {name.join(" ").replace(labelName[0], labelName[0].toUpperCase())}
-          </Label>
+          <Label>{initToUpper(label)}</Label>
         </>
         {errors && (
           <Error>

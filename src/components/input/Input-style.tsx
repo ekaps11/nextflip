@@ -24,10 +24,10 @@ export const InputField = styled.input<{ $error?: boolean }>`
     outline: 2px solid white;
   }
 
-  &:not(:placeholder-shown) + label,
-  &:focus + label {
+  &:not(:placeholder-shown) + span,
+  &:focus + span {
     font-size: 10px;
-    transform: translateX(5px) translateY(-5px);
+    transform: translateX(3px) translateY(-8.5px);
     transition: 0.3s;
   }
 
@@ -44,9 +44,15 @@ export const InputField = styled.input<{ $error?: boolean }>`
   &[type="password"] {
     letter-spacing: 3px;
   }
+
+  input[type="checkbox"] {
+    margin-right: 3px;
+    height: 0.9em;
+    accent-color: grey;
+  }
 `;
 
-export const Label = styled.label`
+export const Label = styled.span`
   position: absolute;
   left: 0;
   padding: 1em;
@@ -59,7 +65,7 @@ export const Error = styled.p`
   display: flex;
   color: #fa2f2f;
   gap: 0.35em;
-  margin-top: 0.5em;
+  margin-top: 0.75em;
 
   span {
     text-align: left;

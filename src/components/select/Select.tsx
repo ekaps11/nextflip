@@ -1,10 +1,16 @@
+import { SelectHTMLAttributes } from "react";
 import { SelectContainer } from "./Select-style";
+import SelectOption from "./SelectOptions";
 
-const Select = ({ options }: { options: string[] | number[] }) => {
+type SelectProps = {
+  options: string[] | number[];
+} & SelectHTMLAttributes<HTMLSelectElement>;
+
+const Select = ({ options, ...props }: SelectProps) => {
   return (
-    <SelectContainer>
+    <SelectContainer {...props}>
       {options.map((option) => (
-        <option key={option}>{option}</option>
+        <SelectOption key={option}>{option}</SelectOption>
       ))}
     </SelectContainer>
   );

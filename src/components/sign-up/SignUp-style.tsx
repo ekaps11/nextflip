@@ -1,9 +1,14 @@
 import { styled } from "styled-components";
+import { colors } from "../../GlobalStyles";
 
-export const SignUpForm = styled.form`
+export const Form = styled.form`
   display: flex;
   flex-direction: column;
   gap: 0.5em;
+
+  input {
+    caret-color: white;
+  }
 
   button {
     font-size: 1em;
@@ -11,6 +16,12 @@ export const SignUpForm = styled.form`
     margin: auto;
     min-width: 30%;
   }
+`;
+
+export const AuthError = styled.p`
+  border: 1.5px solid ${colors.primary};
+  border-radius: 2px;
+  padding: 0.5em 0;
 `;
 
 export const SignUpContainer = styled.div`
@@ -25,11 +36,7 @@ export const SignUpContainer = styled.div`
   }
 
   @media (min-width: 30em) {
-    p {
-      padding: 0;
-    }
-
-    ${SignUpForm} {
+    ${Form} {
       flex-direction: row;
       height: 3em;
 
@@ -43,7 +50,7 @@ export const SignUpContainer = styled.div`
     p {
       font-size: 1.1em;
     }
-    ${SignUpForm} {
+    ${Form} {
       padding: 0 15%;
     }
   }

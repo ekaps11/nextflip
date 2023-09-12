@@ -1,3 +1,8 @@
+import tv from "../assets/images/1-tv.jpg";
+import phone from "../assets/images/2-download.jpg";
+import apple from "../assets/images/3-everywhere.webp";
+import kid from "../assets/images/4-kids.png";
+
 export const languages = ["english", "bahasa"];
 
 export const CONTENTS = [
@@ -5,32 +10,28 @@ export const CONTENTS = [
     title: "Enjoy on your TV",
     description:
       "Watch on Smart TVs, Playstation, Xbox, Chromecast, Apple TV, Blu-ray players, and more.",
-    imageUrl:
-      "https://i.pinimg.com/1200x/39/0d/95/390d9515534f879719b5083411c8c702.jpg",
+    imageUrl: tv,
     direction: "row",
   },
   {
     title: "Download your shows to watch offline",
     description:
       "Save your favorites easily and always have something to watch.",
-    imageUrl:
-      "https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/mobile-0819.jpg",
+    imageUrl: phone,
     direction: "row-reverse",
   },
   {
     title: "Watch everywhere",
     description:
       "Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV.",
-    imageUrl:
-      "https://i0.wp.com/www.alphr.com/wp-content/uploads/2020/06/Screen-Shot-2020-07-14-at-8.38.08-AM.png?resize=531%2C320&ssl=1",
+    imageUrl: apple,
     direction: "row",
   },
   {
     title: "Create profiles for kids",
     description:
       "Send kids on adventures with their favorite characters in a space made just for them—free with your membership.",
-    imageUrl:
-      "https://occ-0-6701-58.1.nflxso.net/dnm/api/v6/19OhWN2dO19C9txTON9tvTFtefw/AAAABfpnX3dbgjZ-Je8Ax3xn0kXehZm_5L6-xe6YSTq_ucht9TI5jwDMqusWZKNYT8DfGudD0_wWVVTFLiN2_kaQJumz2iivUWbIbAtF.png?r=11f",
+    imageUrl: kid,
     direction: "row-reverse",
   },
 ];

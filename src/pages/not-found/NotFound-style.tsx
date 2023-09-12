@@ -1,4 +1,5 @@
 import { styled } from "styled-components";
+import notFound from "../../assets/images/not-found.jpeg";
 
 export const NotFoundContent = styled.div`
   text-align: center;
@@ -19,8 +20,7 @@ export const NotFoundContent = styled.div`
 
 export const NotFoundContainer = styled.div`
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)),
-    url("https://nyc3.digitaloceanspaces.com/cgmeetup/uploads/media_type/avatars/1041/1527570752-Lost_In_Space_VFX_Breakdown__3_.jpg.jpeg")
-      center;
+    url(${notFound}) center;
   background-size: cover;
   display: flex;
   align-items: center;

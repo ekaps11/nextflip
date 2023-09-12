@@ -11,6 +11,7 @@ export const Header = styled(ButtonContainer)`
   text-align: left;
   background: ${colors.secondary};
   font-size: 1.15em;
+  overflow: hidden;
 
   &:hover {
     background: #717272;
@@ -44,4 +45,5 @@ export const Inner = styled.div`
   line-height: 1.5;
   font-size: 1.15em;
   padding: 1em;
+  overflow: hidden;
 `;

@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
 import Button from "../../components/button/Button";
+import Link from "../../components/custom-link/CustomLink";
 import { NotFoundContainer, NotFoundContent } from "./NotFound-style";
 
 const NotFound = () => {

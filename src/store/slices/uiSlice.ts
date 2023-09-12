@@ -1,19 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  accordion: null,
+  isLoading: false,
 };
 
-export const uiSlice = createSlice({
+const uiSlice = createSlice({
   name: "ui",
   initialState,
   reducers: {
-    toggleAccordion(state, { payload }) {
-      state.accordion = payload;
+    setIsLoading(state, { payload }) {
+      state.isLoading = payload;
     },
   },
 });
 
-export const { toggleAccordion } = uiSlice.actions;
+export const { setIsLoading } = uiSlice.actions;
 
 export default uiSlice.reducer;

@@ -1,29 +1,26 @@
 import { MouseEvent } from "react";
-import { Outlet, Link, useLocation } from "react-router-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import { NavContainer } from "./Navigation-style";
+import { languages } from "../../assets/data";
+import { useAppSelector } from "../../store/store";
+import { logOut } from "../../utils/firebase/firebase.utils";
 import Select from "../select/Select";
 import Footer from "../footer/Footer";
 import Button from "../button/Button";
-import { NavContainer } from "./Navigation.styles";
-import { languages } from "../../assets/data";
-import { useAppSelector } from "../../store/store";
-import { useDispatch } from "react-redux";
-import { setUser } from "../../store/slices/userSlice";
+import Link from "../custom-link/CustomLink";
 
 const Navigation = () => {
   const isMatched = useLocation().pathname === "/";
-  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { user } = useAppSelector(({ user }) => user);
 
-  const buttonToggler = `sign ${
-    Number(Object.keys(user)) === 0 ? "in" : "out"
-  }`;
+  const buttonToggler = `sign ${!user ? "in" : "out"}`;
 
-  const signOutHandler = ({
-    currentTarget: { name },
-  }: MouseEvent<HTMLButtonElement>) =>
-    name === "sign out" && dispatch(setUser({}));
-
-  console.log(user);
+  const clickHandler = ({
+    currentTarget: { name: buttonName },
+  }: MouseEvent<HTMLButtonElement>) => {
+    buttonName === "sign in" ? navigate("/login") : logOut();
+  };
 
   return (
     <>
@@ -33,8 +30,8 @@ const Navigation = () => {
         </Link>
         {isMatched && (
           <div>
-            <Select options={languages} />
-            <Button name={buttonToggler} onClick={signOutHandler}>
+            <Select id="languages" options={languages} />
+            <Button name={buttonToggler} onClick={clickHandler}>
               {buttonToggler}
             </Button>
           </div>

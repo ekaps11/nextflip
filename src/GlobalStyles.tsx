@@ -19,6 +19,7 @@ const GlobalStyles = createGlobalStyle`
     }
 
     h1 {
+      font-size: 2em;
       font-weight: bold;
       margin: 0.5em 0;
 
@@ -27,16 +28,12 @@ const GlobalStyles = createGlobalStyle`
       }
     }
 
-    p{
+    p {
       letter-spacing: 0.0625em;
 
       @media (min-width: 60em) {
         font-size: 1.35em;
       }
-    }
-
-    a {
-      text-decoration: none
     }
 `;
 

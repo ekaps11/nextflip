@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
 import { FOOTER_LINKS, languages } from "../../assets/data";
 import BaseLayout from "../base-layout/BaseLayout";
+import Link from "../custom-link/CustomLink";
 import Select from "../select/Select";
 import { FooterContainer, Links } from "./Footer-style";
 
@@ -14,7 +14,12 @@ const Footer = () => {
         </p>
         <Links>
           {FOOTER_LINKS.map(({ title, url }) => (
-            <Link key={title} to={url} target="_blank">
+            <Link
+              key={title}
+              to={url}
+              target="_blank"
+              textDecoration="underline"
+            >
               {title}
             </Link>
           ))}

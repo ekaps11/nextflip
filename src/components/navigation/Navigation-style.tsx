@@ -8,6 +8,7 @@ export const NavContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 1em 5%;
+  min-width: 20vh;
 
   button {
     min-width: 6em;
@@ -17,6 +18,7 @@ export const NavContainer = styled.div`
     color: ${colors.primary};
     font-family: "Bebas Neue", sans-serif;
     letter-spacing: 0.2em;
+    text-decoration: none;
   }
 
   div {

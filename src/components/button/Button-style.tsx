@@ -1,5 +1,6 @@
 import { styled } from "styled-components";
 import { colors } from "../../GlobalStyles";
+import { SpinnerContainer } from "../spinner/Spinner-style";
 
 export const ButtonContainer = styled.button`
   display: flex;
@@ -20,6 +21,11 @@ export const ButtonContainer = styled.button`
 
   &:hover {
     background: #dc1721;
-    transition: all 0.5s;
+    transition: 0.5s;
   }
+`;
+
+export const ButtonSpinner = styled(SpinnerContainer)`
+  width: 30px;
+  height: 30px;
 `;

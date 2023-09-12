@@ -9,7 +9,7 @@ export const StoryCardContainer = styled.div`
   }
 `;
 
-export const Contents = styled.div<{ $direction: string }>`
+export const Contents = styled.article<{ $direction: string }>`
   display: flex;
   align-items: center;
   justify-content: center;
