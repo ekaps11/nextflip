@@ -19,6 +19,7 @@ export const InputField = styled.input<{ $error?: boolean }>`
   border: ${({ $error }) =>
     `1px solid ${$error ? "#fa2f2f" : colors.secondary}`};
   outline-offset: 2px;
+  caret-color: white;
 
   &:focus {
     outline: 2px solid white;
@@ -32,13 +33,11 @@ export const InputField = styled.input<{ $error?: boolean }>`
   }
 
   &:-webkit-autofill,
-  &:-webkit-autofill:hover,
-  &:-webkit-autofill:focus,
-  &:-webkit-autofill:active {
+  &:-webkit-autofill:focus {
     -webkit-background-clip: text;
     -webkit-text-fill-color: white;
+    background: inherit;
     transition: background-color 5000s ease-in-out 0s;
-    box-shadow: inset 0 0 20px 20px black;
   }
 
   &[type="password"] {

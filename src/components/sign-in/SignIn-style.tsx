@@ -27,10 +27,6 @@ export const SignInContainer = styled.form`
     color: grey;
   }
 
-  a:hover {
-    text-decoration: underline;
-  }
-
   p {
     font-size: 1em;
     margin-top: 2em;
@@ -38,6 +34,17 @@ export const SignInContainer = styled.form`
 
     a {
       color: white;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  @media (min-width: 30em) {
+    h1 {
+      margin-top: 1.25em;
     }
   }
 `;
@@ -52,8 +59,7 @@ export const Help = styled.div`
     position: relative;
     top: 1.5px;
     margin-right: 3px;
-    accent-color: grey;
-    background: red;
+    accent-color: ${colors.secondary};
   }
 `;
 
@@ -66,6 +72,8 @@ export const Article = styled.article`
 
     p {
       margin-top: unset;
+      text-decoration: none;
+      cursor: context-menu;
 
       a {
         color: #5d5df8;

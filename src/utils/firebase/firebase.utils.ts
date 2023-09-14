@@ -29,7 +29,7 @@ export type UserAuth = User;
 export const signUpWithEmail = async (
   email: string,
   password: string,
-  error: (err: string) => void
+  authError: (err: string) => void
 ) => {
   try {
     const { user } = await createUserWithEmailAndPassword(
@@ -42,14 +42,19 @@ export const signUpWithEmail = async (
   } catch (e) {
     const errCode = (e as AuthError).code.slice(5).replace(/-/g, " ");
 
-    error(errCode);
+    authError(errCode);
   }
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const authState = (cb: any) => onAuthStateChanged(auth, cb);
 
-export const login = async (email: string, password: string) =>
-  await signInWithEmailAndPassword(auth, email, password);
+export const login = async (email: string, password: string) => {
+  try {
+    await signInWithEmailAndPassword(auth, email, password);
+  } catch (e) {
+    console.log(e);
+  }
+};
 
 export const logOut = async () => await signOut(auth);

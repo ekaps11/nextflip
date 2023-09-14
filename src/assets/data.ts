@@ -37,43 +37,78 @@ export const CONTENTS = [
 ];
 
 export const FOOTER_LINKS = [
-  { title: "FAQ", url: "https://help.netflix.com/en/node/412" },
-  { title: "Help Center", url: "https://help.netflix.com/en/" },
+  {
+    title: "FAQ",
+    url: "https://help.netflix.com/en/node/412",
+    element: "footer-login",
+  },
+  {
+    title: "Help Center",
+    url: "https://help.netflix.com/en/",
+    element: "footer",
+  },
   {
     title: "Account",
     url: "https://www.netflix.com/id/login?nextpage=https%3A%2F%2Fwww.netflix.com%2Fyouraccount",
+    element: "footer",
   },
-  { title: "Media Center", url: "https://media.netflix.com/en/" },
+  {
+    title: "Media Center",
+    url: "https://media.netflix.com/en/",
+    element: "footer",
+  },
   {
     title: "Investor Relations",
     url: "https://ir.netflix.net/ir-overview/profile/default.aspx",
+    element: "footer",
   },
-  { title: "Jobs", url: "https://jobs.netflix.com/" },
+  { title: "Jobs", url: "https://jobs.netflix.com/", element: "footer" },
   {
     title: "Redeem Gift Cards",
     url: "https://www.netflix.com/id/redeem",
+    element: "footer",
   },
   { title: "Buy Gift Cards", url: "https://www.netflix.com/gift-cards" },
-  { title: "Ways to Watch", url: "https://devices.netflix.com/en/" },
+  {
+    title: "Ways to Watch",
+    url: "https://devices.netflix.com/en/",
+    element: "footer",
+  },
   {
     title: "Terms of Use",
     url: "https://help.netflix.com/legal/termsofuse",
+    element: "footer-login",
   },
-  { title: "Privacy", url: "https://help.netflix.com/legal/privacy" },
-  { title: "Cookie Preferences", url: "http://localhost:5173/" },
+  {
+    title: "Privacy",
+    url: "https://help.netflix.com/legal/privacy",
+    element: "footer-login",
+  },
+  {
+    title: "Cookie Preferences",
+    url: "http://localhost:5173/",
+    element: "footer-login",
+  },
   {
     title: "Corporate Information",
     url: "https://help.netflix.com/legal/corpinfo",
+    element: "footer-login",
   },
-  { title: "Contact Us", url: "https://help.netflix.com/en/contactus" },
-  { title: "Speed Test", url: "https://fast.com/" },
+  {
+    title: "Contact Us",
+    url: "https://help.netflix.com/en/contactus",
+    element: "footer",
+  },
+  { title: "Speed Test", url: "https://fast.com/", element: "footer" },
   {
     title: "Legal Notices",
     url: "https://help.netflix.com/legal/notices",
+    element: "footer",
   },
   {
     title: "Only on Netflix",
     url: "https://www.netflix.com/id-en/browse/genre/839338",
+    element: "footer",
   },
 ];
 

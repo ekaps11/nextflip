@@ -6,15 +6,20 @@ export const Form = styled.form`
   flex-direction: column;
   gap: 0.5em;
 
-  input {
-    caret-color: white;
-  }
-
   button {
     font-size: 1em;
     height: 3em;
     margin: auto;
     min-width: 30%;
+  }
+
+  @media (min-width: 30em) {
+    flex-direction: row;
+    height: 3em;
+
+    div {
+      width: 100%;
+    }
   }
 `;
 
@@ -35,21 +40,11 @@ export const SignUpContainer = styled.div`
     margin-bottom: 1.5em;
   }
 
-  @media (min-width: 30em) {
-    ${Form} {
-      flex-direction: row;
-      height: 3em;
-
-      div {
-        width: 100%;
-      }
-    }
-  }
-
   @media (min-width: 50em) {
     p {
       font-size: 1.1em;
     }
+
     ${Form} {
       padding: 0 15%;
     }

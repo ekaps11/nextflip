@@ -14,6 +14,7 @@ export const FooterContainer = styled.footer`
 
   select {
     margin: 1.5em 0;
+    min-width: 10em;
   }
 `;
 
@@ -25,5 +26,9 @@ export const Links = styled.div`
 
   @media (min-width: 30em) {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (min-width: 60em) {
+    grid-template-columns: repeat(4, 1fr);
   }
 `;
