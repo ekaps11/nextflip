@@ -1,18 +1,21 @@
+import { useState, useEffect } from "react";
 import { SignInContainer } from "./SignIn-style";
 import { useForm } from "react-hook-form";
 import Button from "../button/Button";
 import Input from "../input/Input";
 import SignInDetail from "./SignInDetail";
+import SignInError from "./SignInError";
 import { Email, EmailSchema } from "../../utils/zod/schemes";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { login } from "../../utils/firebase/firebase.utils";
-import { useAppDispatch } from "../../store/store";
-import { setUser } from "../../store/slices/userSlice";
+import { useAppSelector } from "../../store/store";
 import { useNavigate } from "react-router-dom";
 
 const SignIn = () => {
-  const dispatch = useAppDispatch();
+  const [authError, setAuthError] = useState("");
   const navigate = useNavigate();
+  const { user } = useAppSelector(({ user }) => user);
+
   const {
     register,
     handleSubmit,
@@ -23,15 +26,21 @@ const SignIn = () => {
   });
 
   const signInHandler = ({ email, password }: Email) => {
-    dispatch(setUser(login(email, password)));
-    navigate("/");
-
+    login(email, password, setAuthError);
     reset();
   };
+
+  console.log("user:", user);
+  console.log("error:", authError);
+
+  useEffect(() => {
+    user && navigate("/");
+  }, [user, navigate]);
 
   return (
     <SignInContainer onSubmit={handleSubmit(signInHandler)}>
       <h1>Sign In</h1>
+      {authError && <SignInError error={authError} />}
       <Input
         type="email"
         label="email or phone number"

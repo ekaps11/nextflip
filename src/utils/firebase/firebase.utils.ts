@@ -7,8 +7,8 @@ import {
   onAuthStateChanged,
   AuthError,
   signOut,
-  User,
 } from "firebase/auth";
+import { handleAuthError } from "../../helper/helper";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCTkOYhD62yZ4LxBneQkziGwz4Cr4N8InY",
@@ -20,11 +20,9 @@ const firebaseConfig = {
   measurementId: "G-Q54H56CR29",
 };
 
-// Initialize Firebase
 initializeApp(firebaseConfig);
 // const analytics = getAnalytics(app);
 export const auth = getAuth();
-export type UserAuth = User;
 
 export const signUpWithEmail = async (
   email: string,
@@ -40,7 +38,7 @@ export const signUpWithEmail = async (
 
     return user;
   } catch (e) {
-    const errCode = (e as AuthError).code.slice(5).replace(/-/g, " ");
+    const errCode = handleAuthError((e as AuthError).code);
 
     authError(errCode);
   }
@@ -49,11 +47,26 @@ export const signUpWithEmail = async (
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const authState = (cb: any) => onAuthStateChanged(auth, cb);
 
-export const login = async (email: string, password: string) => {
+export const login = async (
+  email: string,
+  password: string,
+  authError: (err: string) => void
+) => {
   try {
-    await signInWithEmailAndPassword(auth, email, password);
+    const { user } = await signInWithEmailAndPassword(auth, email, password);
+
+    return user ? user : null;
   } catch (e) {
-    console.log(e);
+    const errCode = handleAuthError((e as AuthError).code);
+
+    const errMsg = (err: string) =>
+      authError(
+        `${err}. ${err.includes("many") ? "" : "Please try again or you can "}`
+      );
+
+    if (errCode === "wrong password") errMsg("Incorrect password");
+    else if (errCode === "user not found") errMsg("User not found");
+    else errMsg("Too many requests");
   }
 };
 

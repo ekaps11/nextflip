@@ -1,4 +1,5 @@
 import { styled } from "styled-components";
+import Banner from "../../assets/images/banner.webp";
 
 export const LoginContainer = styled.div`
   footer {
@@ -17,7 +18,7 @@ export const LoginContainer = styled.div`
 
   @media (min-width: 45em) {
     background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3)),
-      url("https://raw.githubusercontent.com/thatanjan/netflix-clone-yt/youtube/media//banner.jpg");
+      url(${Banner});
     background-size: cover;
     padding-top: 7em;
 
@@ -44,8 +45,6 @@ export const LoginContainer = styled.div`
   }
 
   @media (min-width: 45em) and (max-width: 60em) {
-    height: 100vh;
-
     form {
       margin-top: 10em;
     }

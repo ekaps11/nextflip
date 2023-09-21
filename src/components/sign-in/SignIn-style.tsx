@@ -81,3 +81,14 @@ export const Article = styled.article`
     }
   }
 `;
+
+export const SignInErrorContainer = styled.span`
+  background: ${colors.tertiary};
+  padding: 0.8em 1.15em;
+  border-radius: 3px;
+  font-size: 0.85em;
+
+  a {
+    color: inherit;
+  }
+`;

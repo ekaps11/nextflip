@@ -2,7 +2,6 @@ import { InputHTMLAttributes, forwardRef } from "react";
 import { Error, InputContainer, InputField, Label } from "./Input-style";
 import { FaRegTimesCircle } from "react-icons/fa";
 import { initToUpper } from "../../helper/helper";
-import { useLocation } from "react-router-dom";
 
 type InputProps = {
   label: string;
@@ -11,7 +10,6 @@ type InputProps = {
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
   ({ label, errors, ...props }, ref) => {
-    const isMatched = useLocation().pathname === "/";
     const name = label.toLowerCase().split(" ");
     const [labelName] = name;
 
@@ -23,12 +21,12 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             aria-label={labelName}
             autoComplete="on"
             ref={ref}
-            $error={isMatched && Boolean(errors)}
+            $error={Boolean(errors)}
             {...props}
           />
           <Label>{initToUpper(label)}</Label>
         </>
-        {errors && isMatched && (
+        {errors && (
           <Error>
             <i>
               <FaRegTimesCircle />

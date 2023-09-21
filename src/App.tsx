@@ -1,4 +1,5 @@
 import { Suspense, lazy, useEffect } from "react";
+import { User } from "firebase/auth";
 import {
   Route,
   RouterProvider,
@@ -6,7 +7,7 @@ import {
   createRoutesFromElements,
 } from "react-router-dom";
 import { useAppSelector, useAppDispatch } from "./store/store";
-import { authState, UserAuth } from "./utils/firebase/firebase.utils";
+import { authState } from "./utils/firebase/firebase.utils";
 import { setUser } from "./store/slices/userSlice";
 
 const Navigation = lazy(() => import("./components/navigation/Navigation"));
@@ -21,7 +22,7 @@ const App = () => {
   const { user } = useAppSelector(({ user }) => user);
 
   useEffect(() => {
-    const unsubscribe = authState((user: UserAuth) => {
+    const unsubscribe = authState((user: User) => {
       dispatch(setUser(user));
     });
 
