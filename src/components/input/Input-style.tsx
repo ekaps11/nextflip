@@ -7,17 +7,22 @@ export const InputContainer = styled.div`
   flex-direction: column;
 `;
 
-export const InputField = styled.input<{ $error?: boolean }>`
+export const InputField = styled.input<{
+  $error?: boolean;
+  $border?: boolean;
+}>`
   display: flex;
   width: 100%;
   background: black;
   opacity: 0.7;
   color: inherit;
-  border: 1px solid ${colors.secondary};
+  border: 1px solid ${colors.grey[0]};
   border-radius: 3px;
   padding: 1.2em 1em;
   border: ${({ $error }) =>
-    `1px solid ${$error ? "#fa2f2f" : colors.secondary}`};
+    `1px solid ${$error ? colors.red[2] : colors.grey[0]}`};
+  border-bottom: ${({ $border }) =>
+    $border ? `2px solid ${colors.orange}` : ""};
   outline-offset: 2px;
   caret-color: white;
 
@@ -60,9 +65,9 @@ export const Label = styled.span`
   margin-bottom: 1em;
 `;
 
-export const Error = styled.p`
+export const InputError = styled.p`
   display: flex;
-  color: #fa2f2f;
+  color: ${colors.red[2]};
   gap: 0.35em;
   margin-top: 0.75em;
 

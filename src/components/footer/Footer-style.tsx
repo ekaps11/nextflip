@@ -1,8 +1,9 @@
 import { styled } from "styled-components";
 import { colors } from "../../GlobalStyles";
+import { SelectContainer } from "../select/Select-style";
 
 export const FooterContainer = styled.footer`
-  border-top: 8px solid ${colors.secondary};
+  border-top: 8px solid ${colors.grey[0]};
 
   span {
     text-decoration: underline;
@@ -12,7 +13,7 @@ export const FooterContainer = styled.footer`
     letter-spacing: unset;
   }
 
-  select {
+  ${SelectContainer} {
     margin: 1.5em 0;
     min-width: 10em;
   }

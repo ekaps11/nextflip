@@ -1,12 +1,13 @@
 import { styled } from "styled-components";
 import { colors } from "../../GlobalStyles";
+import { ButtonContainer } from "../button/Button-style";
 
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
   gap: 0.5em;
 
-  button {
+  ${ButtonContainer} {
     font-size: 1em;
     height: 3em;
     margin: auto;
@@ -24,7 +25,7 @@ export const Form = styled.form`
 `;
 
 export const AuthError = styled.p`
-  border: 1.5px solid ${colors.primary};
+  background: ${colors.orange};
   border-radius: 2px;
   padding: 0.5em 0;
 `;

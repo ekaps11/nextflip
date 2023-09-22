@@ -1,7 +1,9 @@
 import CustomLink from "../custom-link/CustomLink";
 import { SignInErrorContainer } from "./SignIn-style";
 
-const SignInError = ({ error }: { error: string }) => {
+type SignInErrorProps = { error: string };
+
+const SignInError = ({ error }: SignInErrorProps) => {
   const errMsg = error.includes("password");
   const actionLinks = errMsg ? "reset your password" : "sign up first";
   const links = errMsg ? "https://www.netflix.com/id-en/loginHelp" : "/";

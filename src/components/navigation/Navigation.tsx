@@ -7,7 +7,7 @@ import { logOut } from "../../utils/firebase/firebase.utils";
 import Select from "../select/Select";
 import Footer from "../footer/Footer";
 import Button from "../button/Button";
-import Link from "../custom-link/CustomLink";
+import CustomLink from "../custom-link/CustomLink";
 
 const Navigation = () => {
   const isMatched = useLocation().pathname === "/";
@@ -25,9 +25,9 @@ const Navigation = () => {
   return (
     <>
       <NavContainer>
-        <Link to="/">
+        <CustomLink to="/">
           <h1>nextflip</h1>
-        </Link>
+        </CustomLink>
         {isMatched && (
           <div>
             <Select id="languages" options={languages} />

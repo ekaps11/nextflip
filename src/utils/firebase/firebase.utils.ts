@@ -55,7 +55,7 @@ export const login = async (
   try {
     const { user } = await signInWithEmailAndPassword(auth, email, password);
 
-    return user ? user : null;
+    return user;
   } catch (e) {
     const errCode = handleAuthError((e as AuthError).code);
 

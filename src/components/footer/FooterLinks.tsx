@@ -7,7 +7,7 @@ type FooterLinksProps = {
 
 const FooterLinks = ({ to, title }: FooterLinksProps) => {
   return (
-    <CustomLink to={to} target="_blank" textDecoration="underline">
+    <CustomLink to={to} target="_blank">
       {title}
     </CustomLink>
   );

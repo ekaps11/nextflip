@@ -1,12 +1,8 @@
-import { LinkProps as Props } from "react-router-dom";
+import { LinkProps } from "react-router-dom";
 import { LinkContainer } from "./CustomLink-style";
 
-type LinkProps = {
-  textDecoration?: string;
-} & Props;
-
-const CustomLink = ({ textDecoration = "", ...props }: LinkProps) => {
-  return <LinkContainer $textDecoration={textDecoration} {...props} />;
+const CustomLink = ({ ...props }: LinkProps) => {
+  return <LinkContainer {...props} />;
 };
 
 export default CustomLink;

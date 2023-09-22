@@ -1,5 +1,7 @@
 import { styled } from "styled-components";
 import { colors } from "../../GlobalStyles";
+import { ButtonContainer } from "../button/Button-style";
+import { LinkContainer } from "../custom-link/CustomLink-style";
 
 export const NavContainer = styled.div`
   position: absolute;
@@ -10,12 +12,12 @@ export const NavContainer = styled.div`
   padding: 1em 5%;
   min-width: 20vh;
 
-  button {
+  ${ButtonContainer} {
     min-width: 6em;
   }
 
-  a {
-    color: ${colors.primary};
+  ${LinkContainer} {
+    color: ${colors.red[0]};
     font-family: "Bebas Neue", sans-serif;
     letter-spacing: 0.2em;
     text-decoration: none;

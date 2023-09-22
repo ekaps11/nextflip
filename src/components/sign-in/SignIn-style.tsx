@@ -1,7 +1,10 @@
 import styled from "styled-components";
 import { colors } from "../../GlobalStyles";
+import { InputField, InputError } from "../input/Input-style";
+import { ButtonContainer } from "../button/Button-style";
+import { LinkContainer } from "../custom-link/CustomLink-style";
 
-export const SignInContainer = styled.form`
+export const SignInContainer = styled.form<{ $error?: boolean }>`
   display: flex;
   flex-direction: column;
   gap: 1em;
@@ -12,13 +15,9 @@ export const SignInContainer = styled.form`
     margin-left: 5px;
   }
 
-  button {
+  ${ButtonContainer} {
     height: 3.5em;
     width: 100%;
-  }
-
-  input {
-    background: ${colors.secondary};
   }
 
   a,
@@ -32,7 +31,7 @@ export const SignInContainer = styled.form`
     margin-top: 2em;
     letter-spacing: 0;
 
-    a {
+    ${LinkContainer} {
       color: white;
       text-decoration: none;
 
@@ -40,6 +39,19 @@ export const SignInContainer = styled.form`
         text-decoration: underline;
       }
     }
+  }
+
+  ${InputField} {
+    background: ${colors.grey[0]};
+    outline: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+  }
+
+  ${InputError} {
+    color: ${colors.orange};
+    margin-top: 10px;
   }
 
   @media (min-width: 30em) {
@@ -57,9 +69,9 @@ export const Help = styled.div`
 
   input[type="checkbox"] {
     position: relative;
-    top: 1.5px;
+    top: 2.25px;
     margin-right: 3px;
-    accent-color: ${colors.secondary};
+    accent-color: ${colors.grey[0]};
   }
 `;
 
@@ -67,7 +79,7 @@ export const Article = styled.article`
   font-size: 0.8em;
 
   span {
-    color: #5d5df8;
+    color: ${colors.blue};
     cursor: pointer;
 
     p {
@@ -75,20 +87,20 @@ export const Article = styled.article`
       text-decoration: none;
       cursor: context-menu;
 
-      a {
-        color: #5d5df8;
+      ${LinkContainer} {
+        color: ${colors.blue};
       }
     }
   }
 `;
 
 export const SignInErrorContainer = styled.span`
-  background: ${colors.tertiary};
+  background: ${colors.orange};
   padding: 0.8em 1.15em;
   border-radius: 3px;
   font-size: 0.85em;
 
-  a {
+  ${LinkContainer} {
     color: inherit;
   }
 `;

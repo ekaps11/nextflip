@@ -13,14 +13,14 @@ export const ButtonContainer = styled.button`
   border-radius: 3px;
   color: inherit;
   padding: 0.5em 1em;
-  background: ${colors.primary};
+  background: ${colors.red[0]};
 
   i {
     margin-top: 3px;
   }
 
   &:hover {
-    background: #dc1721;
+    background: ${colors.red[1]};
     transition: 0.5s;
   }
 `;

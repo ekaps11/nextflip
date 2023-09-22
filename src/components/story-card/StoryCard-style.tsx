@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 import { colors } from "../../GlobalStyles";
 
 export const StoryCardContainer = styled.div`
-  border-top: 8px solid ${colors.secondary};
+  border-top: 8px solid ${colors.grey[0]};
 
   p {
     margin: 1em 0;

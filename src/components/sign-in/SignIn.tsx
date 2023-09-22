@@ -30,9 +30,6 @@ const SignIn = () => {
     reset();
   };
 
-  console.log("user:", user);
-  console.log("error:", authError);
-
   useEffect(() => {
     user && navigate("/");
   }, [user, navigate]);
@@ -45,12 +42,14 @@ const SignIn = () => {
         type="email"
         label="email or phone number"
         errors={errors.email?.message}
+        borderBottom={Boolean(errors.email)}
         {...register("email")}
       />
       <Input
         type="password"
         label="password"
         errors={errors.password?.message}
+        borderBottom={Boolean(errors.password)}
         {...register("password")}
       />
       <Button>sign in</Button>

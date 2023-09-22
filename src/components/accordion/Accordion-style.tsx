@@ -9,12 +9,12 @@ export const Header = styled(ButtonContainer)`
   width: 100%;
   padding: 1em;
   text-align: left;
-  background: ${colors.secondary};
+  background: ${colors.grey[0]};
   font-size: 1.15em;
   overflow: hidden;
 
   &:hover {
-    background: #717272;
+    background: ${colors.grey[1]};
     transition: 0.5s;
   }
 `;
@@ -39,7 +39,7 @@ export const Content = styled.div<{
 `;
 
 export const Inner = styled.div`
-  background: ${colors.secondary};
+  background: ${colors.grey[0]};
   border-radius: 3px;
   border-top: 1.5px solid black;
   line-height: 1.5;

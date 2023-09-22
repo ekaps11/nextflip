@@ -1,5 +1,6 @@
 import { styled } from "styled-components";
 import Banner from "../../assets/images/banner.webp";
+import { LinkContainer } from "../../components/custom-link/CustomLink-style";
 
 export const LoginContainer = styled.div`
   footer {
@@ -7,7 +8,7 @@ export const LoginContainer = styled.div`
     opacity: 0.8;
     padding: 0 0.5em;
 
-    a {
+    ${LinkContainer} {
       text-decoration: none;
 
       &:hover {

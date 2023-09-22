@@ -1,5 +1,7 @@
 import { styled } from "styled-components";
 import notFound from "../../assets/images/not-found.jpeg";
+import { colors } from "../../GlobalStyles";
+import { ButtonContainer } from "../../components/button/Button-style";
 
 export const NotFoundContainer = styled.div`
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)),
@@ -31,7 +33,7 @@ export const NotFoundContent = styled.div`
   text-align: center;
   padding: 0 16%;
 
-  button {
+  ${ButtonContainer} {
     margin: 1.5em auto;
     background: white;
     color: black;
@@ -39,7 +41,7 @@ export const NotFoundContent = styled.div`
     padding: 0.5em 1.5em;
 
     &:hover {
-      background: #fff;
+      background: ${colors.white};
     }
   }
 
