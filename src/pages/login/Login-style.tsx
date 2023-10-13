@@ -1,20 +1,11 @@
 import { styled } from "styled-components";
 import Banner from "../../assets/images/banner.webp";
-import { LinkContainer } from "../../components/custom-link/CustomLink-style";
 
 export const LoginContainer = styled.div`
   footer {
     background: black;
     opacity: 0.8;
     padding: 0 0.5em;
-
-    ${LinkContainer} {
-      text-decoration: none;
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
   }
 
   @media (min-width: 45em) {

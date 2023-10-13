@@ -1,7 +1,7 @@
-import tv from "../assets/images/1-tv.jpg";
-import phone from "../assets/images/2-download.jpg";
-import apple from "../assets/images/3-everywhere.webp";
-import kid from "../assets/images/4-kids.png";
+import tv from "../images/1-tv.jpg";
+import phone from "../images/2-download.jpg";
+import apple from "../images/3-everywhere.webp";
+import kid from "../images/4-kids.png";
 
 export const languages = ["english", "bahasa"];
 

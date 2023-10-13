@@ -1,12 +1,8 @@
-import { useState } from "react";
-import { Help, Article } from "./SignIn-style";
 import CustomLink from "../custom-link/CustomLink";
+import { Help } from "./SignIn-style";
+import SignInArticle from "./SignInArticle";
 
 const SignInDetail = () => {
-  const [learnMore, setLearnMore] = useState(true);
-
-  const toggleDetail = () => setLearnMore(false);
-
   return (
     <>
       <Help>
@@ -16,44 +12,15 @@ const SignInDetail = () => {
         </label>
         <CustomLink
           to="https://www.netflix.com/id-en/LoginHelp"
-          children="Need help?"
           target="_blank"
-        />
+        >
+          Need help?
+        </CustomLink>
       </Help>
-
       <p>
         New to Netflix? <CustomLink to="/">Sign up now.</CustomLink>
       </p>
-      <Article>
-        This page is protected by Google reCAPTCHA to ensure you're not a bot.{" "}
-        <span onClick={toggleDetail}>
-          {learnMore ? (
-            "Learn more."
-          ) : (
-            <p>
-              <br />
-              The information collected by Google reCAPTCHA is subject to the
-              Google{" "}
-              <CustomLink
-                to={"https://policies.google.com/privacy"}
-                target="_blank"
-              >
-                Privacy Policy
-              </CustomLink>{" "}
-              and{" "}
-              <CustomLink
-                to={"https://policies.google.com/terms"}
-                target="_blank"
-              >
-                Terms of Service
-              </CustomLink>
-              , and is used for providing, maintaining, and improving the
-              reCAPTCHA service and for general security purposes (it is not
-              used for personalized advertising by Google).
-            </p>
-          )}
-        </span>
-      </Article>
+      <SignInArticle />
     </>
   );
 };

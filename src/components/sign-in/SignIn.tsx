@@ -25,7 +25,7 @@ const SignIn = () => {
     resolver: zodResolver(EmailSchema),
   });
 
-  const signInHandler = ({ email, password }: Email) => {
+  const handleSignIn = ({ email, password }: Email) => {
     login(email, password, setAuthError);
     reset();
   };
@@ -35,7 +35,7 @@ const SignIn = () => {
   }, [user, navigate]);
 
   return (
-    <SignInContainer onSubmit={handleSubmit(signInHandler)}>
+    <SignInContainer onSubmit={handleSubmit(handleSignIn)}>
       <h1>Sign In</h1>
       {authError && <SignInError error={authError} />}
       <Input

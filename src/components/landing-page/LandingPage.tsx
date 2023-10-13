@@ -1,12 +1,15 @@
+import { useTranslation } from "react-i18next";
 import SignUp from "../sign-up/SignUp";
 import { LandingPageContainer, Layout } from "./LandingPage-style";
 
 const LandingPage = () => {
+  const { t } = useTranslation();
+
   return (
     <LandingPageContainer>
       <Layout>
-        <h1>Unlimited movies, TV shows, and more</h1>
-        <p>Watch anywhere. Cancel anytime.</p>
+        <h1>{t("landingPage.header")}</h1>
+        <p>{t("landingPage.content")}</p>
         <SignUp />
       </Layout>
     </LandingPageContainer>

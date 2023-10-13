@@ -21,7 +21,6 @@ export const ButtonContainer = styled.button`
 
   &:hover {
     background: ${colors.red[1]};
-    transition: 0.5s;
   }
 `;
 

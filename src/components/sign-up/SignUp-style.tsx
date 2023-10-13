@@ -28,6 +28,10 @@ export const AuthError = styled.p`
   background: ${colors.orange};
   border-radius: 2px;
   padding: 0.5em 0;
+
+  &::first-letter {
+    text-transform: capitalize;
+  }
 `;
 
 export const SignUpContainer = styled.div`
@@ -47,7 +51,11 @@ export const SignUpContainer = styled.div`
     }
 
     ${Form} {
-      padding: 0 15%;
+      padding: 0 10%;
+    }
+
+    ${AuthError} {
+      margin: 1em 10%;
     }
   }
 `;

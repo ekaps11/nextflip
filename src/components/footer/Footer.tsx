@@ -1,9 +1,9 @@
 import { useLocation } from "react-router-dom";
-import { FOOTER_LINKS, languages } from "../../assets/data";
+import { FOOTER_LINKS } from "../../assets/data/data";
 import BaseLayout from "../base-layout/BaseLayout";
-import Select from "../select/Select";
 import { FooterContainer, Links } from "./Footer-style";
 import FooterLinks from "./FooterLinks";
+import SelectLanguage from "../select/SelectLanguage";
 
 const Footer = () => {
   const isMatched = useLocation().pathname === "/";
@@ -20,11 +20,11 @@ const Footer = () => {
             const footer = <FooterLinks key={title} title={title} to={url} />;
 
             if (isMatched) return footer;
-            else if (!isMatched && element !== "footer") return footer;
+            if (!isMatched && element !== "footer") return footer;
           })}
         </Links>
-        <Select options={languages} />
-        {isMatched && <p>Nextflip Indonesia</p>}
+        <SelectLanguage id="footer-lang" />
+        <p>Nextflip Indonesia</p>
       </BaseLayout>
     </FooterContainer>
   );

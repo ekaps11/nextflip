@@ -1,12 +1,12 @@
+import { useTranslation } from "react-i18next";
 import { SignUpContainer } from "./SignUp-style";
 import SignUpForm from "./SignUpForm";
 
 const SignUp = () => {
+  const { t } = useTranslation();
   return (
     <SignUpContainer>
-      <p>
-        Ready to watch? Enter your email to create or restart your membership.
-      </p>
+      <p>{t("signup.header")}</p>
       <SignUpForm />
     </SignUpContainer>
   );

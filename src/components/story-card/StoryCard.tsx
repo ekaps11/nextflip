@@ -1,4 +1,4 @@
-import { CONTENTS } from "../../assets/data";
+import { CONTENTS } from "../../assets/data/data";
 import StoryCardContent from "./StoryCardContent";
 
 const StoryCard = () => {

@@ -1,22 +1,21 @@
 import { MouseEvent } from "react";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { NavContainer } from "./Navigation-style";
-import { languages } from "../../assets/data";
 import { useAppSelector } from "../../store/store";
 import { logOut } from "../../utils/firebase/firebase.utils";
-import Select from "../select/Select";
 import Footer from "../footer/Footer";
 import Button from "../button/Button";
 import CustomLink from "../custom-link/CustomLink";
+import SelectLanguage from "../select/SelectLanguage";
 
 const Navigation = () => {
   const isMatched = useLocation().pathname === "/";
   const navigate = useNavigate();
   const { user } = useAppSelector(({ user }) => user);
 
-  const buttonToggler = `sign ${!user ? "in" : "out"}`;
+  const toggleButton = `sign ${!user ? "in" : "out"}`;
 
-  const clickHandler = ({
+  const handleClick = ({
     currentTarget: { name: buttonName },
   }: MouseEvent<HTMLButtonElement>) => {
     buttonName === "sign in" ? navigate("/login") : logOut();
@@ -30,9 +29,9 @@ const Navigation = () => {
         </CustomLink>
         {isMatched && (
           <div>
-            <Select id="languages" options={languages} />
-            <Button name={buttonToggler} onClick={clickHandler}>
-              {buttonToggler}
+            <SelectLanguage id="nav-lang" />
+            <Button name={toggleButton} onClick={handleClick}>
+              {toggleButton}
             </Button>
           </div>
         )}

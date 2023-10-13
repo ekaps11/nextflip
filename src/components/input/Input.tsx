@@ -1,7 +1,6 @@
 import { InputHTMLAttributes, forwardRef } from "react";
 import { InputError, InputContainer, InputField, Label } from "./Input-style";
 import { FaRegTimesCircle } from "react-icons/fa";
-import { initToUpper } from "../../helper/helper";
 
 type InputProps = {
   label: string;
@@ -26,7 +25,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             $border={Boolean(borderBottom)}
             {...props}
           />
-          <Label>{initToUpper(label)}</Label>
+          <Label>{label}</Label>
         </>
         {errors && (
           <InputError>

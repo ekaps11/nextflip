@@ -7,11 +7,13 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { AuthError, Form } from "./SignUp-style";
 import { signUpWithEmail } from "../../utils/firebase/firebase.utils";
+import { useTranslation } from "react-i18next";
 
 const SignUpForm = () => {
   const [isEmailValid, setIsEmailValid] = useState("");
-  const validEmail = isEmailValid.endsWith(".com");
   const [authError, setAuthError] = useState("");
+  const validEmail = isEmailValid.endsWith(".com");
+  const { t } = useTranslation();
 
   const {
     register,
@@ -25,11 +27,10 @@ const SignUpForm = () => {
     resolver: zodResolver(EmailSchema),
   });
 
-  const emailOnChange = ({
-    target: { value },
-  }: ChangeEvent<HTMLInputElement>) => setIsEmailValid(value);
+  const handleChange = ({ target: { value } }: ChangeEvent<HTMLInputElement>) =>
+    setIsEmailValid(value);
 
-  const signUpHandler = ({ email, password }: Email) => {
+  const handleSignUp = ({ email, password }: Email) => {
     signUpWithEmail(email, password, setAuthError);
     setIsEmailValid("");
     reset();
@@ -38,11 +39,11 @@ const SignUpForm = () => {
   return (
     <>
       {authError && <AuthError>{authError}</AuthError>}
-      <Form onSubmit={handleSubmit(signUpHandler)}>
+      <Form onSubmit={handleSubmit(handleSignUp)}>
         <Input
           type="email"
-          label="email address"
-          {...register("email", { onChange: emailOnChange })}
+          label={t("signup.input")}
+          {...register("email", { onChange: handleChange })}
           errors={email && errors.email?.message}
         />
         {validEmail && (
@@ -54,7 +55,7 @@ const SignUpForm = () => {
           />
         )}
         <Button>
-          get started
+          {t("signup.button")}
           <FaChevronRight />
         </Button>
       </Form>

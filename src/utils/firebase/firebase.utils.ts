@@ -8,7 +8,6 @@ import {
   AuthError,
   signOut,
 } from "firebase/auth";
-import { handleAuthError } from "../../helper/helper";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCTkOYhD62yZ4LxBneQkziGwz4Cr4N8InY",
@@ -23,6 +22,8 @@ const firebaseConfig = {
 initializeApp(firebaseConfig);
 // const analytics = getAnalytics(app);
 export const auth = getAuth();
+
+const handleAuthError = (word: string) => word.slice(5).replace(/-/g, " ");
 
 export const signUpWithEmail = async (
   email: string,
@@ -45,7 +46,7 @@ export const signUpWithEmail = async (
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const authState = (cb: any) => onAuthStateChanged(auth, cb);
+export const getUser = (cb: any) => onAuthStateChanged(auth, cb);
 
 export const login = async (
   email: string,

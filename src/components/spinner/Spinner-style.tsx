@@ -3,7 +3,6 @@ import { colors } from "../../GlobalStyles";
 
 export const SpinnerOverlay = styled.div`
   height: 100vh;
-  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
