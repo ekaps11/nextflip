@@ -1,24 +1,27 @@
+import { useTranslation } from "react-i18next";
 import CustomLink from "../custom-link/CustomLink";
 import { Help } from "./SignIn-style";
 import SignInArticle from "./SignInArticle";
 
 const SignInDetail = () => {
+  const { t } = useTranslation();
+
   return (
     <>
       <Help>
         <label htmlFor="remember">
           <input id="remember" type="checkbox" defaultChecked />
-          Remember me
+          {t("sign.checkbox")}
         </label>
         <CustomLink
           to="https://www.netflix.com/id-en/LoginHelp"
           target="_blank"
         >
-          Need help?
+          {t("sign.help")}?
         </CustomLink>
       </Help>
       <p>
-        New to Netflix? <CustomLink to="/">Sign up now.</CustomLink>
+        {t("sign.ask")}? <CustomLink to="/">{t("sign.up")}.</CustomLink>
       </p>
       <SignInArticle />
     </>

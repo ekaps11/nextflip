@@ -1,15 +1,18 @@
+import { useTranslation } from "react-i18next";
 import BaseLayout from "../base-layout/BaseLayout";
 import Accordion from "../accordion/Accordion";
 import { FaqContainer } from "./Faq-style";
-import { FAQ } from "../../assets/data/data";
 import SignUp from "../sign-up/SignUp";
 
 const Faq = () => {
+  const { t } = useTranslation();
+  const items = Object.values(t("faq.accordion", { returnObjects: true }));
+
   return (
     <FaqContainer>
       <BaseLayout>
-        <h1>Frequently Asked Questions</h1>
-        <Accordion items={FAQ} />
+        <h1>{t("faq.title")}</h1>
+        <Accordion items={items} />
         <br />
         <SignUp />
       </BaseLayout>

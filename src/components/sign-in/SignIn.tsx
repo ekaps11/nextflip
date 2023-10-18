@@ -10,11 +10,13 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { login } from "../../utils/firebase/firebase.utils";
 import { useAppSelector } from "../../store/store";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const SignIn = () => {
   const [authError, setAuthError] = useState("");
   const navigate = useNavigate();
   const { user } = useAppSelector(({ user }) => user);
+  const { t } = useTranslation();
 
   const {
     register,
@@ -36,23 +38,23 @@ const SignIn = () => {
 
   return (
     <SignInContainer onSubmit={handleSubmit(handleSignIn)}>
-      <h1>Sign In</h1>
+      <h1>{t("sign.in")}</h1>
       {authError && <SignInError error={authError} />}
       <Input
         type="email"
-        label="email or phone number"
+        label={t("sign.email")}
         errors={errors.email?.message}
         borderBottom={Boolean(errors.email)}
         {...register("email")}
       />
       <Input
         type="password"
-        label="password"
+        label="Password"
         errors={errors.password?.message}
         borderBottom={Boolean(errors.password)}
         {...register("password")}
       />
-      <Button>sign in</Button>
+      <Button>{t("sign.in")}</Button>
       <SignInDetail />
     </SignInContainer>
   );

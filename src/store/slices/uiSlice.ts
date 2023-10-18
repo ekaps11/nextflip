@@ -2,8 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   isLoading: false,
-  language: "",
-  lngContent: "",
+  language: "english",
 };
 
 const uiSlice = createSlice({
@@ -16,12 +15,9 @@ const uiSlice = createSlice({
     setLanguage(state, { payload }) {
       state.language = payload;
     },
-    setLngContent(state, { payload }) {
-      state.lngContent = payload;
-    },
   },
 });
 
-export const { setIsLoading, setLanguage, setLngContent } = uiSlice.actions;
+export const { setIsLoading, setLanguage } = uiSlice.actions;
 
 export default uiSlice.reducer;

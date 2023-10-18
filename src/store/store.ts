@@ -15,6 +15,7 @@ const rootReducer = combineReducers({
 const persistConfig = {
   key: "root",
   storage,
+  whiteList: ["ui"],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -28,11 +29,8 @@ export const store = configureStore({
     }), //.concat(logger),
 });
 
-persistStore(store);
+export const persistor = persistStore(store);
 
-console.log(store.getState().ui.lngContent);
-
-// Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = ReturnType<typeof store.getState>;
 
 export const useAppDispatch: () => typeof store.dispatch = useDispatch;

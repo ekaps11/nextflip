@@ -1,8 +1,9 @@
 import { MouseEvent } from "react";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
-import { NavContainer } from "./Navigation-style";
+import { useTranslation } from "react-i18next";
 import { useAppSelector } from "../../store/store";
 import { logOut } from "../../utils/firebase/firebase.utils";
+import { NavContainer } from "./Navigation-style";
 import Footer from "../footer/Footer";
 import Button from "../button/Button";
 import CustomLink from "../custom-link/CustomLink";
@@ -12,13 +13,14 @@ const Navigation = () => {
   const isMatched = useLocation().pathname === "/";
   const navigate = useNavigate();
   const { user } = useAppSelector(({ user }) => user);
+  const { t } = useTranslation();
 
-  const toggleButton = `sign ${!user ? "in" : "out"}`;
+  const toggleButton = t(!user ? "sign.in" : "sign.out");
 
   const handleClick = ({
     currentTarget: { name: buttonName },
   }: MouseEvent<HTMLButtonElement>) => {
-    buttonName === "sign in" ? navigate("/login") : logOut();
+    buttonName === t("sign.in") ? navigate("/login") : logOut();
   };
 
   return (

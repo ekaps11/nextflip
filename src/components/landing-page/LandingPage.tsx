@@ -8,8 +8,8 @@ const LandingPage = () => {
   return (
     <LandingPageContainer>
       <Layout>
-        <h1>{t("landingPage.header")}</h1>
-        <p>{t("landingPage.content")}</p>
+        <h1>{t("landingPage.title")}</h1>
+        <p>{t("landingPage.desc")}</p>
         <SignUp />
       </Layout>
     </LandingPageContainer>

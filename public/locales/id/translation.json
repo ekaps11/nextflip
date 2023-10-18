@@ -1,0 +1,189 @@
+{
+  "zod": {
+    "required": "dibutuhkan",
+    "min": "min {{qty}} karakter",
+    "max": "max {{qty}} karakter"
+  },
+
+  "landingPage": {
+    "title": "Film, acara TV tak terbatas, dan banyak lagi",
+    "desc": "Tonton di mana pun. Batalkan kapan pun."
+  },
+
+  "notFound": {
+    "header": "Tersesat",
+    "desc": "Maaf, kami tidak dapat menemukan halaman tersebut. Kamu akan menemukan banyak hal yang dapat ditelusuri di beranda",
+    "button": "Beranda Nextflip",
+    "errCode": "Kode Kesalahan"
+  },
+
+  "signup": {
+    "title": "Siap menonton? Masukkan email untuk membuat atau memulai lagi keanggotaanmu.",
+    "input": "Alamat email",
+    "button": "Mulai"
+  },
+
+  "sign": {
+    "in": "Masuk",
+    "out": "Keluar",
+    "up": "Daftar sekarang",
+    "email": "Email atau nomor telepon",
+    "checkbox": "Ingat saya",
+    "help": "Perlu bantuan",
+    "ask": "Baru di Nextflip",
+    "desc": "Halaman ini dilindungi oleh reCAPTCHA Google untuk memastikan kamu bukan bot",
+    "learn": "Pelajari selengkapnya",
+    "detail1": "Informasi yang dikumpulkan oleh reCAPTCHA Google diatur oleh",
+    "detail2": "dan digunakan untuk memberikan, menjaga, dan meningkatkan layanan reCAPTCHA dan untuk tujuan keamanan umum (tidak digunakan untuk iklan yang dipersonalisasikan oleh Google)",
+    "link1": "Kebijakan Privasi",
+    "link2": " Ketentuan Layanan",
+    "linkHub": "dan"
+  },
+
+  "storyCard": [
+    {
+      "title": "Nikmati di TV-mu",
+      "description": "Tonton di Smart TV, Playstation, Xbox, Chromecast, Apple TV, pemutar Blu-ray, dan banyak lagi.",
+      "imageUrl": "../../src/assets/images/1-tv.jpg",
+      "direction": "row"
+    },
+    {
+      "title": "Download acara TV untuk menontonnya secara offline",
+      "description": "Simpan favoritmu dengan mudah agar selalu ada acara TV dan film yang bisa ditonton.",
+      "imageUrl": "../../src/assets/images/2-download.jpg",
+      "direction": "row-reverse"
+    },
+    {
+      "title": "Tonton di mana pun",
+      "description": "Streaming film dan acara TV tak terbatas di ponsel, tablet, laptop, dan TV-mu.",
+      "imageUrl": "../../src/assets/images/3-everywhere.webp",
+      "direction": "row"
+    },
+    {
+      "title": "Buat profil untuk anak",
+      "description": "Kirim anak-anak untuk bertualang bersama karakter favorit mereka di dunia yang dibuat khusus untuk mereka—gratis dengan keanggotaanmu.",
+      "imageUrl": "../../src/assets/images/4-kids.png",
+      "direction": "row-reverse"
+    }
+  ],
+
+  "faq": {
+    "title": "Tanya Jawab Umum",
+    "accordion": [
+      {
+        "header": "Apa itu Nextflip?",
+        "content": "Nextflip adalah layanan streaming yang menawarkan berbagai acara TV pemenang penghargaan, film, anime, dokumenter, dan banyak lagi di ribuan perangkat yang terhubung ke Internet.\\nKamu bisa menonton sepuasnya, kapan pun kamu mau, tanpa satu iklan pun – semuanya dengan satu harga bulanan yang murah. Selalu ada tontonan baru dan acara TV serta film baru yang ditambahkan setiap minggu!"
+      },
+      {
+        "header": "Berapa biaya berlangganannya?",
+        "content": "Tonton Nextflip di smartphone, tablet, Smart TV, laptop, atau perangkat streaming-mu, semuanya dengan satu harga bulanan tetap Rentang harga mulai dari Rp54.000 hingga Rp186.000 per bulan. Tanpa biaya ekstra, tanpa kontrak."
+      },
+      {
+        "header": "Dimana saya bisa menonton?",
+        "content": "Tonton di mana pun, kapan pun. Masuk ke akun Nextflip-mu untuk menonton langsung di Nextflip.com dari komputer pribadi atau di perangkat yang terhubung ke Internet dan mendukung aplikasi Nextflip, termasuk smart TV, smartphone, tablet, pemutar media streaming, dan konsol game.\n\nKamu juga bisa men-download acara favoritmu dengan aplikasi iOS, Android, atau Windows 10. Gunakan download untuk menonton saat kamu di perjalanan dan tidak punya koneksi Internet. Bawa Nextflip ke mana saja."
+      },
+      {
+        "header": "Bagaimana cara membatalkannya?",
+        "content": "Nextflip fleksibel. Tanpa kontrak menyebalkan dan tanpa komitmen. Kamu dapat dengan mudah membatalkan akunmu secara online dengan dua kali klik. Tanpa biaya pembatalan – mulai atau hentikan akunmu kapan pun."
+      },
+      {
+        "header": "Apa yang bisa ditonton?",
+        "content": "Nextflip memiliki pustaka lengkap yang berisi film panjang, film dokumenter, acara TV, anime, Nextflip original pemenang penghargaan, dan lebih banyak lagi. Tonton sepuasnya, kapan pun kamu mau."
+      },
+      {
+        "header": "Apakah Nextflip sesuai untuk anak?",
+        "content": "Pengalaman Nextflip Anak disertakan dalam keanggotaan agar kamu punya kontrol orang tua saat anak-anak menikmati acara TV dan film untuk keluarga di rumah. \n\nProfil anak dilengkapi kontrol orang tua yang dilindungi PIN sehingga kamu bisa membatasi rating usia konten yang bisa ditonton anak dan memblokir judul tertentu yang tidak boleh ditonton anak-anak."
+      }
+    ]
+  },
+
+  "footer": {
+    "title": "Ada pertanyaan? Hubungi",
+    "links": [
+      {
+        "title": "Tanya Jawab",
+        "url": "https://help.netflix.com/en/node/412",
+        "element": "footer-login"
+      },
+      {
+        "title": "Pusat Bantuan",
+        "url": "https://help.netflix.com/en/",
+        "element": "footer"
+      },
+      {
+        "title": "Akun",
+        "url": "https://www.netflix.com/id/login?nextpage=https%3A%2F%2Fwww.netflix.com%2Fyouraccount",
+        "element": "footer"
+      },
+      {
+        "title": "Pusat Media",
+        "url": "https://media.netflix.com/en/",
+        "element": "footer"
+      },
+      {
+        "title": "Hubungan Investor",
+        "url": "https://ir.netflix.net/ir-overview/profile/default.aspx",
+        "element": "footer"
+      },
+      {
+        "title": "Lowongan Kerja",
+        "url": "https://jobs.netflix.com/",
+        "element": "footer"
+      },
+      {
+        "title": "Tukar Kartu Hadiah",
+        "url": "https://www.netflix.com/id/redeem",
+        "element": "footer"
+      },
+      {
+        "title": "Beli Kartu Hadiah",
+        "url": "https://www.netflix.com/gift-cards"
+      },
+      {
+        "title": "Cara Menonton",
+        "url": "https://devices.netflix.com/en/",
+        "element": "footer"
+      },
+      {
+        "title": "Ketentuan Penggunaan",
+        "url": "https://help.netflix.com/legal/termsofuse",
+        "element": "footer-login"
+      },
+      {
+        "title": "Privasi",
+        "url": "https://help.netflix.com/legal/privacy",
+        "element": "footer-login"
+      },
+      {
+        "title": "Preferensi Cookie",
+        "url": "http://localhost:5173/",
+        "element": "footer-login"
+      },
+      {
+        "title": "Informasi Perusahaan",
+        "url": "https://help.netflix.com/legal/corpinfo",
+        "element": "footer-login"
+      },
+      {
+        "title": "Hubungi Kami",
+        "url": "https://help.netflix.com/en/contactus",
+        "element": "footer"
+      },
+      {
+        "title": "Uji Kecepatan",
+        "url": "https://fast.com/",
+        "element": "footer"
+      },
+      {
+        "title": "Informasi Legal",
+        "url": "https://help.netflix.com/legal/notices",
+        "element": "footer"
+      },
+      {
+        "title": "Hanya di Nextflip",
+        "url": "https://www.netflix.com/id-en/browse/genre/839338",
+        "element": "footer"
+      }
+    ]
+  }
+}

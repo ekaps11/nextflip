@@ -6,7 +6,7 @@ const SignUp = () => {
   const { t } = useTranslation();
   return (
     <SignUpContainer>
-      <p>{t("signup.header")}</p>
+      <p>{t("signup.title")}</p>
       <SignUpForm />
     </SignUpContainer>
   );

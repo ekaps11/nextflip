@@ -8,6 +8,7 @@ import {
   AuthError,
   signOut,
 } from "firebase/auth";
+import "../../i18n";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCTkOYhD62yZ4LxBneQkziGwz4Cr4N8InY",

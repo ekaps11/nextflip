@@ -1,12 +1,16 @@
 import { z } from "zod";
+import "../../i18n";
+import i18n from "../../i18n";
+
+const isRequired = i18n.t("zod.required");
 
 export const EmailSchema = z.object({
-  email: z.string().email("Email is required."),
+  email: z.string().email(`Email ${isRequired}.`),
   password: z
-    .string({ required_error: "Password is required." })
-    .nonempty("Password is required.")
-    .min(6, "Password should be at least 6 characters")
-    .max(15, "Password should be at most 15 characters"),
+    .string({ required_error: `Password ${isRequired}.` })
+    .nonempty(`Password ${isRequired}.`)
+    .min(6, `Password ${i18n.t("zod.min", { qty: 6 })}`)
+    .max(15, `Password ${i18n.t("zod.max", { qty: 15 })}`),
 });
 
 export type Email = z.infer<typeof EmailSchema>;

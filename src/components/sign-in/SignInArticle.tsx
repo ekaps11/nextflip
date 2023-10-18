@@ -1,38 +1,37 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Article } from "./SignIn-style";
 import CustomLink from "../custom-link/CustomLink";
 
 const SignInArticle = () => {
   const [isShow, setIsShow] = useState(true);
+  const { t } = useTranslation();
 
   const toggleDetail = () => setIsShow(false);
 
   return (
     <Article>
-      This page is protected by Google reCAPTCHA to ensure you're not a bot.{" "}
+      {t("sign.desc")}.{" "}
       <span onClick={toggleDetail}>
         {isShow ? (
-          "Learn more."
+          t("sign.learn")
         ) : (
           <p>
-            The information collected by Google reCAPTCHA is subject to the
-            Google{" "}
+            {t("sign.detail1")}{" "}
             <CustomLink
               to={"https://policies.google.com/privacy"}
               target="_blank"
             >
-              Privacy Policy
+              {t("sign.link1")}
             </CustomLink>{" "}
-            and{" "}
+            {t("sign.linkHub")}{" "}
             <CustomLink
               to={"https://policies.google.com/terms"}
               target="_blank"
             >
-              Terms of Service
+              {t("sign.link2")}
             </CustomLink>
-            , and is used for providing, maintaining, and improving the
-            reCAPTCHA service and for general security purposes (it is not used
-            for personalized advertising by Google).
+            , {t("sign.detail2")}.
           </p>
         )}
       </span>

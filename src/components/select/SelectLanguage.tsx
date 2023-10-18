@@ -1,11 +1,12 @@
-import Select from "./Select";
-import { languages } from "../../assets/data/data";
-import { useAppDispatch, useAppSelector } from "../../store/store";
 import { ChangeEvent } from "react";
-import { setLanguage } from "../../store/slices/uiSlice";
 import { useTranslation } from "react-i18next";
+import { useAppDispatch, useAppSelector } from "../../store/store";
+import { setLanguage } from "../../store/slices/uiSlice";
+import Select from "./Select";
 
 type SelectLanguageProps = { id: string };
+
+const languages = ["english", "bahasa"];
 
 const SelectLanguage = ({ id }: SelectLanguageProps) => {
   const dispatch = useAppDispatch();
@@ -15,16 +16,12 @@ const SelectLanguage = ({ id }: SelectLanguageProps) => {
   const languageSwitcher = ({
     target: { value },
   }: ChangeEvent<HTMLSelectElement>) => {
-    dispatch(setLanguage(value));
-    // dispatch(
-    //   setLngContent(i18n.changeLanguage(language !== "bahasa" ? "id" : "en"))
-    // );
-    i18n.changeLanguage(language !== "bahasa" ? "id" : "en");
-    console.log(value);
-    // window.location.reload();
-  };
+    const lng = language !== "english" ? "en" : "id";
 
-  console.log(i18n.resolvedLanguage);
+    dispatch(setLanguage(value));
+    i18n.changeLanguage(lng);
+    location.reload();
+  };
 
   return (
     <Select
