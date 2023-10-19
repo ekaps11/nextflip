@@ -9,6 +9,7 @@ import {
   signOut,
 } from "firebase/auth";
 import "../../i18n";
+import i18n from "../../i18n";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCTkOYhD62yZ4LxBneQkziGwz4Cr4N8InY",
@@ -19,6 +20,8 @@ const firebaseConfig = {
   appId: "1:1099258631965:web:d9772dfc790a03b5fc33f4",
   measurementId: "G-Q54H56CR29",
 };
+
+const { t } = i18n;
 
 initializeApp(firebaseConfig);
 // const analytics = getAnalytics(app);
@@ -41,8 +44,9 @@ export const signUpWithEmail = async (
     return user;
   } catch (e) {
     const errCode = handleAuthError((e as AuthError).code);
+    const errMsg = errCode && t("error.emailExisted");
 
-    authError(errCode);
+    authError(errMsg);
   }
 };
 
@@ -62,13 +66,11 @@ export const login = async (
     const errCode = handleAuthError((e as AuthError).code);
 
     const errMsg = (err: string) =>
-      authError(
-        `${err}. ${err.includes("many") ? "" : "Please try again or you can "}`
-      );
+      authError(`${err}. ${err.includes("many") ? "" : t("error.tryAgain")}`);
 
-    if (errCode === "wrong password") errMsg("Incorrect password");
-    else if (errCode === "user not found") errMsg("User not found");
-    else errMsg("Too many requests");
+    if (errCode === "wrong password") errMsg(t("error.wrongPassword"));
+    else if (errCode === "user not found") errMsg(t("error.userNotFound"));
+    else errMsg(t("error.tooManyRequests"));
   }
 };
 

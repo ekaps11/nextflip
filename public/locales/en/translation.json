@@ -23,6 +23,16 @@
     "button": "Get Started"
   },
 
+  "error": {
+    "tryAgain": "Please try again or you can ",
+    "userNotFound": "User not found",
+    "wrongPassword": "Wrong password",
+    "tooManyRequests": "Too many requests",
+    "resetPassword": "reset your password",
+    "signupFirst": "sign up first",
+    "emailExisted": "Email already in use"
+  },
+
   "sign": {
     "in": "Sign In",
     "out": "Sign Out",

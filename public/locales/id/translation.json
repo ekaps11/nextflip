@@ -23,6 +23,16 @@
     "button": "Mulai"
   },
 
+  "error": {
+    "tryAgain": "Silahkan coba lagi atau  ",
+    "userNotFound": "Email belum terdaftar",
+    "wrongPassword": "Salah password",
+    "tooManyRequests": "Terlalu banyak mencoba",
+    "resetPassword": "me-reset password",
+    "signupFirst": "daftar terlebih dahulu",
+    "emailExisted": "Email sudah digunakan"
+  },
+
   "sign": {
     "in": "Masuk",
     "out": "Keluar",
