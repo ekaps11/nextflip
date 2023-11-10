@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import Banner from "../../assets/images/banner.webp";
+import Banner from "../../assets/images/banner.jpg";
 
 export const LoginContainer = styled.div`
   footer {

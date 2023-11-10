@@ -7,7 +7,7 @@ import { setUser } from "./store/slices/userSlice";
 import Spinner from "./components/spinner/Spinner";
 import GlobalStyles from "./GlobalStyles";
 
-const Navigation = lazy(() => import("./components/navigation/Navigation"));
+const Navigation = lazy(() => import("./features/navigation/Navigation"));
 const Home = lazy(() => import("./pages/home/Home"));
 const Dashboard = lazy(() => import("./pages/dashboard/Dashboard"));
 const Login = lazy(() => import("./pages/login/Login"));

@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import { colors } from "../../GlobalStyles";
+import { colors } from "../../utils/styles/commonStyle";
 
 export const InputContainer = styled.div`
   position: relative;

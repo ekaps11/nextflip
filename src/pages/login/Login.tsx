@@ -1,6 +1,6 @@
 import { LoginContainer } from "./Login-style";
-import SignIn from "../../components/sign-in/SignIn";
-import Footer from "../../components/footer/Footer";
+import SignIn from "../../features/sign-in/SignIn";
+import Footer from "../../features/footer/Footer";
 
 const Login = () => {
   return (

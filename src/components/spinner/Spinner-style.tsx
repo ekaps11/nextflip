@@ -1,11 +1,9 @@
 import styled from "styled-components";
-import { colors } from "../../GlobalStyles";
+import { colors, flex } from "../../utils/styles/commonStyle";
 
 export const SpinnerOverlay = styled.div`
+  ${flex}
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 `;
 
 export const SpinnerContainer = styled.div`

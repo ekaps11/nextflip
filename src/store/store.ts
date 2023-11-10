@@ -1,4 +1,5 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import { setupListeners } from "@reduxjs/toolkit/query";
 import { useSelector, useDispatch } from "react-redux";
 import { TypedUseSelectorHook } from "react-redux/es/types";
 import storage from "redux-persist/lib/storage";
@@ -6,10 +7,12 @@ import { persistReducer, persistStore } from "redux-persist";
 // import logger from "redux-logger";
 import uiReducer from "./slices/uiSlice";
 import userReducer from "./slices/userSlice";
+import { tmdb } from "../utils/tmdb";
 
 const rootReducer = combineReducers({
   ui: uiReducer,
   user: userReducer,
+  [tmdb.reducerPath]: tmdb.reducer,
 });
 
 const persistConfig = {
@@ -26,10 +29,13 @@ export const store = configureStore({
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: false,
-    }), //.concat(logger),
+      immutableCheck: false,
+    }).concat(tmdb.middleware),
 });
 
 export const persistor = persistStore(store);
+
+setupListeners(store.dispatch);
 
 export type RootState = ReturnType<typeof store.getState>;
 

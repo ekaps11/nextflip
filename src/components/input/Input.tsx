@@ -29,9 +29,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         </>
         {errors && (
           <InputError>
-            <i>
-              <FaRegTimesCircle />
-            </i>
+            <FaRegTimesCircle />
             <span>{errors}</span>
           </InputError>
         )}

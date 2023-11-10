@@ -5,9 +5,14 @@
     "max": "max {{qty}} characters"
   },
 
-  "landingPage": {
+  "Home": {
     "title": "Unlimited movies, TV shows, and more",
     "desc": "Watch anywhere. Cancel anytime."
+  },
+
+  "dashboard": {
+    "playButton": "Play",
+    "infoButton": "More Info"
   },
 
   "notFound": {

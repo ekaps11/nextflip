@@ -8,8 +8,9 @@ import {
   AuthError,
   signOut,
 } from "firebase/auth";
-import "../../i18n";
-import i18n from "../../i18n";
+import "../i18n/i18n";
+import i18n from "../i18n/i18n";
+import { handleAuthError } from "../helper/helper";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCTkOYhD62yZ4LxBneQkziGwz4Cr4N8InY",
@@ -26,8 +27,6 @@ const { t } = i18n;
 initializeApp(firebaseConfig);
 // const analytics = getAnalytics(app);
 export const auth = getAuth();
-
-const handleAuthError = (word: string) => word.slice(5).replace(/-/g, " ");
 
 export const signUpWithEmail = async (
   email: string,

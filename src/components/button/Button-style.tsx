@@ -1,11 +1,9 @@
 import { styled } from "styled-components";
-import { colors } from "../../GlobalStyles";
+import { colors, flex } from "../../utils/styles/commonStyle";
 import { SpinnerContainer } from "../spinner/Spinner-style";
 
 export const ButtonContainer = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  ${flex}
   gap: 0.1em;
   cursor: pointer;
   border: none;

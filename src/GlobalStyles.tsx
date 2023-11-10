@@ -1,13 +1,5 @@
 import { createGlobalStyle } from "styled-components";
 
-export const colors = {
-  red: ["#e50914", "#dc1721", "#fa2f2f"],
-  grey: ["#333", "#717272"],
-  blue: ["#0071eb"],
-  white: ["#f9f6e6"],
-  orange: ["#e87c03"],
-};
-
 const GlobalStyles = createGlobalStyle`
     * {
         margin: 0;
@@ -32,10 +24,6 @@ const GlobalStyles = createGlobalStyle`
     }
 
     @media (min-width: 45em) and (max-width: 60em) {
-      h1 {
-        font-size: 3.5em;
-      }
-
       p {
         font-size: 1.2em;
         margin: 0.5em 0;

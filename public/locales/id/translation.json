@@ -5,9 +5,14 @@
     "max": "max {{qty}} karakter"
   },
 
-  "landingPage": {
+  "Home": {
     "title": "Film, acara TV tak terbatas, dan banyak lagi",
     "desc": "Tonton di mana pun. Batalkan kapan pun."
+  },
+
+  "dashboard": {
+    "playButton": "Putar",
+    "infoButton": "Selengkapnya"
   },
 
   "notFound": {

@@ -1,11 +1,11 @@
 import { styled } from "styled-components";
-import { colors } from "../../GlobalStyles";
+import { colors, flex } from "../../utils/styles/commonStyle";
 import { FaPlus } from "react-icons/fa";
 import { ButtonContainer } from "../button/Button-style";
 
 export const Header = styled(ButtonContainer)`
+  ${flex}
   justify-content: space-between;
-  align-items: center;
   width: 100%;
   padding: 1em;
   text-align: left;

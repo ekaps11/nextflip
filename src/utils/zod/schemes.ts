@@ -1,6 +1,6 @@
 import { z } from "zod";
-import "../../i18n";
-import i18n from "../../i18n";
+import "../i18n/i18n";
+import i18n from "../i18n/i18n";
 
 const { t } = i18n;
 const isRequired = t("zod.required");
