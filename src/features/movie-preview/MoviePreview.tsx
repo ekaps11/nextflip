@@ -24,19 +24,17 @@ const MoviePreview = ({ title, logo }: MoviePreviewProps) => {
 
   return (
     <MoviePreviewContainer $strLength={strLength}>
-      {/* {!logo && <h2>{title}</h2>}
-      {logo && <img src={logo} alt={title} height="300px" />} */}
       {caption}
       <MoviePreviewButton>
         <Button>
           <i>
-            <BsFillPlayFill size="1.5em" />
+            <BsFillPlayFill />
           </i>
           {t("dashboard.playButton")}
         </Button>
         <Button>
           <i>
-            <BsInfoCircle size="1.5em" />
+            <BsInfoCircle />
           </i>
           {t("dashboard.infoButton")}
         </Button>

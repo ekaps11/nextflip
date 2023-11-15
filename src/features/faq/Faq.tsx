@@ -1,5 +1,4 @@
 import { useTranslation } from "react-i18next";
-import { BaseLayout } from "../../utils/styles/commonStyle";
 import Accordion from "../../components/accordion/Accordion";
 import { FaqContainer } from "./Faq-style";
 import SignUp from "../sign-up/SignUp";
@@ -10,12 +9,10 @@ const Faq = () => {
 
   return (
     <FaqContainer>
-      <BaseLayout>
-        <h1>{t("faq.title")}</h1>
-        <Accordion items={items} />
-        <br />
-        <SignUp />
-      </BaseLayout>
+      <h1>{t("faq.title")}</h1>
+      <Accordion items={items} />
+      <br />
+      <SignUp />
     </FaqContainer>
   );
 };

@@ -23,7 +23,7 @@ const Dashboard = () => {
   const [movieObj, setMovieObj] = useState<Movie>();
   const movies: Movie[] = data?.results;
 
-  // error trigger (404)
+  // FIXME error trigger (404)
   const { data: getDetail } = useGetQuery(`movie/${movieObj?.id}/images`);
 
   const movieDetail: MovieDetail[] = getDetail?.logos.filter(

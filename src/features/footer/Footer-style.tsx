@@ -5,6 +5,7 @@ import { LinkContainer } from "../../components/custom-link/CustomLink-style";
 
 export const FooterContainer = styled.footer`
   border-top: 8px solid ${colors.grey[0]};
+  padding: 5%;
 
   span:hover {
     text-decoration: underline;

@@ -1,5 +1,4 @@
 import { styled } from "styled-components";
-import { BaseLayout } from "../../utils/styles/commonStyle";
 import Banner from "../../assets/images/banner.jpg";
 import { ButtonContainer } from "../../components/button/Button-style";
 import { flex } from "../../utils/styles/commonStyle";
@@ -8,7 +7,7 @@ export const HomeContainer = styled.div`
   background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3)),
     url(${Banner});
   background-size: cover;
-  padding-bottom: 5%;
+  padding: 5%;
 
   @media (max-height: 20em) {
     h1 {
@@ -36,7 +35,7 @@ export const HomeContainer = styled.div`
   }
 `;
 
-export const Layout = styled(BaseLayout)`
+export const Layout = styled.div`
   text-align: center;
 
   h1 {

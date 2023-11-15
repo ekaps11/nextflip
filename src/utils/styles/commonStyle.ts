@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import { css } from "styled-components";
 
 export const colors = {
   red: ["#e50914", "#dc1721", "#fa2f2f"],
@@ -12,12 +12,4 @@ export const flex = css`
   display: flex;
   align-items: center;
   justify-content: center;
-`;
-
-export const BaseLayout = styled.div`
-  padding: 5%;
-
-  @media (min-width: 60em) {
-    margin: 0 10%;
-  }
 `;

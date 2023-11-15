@@ -1,6 +1,5 @@
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { BaseLayout } from "../../utils/styles/commonStyle";
 import { FooterContainer, Links } from "./Footer-style";
 import FooterLinks from "./FooterLinks";
 import SelectLanguage from "../../components/select/SelectLanguage";
@@ -20,22 +19,20 @@ const Footer = () => {
 
   return (
     <FooterContainer>
-      <BaseLayout>
-        <p>
-          {t("footer.title")}&nbsp;
-          <span>007-803-321-2130</span>
-        </p>
-        <Links>
-          {links.map(({ title, url, element }) => {
-            const footer = <FooterLinks key={title} title={title} to={url} />;
+      <p>
+        {t("footer.title")}&nbsp;
+        <span>007-803-321-2130</span>
+      </p>
+      <Links>
+        {links.map(({ title, url, element }) => {
+          const footer = <FooterLinks key={title} title={title} to={url} />;
 
-            if (isMatched) return footer;
-            if (!isMatched && element !== "footer") return footer;
-          })}
-        </Links>
-        <SelectLanguage id="footer-lang" />
-        <p>Nextflip Indonesia</p>
-      </BaseLayout>
+          if (isMatched) return footer;
+          if (!isMatched && element !== "footer") return footer;
+        })}
+      </Links>
+      <SelectLanguage id="footer-lang" />
+      <p>Nextflip Indonesia</p>
     </FooterContainer>
   );
 };

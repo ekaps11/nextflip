@@ -12,6 +12,7 @@ export const StoryCardContainer = styled.div`
 export const Contents = styled.article<{ $direction: string }>`
   ${flex}
   flex-direction: column;
+  padding: 5%;
 
   @media (min-width: 60em) {
     flex-direction: ${({ $direction }) => $direction};
