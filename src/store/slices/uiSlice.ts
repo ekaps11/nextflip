@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   isLoading: false,
-  language: "english",
+  profilePanel: false,
 };
 
 const uiSlice = createSlice({
@@ -12,12 +12,12 @@ const uiSlice = createSlice({
     setIsLoading(state, { payload }) {
       state.isLoading = payload;
     },
-    setLanguage(state, { payload }) {
-      state.language = payload;
+    setProfilePanel(state, { payload }) {
+      state.profilePanel = payload;
     },
   },
 });
 
-export const { setIsLoading, setLanguage } = uiSlice.actions;
+export const { setIsLoading, setProfilePanel } = uiSlice.actions;
 
 export default uiSlice.reducer;

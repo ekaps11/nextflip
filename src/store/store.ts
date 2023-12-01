@@ -7,25 +7,27 @@ import { persistReducer, persistStore } from "redux-persist";
 // import logger from "redux-logger";
 import uiReducer from "./slices/uiSlice";
 import userReducer from "./slices/userSlice";
+import persistingReducer from "./slices/persistedSlice";
 import { tmdb } from "../utils/tmdb";
 
 const rootReducer = combineReducers({
   ui: uiReducer,
   user: userReducer,
+  persisted: persistingReducer,
   [tmdb.reducerPath]: tmdb.reducer,
 });
 
 const persistConfig = {
   key: "root",
   storage,
-  whiteList: ["ui"],
+  blacklist: ["ui"],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
   reducer: persistedReducer,
-  devTools: process.env.NODE_ENV !== "production",
+  devTools: import.meta.env.MODE !== "production",
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: false,

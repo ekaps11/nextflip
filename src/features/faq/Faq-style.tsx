@@ -14,4 +14,8 @@ export const FaqContainer = styled.div`
   ${ButtonContainer} {
     text-transform: initial;
   }
+
+  @media (min-width: 45em) and (orientation: landscape) {
+    padding: 6%;
+  }
 `;

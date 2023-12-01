@@ -3,13 +3,26 @@ import { colors, flex } from "../../utils/styles/commonStyle";
 import { ButtonContainer } from "../../components/button/Button-style";
 import { LinkContainer } from "../../components/custom-link/CustomLink-style";
 import { SelectContainer } from "../../components/select/Select-style";
+import store from "../../store/store";
 
-export const NavContainer = styled.div`
+const { user } = store.getState().user;
+
+export const Profile = styled.img`
+  border-radius: 3px;
+  cursor: pointer;
+  height: 2em;
+`;
+
+export const NavContainer = styled.div<{ $bgCol?: boolean }>`
   ${flex}
-  position: absolute;
+  position: ${user ? "fixed" : "absolute"};
   width: 100%;
   justify-content: space-between;
   padding: 0 5%;
+  background: ${({ $bgCol }) => $bgCol && user && "black"};
+  transition: 0.5s;
+  z-index: 1;
+  height: 3.5em;
 
   ${LinkContainer} {
     color: ${colors.red[0]};
@@ -45,8 +58,10 @@ export const NavContainer = styled.div`
   }
 
   @media (min-width: 60em) {
+    height: 4em;
+
     h1 {
-      font-size: 3em;
+      font-size: 2em;
     }
 
     ${ButtonContainer} {

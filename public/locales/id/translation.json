@@ -15,6 +15,13 @@
     "infoButton": "Selengkapnya"
   },
 
+  "profile": {
+    "manage": "Kelola Profil",
+    "transfer": "Transfer  Profil",
+    "account": "Akun",
+    "helpCenter": "Pusat Bantuan"
+  },
+
   "notFound": {
     "header": "Tersesat",
     "desc": "Maaf, kami tidak dapat menemukan halaman tersebut. Kamu akan menemukan banyak hal yang dapat ditelusuri di beranda",

@@ -37,7 +37,7 @@ export const MoviePreviewButton = styled.div`
 `;
 
 export const MoviePreviewContainer = styled.div<{
-  $strLength?: number | undefined;
+  $strLength?: number;
 }>`
   ${flex}
   align-items: flex-start;
@@ -62,9 +62,15 @@ export const MoviePreviewContainer = styled.div<{
   }
 
   @media (min-width: 50em) {
+    padding: 15% 5%;
+
     button {
       font-size: 0.8em;
     }
+  }
+
+  @media (min-width: 60em) {
+    padding: 17% 5%;
   }
 
   @media (max-width: 60em) and (max-height: 30em) and (orientation: landscape) {

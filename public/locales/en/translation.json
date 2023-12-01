@@ -15,6 +15,13 @@
     "infoButton": "More Info"
   },
 
+  "profile": {
+    "manage": "Manage Profile",
+    "transfer": "Transfer  Profile",
+    "account": "Account",
+    "helpCenter": "Help Center"
+  },
+
   "notFound": {
     "header": "Lost your way",
     "desc": "Sorry, we can't find that page. You'll find lots to explore on the home page",

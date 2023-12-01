@@ -5,26 +5,28 @@ import {
   MoviePreviewContainer,
 } from "./MoviePreview-style";
 import { useTranslation } from "react-i18next";
-import { image } from "../../utils/tmdb";
+import { useGetMovieQuery, extendedUrl, image } from "../../utils/tmdb";
 
 type MoviePreviewProps = {
-  title: string | undefined;
-  logo?: string;
+  id: number;
+  title: string;
 };
 
-const MoviePreview = ({ title, logo }: MoviePreviewProps) => {
+const MoviePreview = ({ id, title }: MoviePreviewProps) => {
   const { t } = useTranslation();
-  const strLength = title?.length;
+  const strLength = title.length;
 
-  const caption = logo?.includes(image + undefined) ? (
-    <h2>{title}</h2>
-  ) : (
-    <img src={logo} alt={title} />
+  const { data } = useGetMovieQuery(
+    `movie/${id}/images${extendedUrl}&include_image_language=en`
   );
 
   return (
     <MoviePreviewContainer $strLength={strLength}>
-      {caption}
+      {data?.logos?.length ? (
+        <img src={image + data?.logos?.at(0)?.file_path} alt={title} />
+      ) : (
+        <h2>{title}</h2>
+      )}
       <MoviePreviewButton>
         <Button>
           <i>

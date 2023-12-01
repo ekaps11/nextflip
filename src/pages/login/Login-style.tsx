@@ -1,16 +1,16 @@
 import { styled } from "styled-components";
-import Banner from "../../assets/images/banner.jpg";
+import banner from "../../assets/images/banner.jpg";
 
 export const LoginContainer = styled.div`
   footer {
     background: black;
     opacity: 0.8;
-    padding: 0 0.5em;
+    padding: 6%;
   }
 
   @media (min-width: 45em) {
     background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3)),
-      url(${Banner});
+      url(${banner});
     background-size: cover;
     padding-top: 7em;
 
@@ -43,7 +43,7 @@ export const LoginContainer = styled.div`
   }
 
   @media (min-width: 60em) {
-    padding-top: 5.15em;
+    padding-top: 2em;
 
     h1 {
       font-size: 2em;

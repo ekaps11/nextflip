@@ -7,6 +7,10 @@ export const StoryCardContainer = styled.div`
   p {
     margin: 1em 0;
   }
+
+  @media (min-width: 45em) and (orientation: landscape) {
+    padding: 6%;
+  }
 `;
 
 export const Contents = styled.article<{ $direction: string }>`

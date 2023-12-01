@@ -1,48 +1,41 @@
 import { useState, useEffect } from "react";
-import { useGetQuery, MOVIE_REQUESTS, image } from "../../utils/tmdb";
+import { useGetMovieQuery, MOVIE_REQUESTS } from "../../utils/tmdb";
 import { getRandomNumber } from "../../utils/helper/helper";
 import { DashboardContainer } from "./Dashboard-style";
 import MoviePreview from "../../features/movie-preview/MoviePreview";
+import ManageProfile from "../../features/manage-profile/ManageProfile";
 
-export type Movie = {
+type Movie = {
   id: number;
   title: string;
   name: string;
   backdrop_path: string;
   poster_path: string;
   overview: string;
-};
-
-export type MovieDetail = {
   iso_639_1: string;
   file_path: string;
 };
 
 const Dashboard = () => {
-  const { data } = useGetQuery(MOVIE_REQUESTS.TRENDING_OF_THE_DAY);
-  const [movieObj, setMovieObj] = useState<Movie>();
+  const { data } = useGetMovieQuery(MOVIE_REQUESTS.TRENDING_OF_THE_DAY);
   const movies: Movie[] = data?.results;
-
-  // FIXME error trigger (404)
-  const { data: getDetail } = useGetQuery(`movie/${movieObj?.id}/images`);
-
-  const movieDetail: MovieDetail[] = getDetail?.logos.filter(
-    (movies: MovieDetail) => movies.iso_639_1 === "en"
-  );
+  const [movieObj, setMovieObj] = useState<Movie>();
 
   useEffect(() => {
-    const randomNumber: number = getRandomNumber(movies?.length);
-    const index = randomNumber === undefined ? 0 : randomNumber;
+    const index = getRandomNumber(movies.length);
 
     setMovieObj(movies[index]);
   }, [movies]);
 
+  if (!movieObj?.id) return movieObj?.id;
+
   return (
     <>
+      <ManageProfile />
       <DashboardContainer $bg={movieObj?.backdrop_path}>
         <MoviePreview
+          id={movieObj?.id}
           title={movieObj?.title ? movieObj?.title : movieObj?.name}
-          logo={image + movieDetail?.at(0)?.file_path}
         />
       </DashboardContainer>
     </>

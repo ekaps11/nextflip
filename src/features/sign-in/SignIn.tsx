@@ -34,6 +34,7 @@ const SignIn = () => {
 
   useEffect(() => {
     user && navigate("/");
+    if (user) window.location.reload();
   }, [user, navigate]);
 
   return (

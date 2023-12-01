@@ -13,7 +13,7 @@ import i18n from "../i18n/i18n";
 import { handleAuthError } from "../helper/helper";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCTkOYhD62yZ4LxBneQkziGwz4Cr4N8InY",
+  apiKey: import.meta.env.VITE_FIREBASE,
   authDomain: "nextflip11.firebaseapp.com",
   projectId: "nextflip11",
   storageBucket: "nextflip11.appspot.com",
@@ -24,9 +24,9 @@ const firebaseConfig = {
 
 const { t } = i18n;
 
-initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 // const analytics = getAnalytics(app);
-export const auth = getAuth();
+export const auth = getAuth(app);
 
 export const signUpWithEmail = async (
   email: string,
