@@ -1,5 +1,6 @@
 import { styled } from "styled-components";
 import banner from "../../assets/images/banner.jpg";
+import { gradientBg } from "../../utils/styles/commonStyle";
 
 export const LoginContainer = styled.div`
   footer {
@@ -9,8 +10,7 @@ export const LoginContainer = styled.div`
   }
 
   @media (min-width: 45em) {
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3)),
-      url(${banner});
+    background: ${gradientBg.top}, url(${banner});
     background-size: cover;
     padding-top: 7em;
 

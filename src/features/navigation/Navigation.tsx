@@ -10,6 +10,7 @@ import SelectLanguage from "../../components/select/SelectLanguage";
 import profile from "../../assets/images/profile.png";
 import { HiMagnifyingGlass } from "react-icons/hi2";
 import { setProfilePanel } from "../../store/slices/uiSlice";
+import ManageProfile from "../manage-profile/ManageProfile";
 
 const Navigation = () => {
   const dispatch = useAppDispatch();
@@ -57,6 +58,7 @@ const Navigation = () => {
             )}
           </div>
         )}
+        <ManageProfile />
       </NavContainer>
       <Outlet />
       {isMatched && <Footer />}

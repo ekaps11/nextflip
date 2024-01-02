@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { flex } from "../../utils/styles/commonStyle";
 
 export const MoviePreviewButton = styled.div`
   display: flex;
@@ -39,69 +38,19 @@ export const MoviePreviewButton = styled.div`
 export const MoviePreviewContainer = styled.div<{
   $strLength?: number;
 }>`
-  ${flex}
-  align-items: flex-start;
-  flex-direction: column;
   width: 50%;
-  padding: 10% 5%;
 
   h2 {
-    font-size: 5vw;
+    font-size: ${({ $strLength }) =>
+      $strLength && $strLength > 25 ? "4vw" : "4.5vw"};
+    margin-top: 1em;
   }
 
   img {
-    width: 75%;
+    width: 60%;
+    margin-top: 1em;
   }
 
-  @media (min-width: 35em) {
-    padding: 13% 5%;
-
-    button {
-      font-size: 1.7vw;
-    }
-  }
-
-  @media (min-width: 50em) {
-    padding: 15% 5%;
-
-    button {
-      font-size: 0.8em;
-    }
-  }
-
-  @media (min-width: 60em) {
-    padding: 17% 5%;
-  }
-
-  @media (max-width: 60em) and (max-height: 30em) and (orientation: landscape) {
-    height: 100vh;
-    margin-top: -1.3em;
-  }
-
-  @media (min-width: 79em) {
-    height: 100vh;
-
-    img {
-      width: 50%;
-    }
-
-    button {
-      font-size: 1.2em;
-    }
-  }
-
-  @media (min-width: 57em) and (max-width: 64em) and (orientation: portrait) {
-    button {
-      font-size: 1.2em;
-      margin-top: 1em;
-    }
-  }
-
-  @media (min-width: 85em) and (max-width: 85.5em) and (orientation: landscape) {
-    height: unset;
-
-    img {
-      width: 65%;
-    }
+  @media (orientation: landscape) {
   }
 `;

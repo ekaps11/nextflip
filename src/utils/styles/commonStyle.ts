@@ -13,3 +13,12 @@ export const flex = css`
   align-items: center;
   justify-content: center;
 `;
+
+export const gradientBg = {
+  top: `linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3))`,
+  bot: `linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 1) 95%
+  )`,
+};

@@ -15,7 +15,7 @@ export const FaqContainer = styled.div`
     text-transform: initial;
   }
 
-  @media (min-width: 45em) and (orientation: landscape) {
-    padding: 6%;
+  @media (min-width: 60em) and (orientation: landscape) {
+    padding: 5% 10%;
   }
 `;

@@ -1,11 +1,17 @@
 import { CardContainer } from "./Card-style";
 
-type CardProps = { title: string; img: string };
+type CardProps = {
+  posterUrl: string;
+  movieTitle: string;
+};
 
-const Card = ({ title, img }: CardProps) => {
+const Card = ({ posterUrl, movieTitle }: CardProps) => {
   return (
     <CardContainer>
-      <img src={img} alt={title} height="100" loading="lazy" title={title} />
+      <img src={posterUrl} alt={movieTitle} loading="lazy" />
+      <div>
+        <p>{movieTitle}</p>
+      </div>
     </CardContainer>
   );
 };

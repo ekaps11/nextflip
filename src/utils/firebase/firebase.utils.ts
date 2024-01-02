@@ -40,6 +40,8 @@ export const signUpWithEmail = async (
       password
     );
 
+    console.log(user);
+
     return user;
   } catch (e) {
     const errCode = handleAuthError((e as AuthError).code);
@@ -73,4 +75,7 @@ export const login = async (
   }
 };
 
-export const logOut = async () => await signOut(auth);
+export const logOut = async () => {
+  location.reload();
+  await signOut(auth);
+};

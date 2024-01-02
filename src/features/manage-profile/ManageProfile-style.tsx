@@ -2,19 +2,19 @@ import styled from "styled-components";
 import { BiSolidUpArrow } from "react-icons/bi";
 
 export const ProfileIndicator = styled(BiSolidUpArrow)`
-  margin-left: auto;
+  margin-left: 100%;
   margin-top: -2.7em;
   margin-bottom: 1em;
 `;
 
 export const ManageProfileContainer = styled.div`
-  position: fixed;
   display: flex;
-  flex-direction: column;
+  flex-direction: column !important;
+  position: fixed;
   top: 6.5em;
   right: 5%;
   background: black;
-  padding: 1em;
+  padding: 1em 2em;
   padding-top: 1.5em;
   border-radius: 3px;
   opacity: 0.7;
@@ -25,14 +25,15 @@ export const ManageProfileContainer = styled.div`
   p,
   i {
     cursor: pointer;
-  }
 
-  i {
-    margin-top: 2px;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   div {
     display: flex;
+    flex-direction: column;
     align-items: center;
     flex-direction: row;
     gap: 5px;

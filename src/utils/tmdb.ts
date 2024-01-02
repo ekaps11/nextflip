@@ -1,5 +1,17 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
+export type Movie = {
+  id: number;
+  title: string;
+  name: string;
+  backdrop_path: string;
+  poster_path: string;
+  overview: string;
+  iso_639_1: string;
+  file_path: string;
+  genre: number[];
+};
+
 const tmdbConfig = {
   api: import.meta.env.VITE_TMDB,
   baseUrl: "https://api.themoviedb.org/3",
@@ -10,15 +22,10 @@ export const { api, baseUrl, image } = tmdbConfig;
 export const extendedUrl = `?api_key=${api}&languages=en-US`;
 
 export const MOVIE_REQUESTS = {
-  TRENDING_OF_THE_DAY: `trending/all/day${extendedUrl}`,
-  TRENDING_OF_THE_WEEK: `trending/all/week${extendedUrl}`,
-  NEXTFLIP_ORIGIN: `discover/tv${extendedUrl}`,
-  TOP_RATED: `movie/top_rated${extendedUrl}`,
-  ACTION: `discover/movie${extendedUrl}&with_genre=28`,
-  COMEDY: `discover/movie${extendedUrl}with_genre=35`,
-  HORROR: `discover/movie${extendedUrl}&with_genre=27`,
-  ROMANCE: `discover/movie${extendedUrl}&with_genre=10749`,
-  DOCUMENTARY: `discover/movie${extendedUrl}&with_genre=99`,
+  POPULAR: `movie/popular${extendedUrl}&page=1&region=ID`,
+  TRENDING: `trending/all/day${extendedUrl}`,
+  INDONESIAN: `discover/movie${extendedUrl}&with_original_language=id`,
+  KOREAN: `discover/movie${extendedUrl}&with_original_language=ko`,
 };
 
 // Define a service using a base URL and expected endpoints

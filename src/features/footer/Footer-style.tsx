@@ -35,6 +35,10 @@ export const FooterContainer = styled.footer`
   @media (min-width: 45em) and (orientation: landscape) {
     padding: 6%;
   }
+
+  @media (min-width: 60em) and (orientation: landscape) {
+    padding: 5% 10%;
+  }
 `;
 
 export const Links = styled.div`

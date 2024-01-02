@@ -12,10 +12,7 @@ const ManageProfile = () => {
   const { t } = useTranslation();
   const { profilePanel } = useAppSelector(({ ui }) => ui);
 
-  const signOut = () => {
-    logOut();
-    location.reload();
-  };
+  const signOut = () => logOut();
 
   return (
     profilePanel && (
