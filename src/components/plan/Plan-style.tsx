@@ -19,7 +19,6 @@ export const PlanBox = styled.div<{ $bg?: boolean }>`
 
   img {
     width: 3em;
-    height: 3em;
     margin-left: auto;
   }
 `;

@@ -99,19 +99,19 @@
     "items": [
       {
         "title": "Stories tailored to your taste",
-        "image": "../../src/assets/images/join1.png"
+        "image": "../../src/assets/images/join1.webp"
       },
       {
         "title": "Cancel or switch plans anytime",
-        "image": "../../src/assets/images/join2.png"
+        "image": "../../src/assets/images/join2.webp"
       },
       {
         "title": "A place just for kids",
-        "image": "../../src/assets/images/join3.png"
+        "image": "../../src/assets/images/join3.webp"
       },
       {
         "title": "For your phone, tablet, laptop, and TV",
-        "image": "../../src/assets/images/join4.png"
+        "image": "../../src/assets/images/join4.webp"
       }
     ]
   },

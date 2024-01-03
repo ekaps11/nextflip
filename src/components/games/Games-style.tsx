@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import games from "../../assets/images/games.png";
+import games from "../../assets/images/games.webp";
 
 export const GamesContainer = styled.div`
   padding: 1em 5%;

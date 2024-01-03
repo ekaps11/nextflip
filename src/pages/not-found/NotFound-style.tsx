@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import notFound from "../../assets/images/not-found.jpeg";
+import notFound from "../../assets/images/not-found.webp";
 import { colors, flex } from "../../utils/styles/commonStyle";
 import { ButtonContainer } from "../../components/button/Button-style";
 

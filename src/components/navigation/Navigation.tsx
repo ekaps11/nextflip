@@ -7,7 +7,7 @@ import Footer from "../footer/Footer";
 import Button from "../button/Button";
 import CustomLink from "../custom-link/CustomLink";
 import SelectLanguage from "../select/SelectLanguage";
-import profile from "../../assets/images/profile.png";
+import profile from "../../assets/images/profile.webp";
 import { HiMagnifyingGlass } from "react-icons/hi2";
 import { setProfilePanel } from "../../store/slices/uiSlice";
 import ManageProfile from "../manage-profile/ManageProfile";

@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import banner from "../../assets/images/banner.jpg";
+import banner from "../../assets/images/banner.webp";
 import { gradientBg } from "../../utils/styles/commonStyle";
 
 export const HomeContainer = styled.div`

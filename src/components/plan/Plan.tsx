@@ -15,7 +15,7 @@ const Plan = ({ title, items }: PlanProps) => {
             <PlanBox key={title} $bg={image}>
               <h3>{title}</h3>
               {!image && <p>{description}</p>}
-              {image ? <img src={image} /> : <p>{price}</p>}
+              {image ? <img src={image} alt={title} /> : <p>{price}</p>}
             </PlanBox>
           );
         })}

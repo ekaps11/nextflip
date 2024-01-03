@@ -7,7 +7,7 @@ type SelectProps = {
 
 const Select = ({ option, ...props }: SelectProps) => {
   return (
-    <SelectContainer {...props}>
+    <SelectContainer aria-labelledby="languages" {...props}>
       {option.map((opt) => {
         return (
           <option key={opt} value={opt}>

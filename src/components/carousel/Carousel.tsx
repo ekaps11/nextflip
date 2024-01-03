@@ -15,7 +15,7 @@ const Carousel = ({ title, movieUrl }: Carousel) => {
     <CarouselContainer>
       <p>{title}</p>
       <CardSliderContainer>
-        {movies.map(({ id, backdrop_path, title, name }) => (
+        {movies?.map(({ id, backdrop_path, title, name }) => (
           <Card
             key={id}
             posterUrl={image + backdrop_path}

@@ -10,7 +10,6 @@ const { user } = store.getState().user;
 export const Profile = styled.img`
   border-radius: 3px;
   cursor: pointer;
-  height: 2em;
 `;
 
 export const NavContainer = styled.div<{ $bgCol?: boolean }>`
