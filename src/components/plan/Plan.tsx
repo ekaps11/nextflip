@@ -10,12 +10,19 @@ const Plan = ({ title, items }: PlanProps) => {
     <PlanContainer>
       <h2>{title}</h2>
       <div>
-        {Object.values(items).map(({ title, description, price, image }) => {
+        {Object.values(items).map(({ title, description, price }, i) => {
           return (
-            <PlanBox key={title} $bg={image}>
+            <PlanBox key={title} $bg={price}>
               <h3>{title}</h3>
-              {!image && <p>{description}</p>}
-              {image ? <img src={image} alt={title} /> : <p>{price}</p>}
+              {price && <p>{description}</p>}
+              {!price ? (
+                <img
+                  src={`../../src/assets/images/join${i + 1}.webp`}
+                  alt={title}
+                />
+              ) : (
+                <p>{price}</p>
+              )}
             </PlanBox>
           );
         })}

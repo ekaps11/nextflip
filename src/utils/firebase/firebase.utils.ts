@@ -40,8 +40,6 @@ export const signUpWithEmail = async (
       password
     );
 
-    console.log(user);
-
     return user;
   } catch (e) {
     const errCode = handleAuthError((e as AuthError).code);

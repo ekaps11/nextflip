@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useGetMovieQuery, MOVIE_REQUESTS, Movie } from "../../utils/tmdb";
 import { getRandomNumber } from "../../utils/helper/helper";
-import { DashboardContainer, DashboardBg } from "./Dashboard-style";
+import { DashboardBg } from "./Dashboard-style";
 import MoviePreview from "../../components/movie-preview/MoviePreview";
 import Movies from "../../components/movies/Movies";
 
@@ -16,10 +16,12 @@ const Dashboard = () => {
     setMovieObj(movies[index]);
   }, [movies]);
 
+  console.log(movieObj?.id);
+
   if (!movieObj?.id) return movieObj?.id;
 
   return (
-    <DashboardContainer>
+    <>
       <DashboardBg $bg={movieObj?.backdrop_path}>
         <MoviePreview
           id={movieObj?.id}
@@ -27,7 +29,7 @@ const Dashboard = () => {
         />
       </DashboardBg>
       <Movies />
-    </DashboardContainer>
+    </>
   );
 };
 

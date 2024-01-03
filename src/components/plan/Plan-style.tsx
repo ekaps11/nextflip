@@ -5,7 +5,7 @@ const navy = "linear-gradient( 149deg, #192247 0%, #210e17 96.86% )";
 
 export const PlanBox = styled.div<{ $bg?: boolean }>`
   padding: 5%;
-  background: ${({ $bg }) => ($bg ? navy : burgundy)};
+  background: ${({ $bg }) => ($bg ? burgundy : navy)};
   border-radius: 1em;
 
   p {

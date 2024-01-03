@@ -18,5 +18,3 @@ export const DashboardBg = styled.div<{ $bg: string }>`
     aspect-ratio: 16/9;
   }
 `;
-
-export const DashboardContainer = styled.div``;

@@ -98,20 +98,16 @@
     "title": "Alasan Lainnya untuk Bergabung",
     "items": [
       {
-        "title": "Kisah yang dibuat sesuai dengan seleramu",
-        "image": "../../src/assets/images/join1.webp"
+        "title": "Kisah yang dibuat sesuai dengan seleramu"
       },
       {
-        "title": "Batalkan atau ganti paket kapan pun",
-        "image": "../../src/assets/images/join2.webp"
+        "title": "Batalkan atau ganti paket kapan pun"
       },
       {
-        "title": "Dunia khusus bagi anak",
-        "image": "../../src/assets/images/join3.webp"
+        "title": "Dunia khusus bagi anak"
       },
       {
-        "title": "Untuk ponsel, tablet, laptop, dan TV",
-        "image": "../../src/assets/images/join4.webp"
+        "title": "Untuk ponsel, tablet, laptop, dan TV"
       }
     ]
   },

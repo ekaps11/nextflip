@@ -98,20 +98,16 @@
     "title": "More Reasons to Join",
     "items": [
       {
-        "title": "Stories tailored to your taste",
-        "image": "../../src/assets/images/join1.webp"
+        "title": "Stories tailored to your taste"
       },
       {
-        "title": "Cancel or switch plans anytime",
-        "image": "../../src/assets/images/join2.webp"
+        "title": "Cancel or switch plans anytime"
       },
       {
-        "title": "A place just for kids",
-        "image": "../../src/assets/images/join3.webp"
+        "title": "A place just for kids"
       },
       {
-        "title": "For your phone, tablet, laptop, and TV",
-        "image": "../../src/assets/images/join4.webp"
+        "title": "For your phone, tablet, laptop, and TV"
       }
     ]
   },
