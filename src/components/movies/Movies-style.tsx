@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const MoviesContainer = styled.div`
-  margin-top: -10%;
-  margin-bottom: 5%;
+  padding: 0 5%;
+  margin: -10% 0 5% 0;
 
   @media (min-width: 75em) {
     margin-top: unset;

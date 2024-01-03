@@ -2,7 +2,7 @@ import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { FooterContainer, Links } from "./Footer-style";
 import FooterLinks from "./FooterLinks";
-import SelectLanguage from "../../components/select/SelectLanguage";
+import SelectLanguage from "../select/SelectLanguage";
 
 type FooterLinkProps = {
   title: string;

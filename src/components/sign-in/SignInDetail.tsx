@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import CustomLink from "../../components/custom-link/CustomLink";
+import CustomLink from "../custom-link/CustomLink";
 import { Help } from "./SignIn-style";
 import SignInArticle from "./SignInArticle";
 

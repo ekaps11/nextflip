@@ -30,7 +30,6 @@ export const LoginContainer = styled.div`
     }
 
     footer {
-      border-top: none;
       margin-top: 5em;
       padding: 5%;
     }

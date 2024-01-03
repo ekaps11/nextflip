@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import Accordion from "../../components/accordion/Accordion";
+import Accordion from "../accordion/Accordion";
 import { FaqContainer } from "./Faq-style";
 import SignUp from "../sign-up/SignUp";
 
@@ -9,7 +9,7 @@ const Faq = () => {
 
   return (
     <FaqContainer>
-      <h1>{t("faq.title")}</h1>
+      <h2>{t("faq.title")}</h2>
       <Accordion items={items} />
       <br />
       <SignUp />

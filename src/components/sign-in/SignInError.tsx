@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import CustomLink from "../../components/custom-link/CustomLink";
+import CustomLink from "../custom-link/CustomLink";
 import { SignInErrorContainer } from "./SignIn-style";
 
 type SignInErrorProps = { error: string };

@@ -62,6 +62,60 @@
     "linkHub": "dan"
   },
 
+  "plan": {
+    "title": "Paket yang Sesuai dengan Kebutuhanmu",
+    "items": [
+      {
+        "title": "PONSEL",
+        "description": "Pilih yang cocok untuk perangkat seluler yang suka dibawa jalan-jalan.",
+        "price": "Rp 54.000/bulan"
+      },
+      {
+        "title": "DASAR",
+        "description": "Cara bagus untuk menikmati semua acara TV dan film dengan biaya yang minim.",
+        "price": "Rp 65.000/bulan"
+      },
+      {
+        "title": "STANDAR",
+        "description": "Semua hiburan yang kamu sukai, dalam kualitas video Full HD.",
+        "price": "Rp 120.000/bulan"
+      },
+      {
+        "title": "PREMIUM",
+        "description": "Pengalaman sinematik dengan kualitas gambar dan audio terbaik.",
+        "price": "Rp 186.000/bulan"
+      }
+    ]
+  },
+
+  "games": {
+    "title": "Mainkan Game Seluler",
+    "header": "Game seluler sekarang sudah termasuk di semua paket",
+    "detail": "Tanpa iklan, biaya tambahan, atau pembelian dalam aplikasi. Nikmati akses tak terbatas ke katalog game populer dan eksklusif yang terus bertambah."
+  },
+
+  "join": {
+    "title": "Alasan Lainnya untuk Bergabung",
+    "items": [
+      {
+        "title": "Kisah yang dibuat sesuai dengan seleramu",
+        "image": "../../src/assets/images/join1.png"
+      },
+      {
+        "title": "Batalkan atau ganti paket kapan pun",
+        "image": "../../src/assets/images/join2.png"
+      },
+      {
+        "title": "Dunia khusus bagi anak",
+        "image": "../../src/assets/images/join3.png"
+      },
+      {
+        "title": "Untuk ponsel, tablet, laptop, dan TV",
+        "image": "../../src/assets/images/join4.png"
+      }
+    ]
+  },
+
   "storyCard": [
     {
       "title": "Nikmati di TV-mu",

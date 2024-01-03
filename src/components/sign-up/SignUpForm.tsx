@@ -1,7 +1,7 @@
 import { ChangeEvent, useState } from "react";
 import { FaChevronRight } from "react-icons/fa";
-import Button from "../../components/button/Button";
-import Input from "../../components/input/Input";
+import Button from "../button/Button";
+import Input from "../input/Input";
 import { Email, EmailSchema } from "../../utils/zod/schemes";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";

@@ -1,11 +1,13 @@
 import { styled } from "styled-components";
-import { colors } from "../../utils/styles/commonStyle";
-import { SelectContainer } from "../../components/select/Select-style";
-import { LinkContainer } from "../../components/custom-link/CustomLink-style";
+import { SelectContainer } from "../select/Select-style";
+import { LinkContainer } from "../custom-link/CustomLink-style";
+import store from "../../store/store";
+
+const { user } = store.getState().user;
 
 export const FooterContainer = styled.footer`
-  border-top: 8px solid ${colors.grey[0]};
   padding: 5%;
+  border-top: 1px solid #181818;
 
   span:hover {
     text-decoration: underline;
@@ -13,6 +15,7 @@ export const FooterContainer = styled.footer`
 
   p {
     letter-spacing: unset;
+    margin-bottom: 1em;
   }
 
   p:last-child {
@@ -32,12 +35,8 @@ export const FooterContainer = styled.footer`
     min-width: 10em;
   }
 
-  @media (min-width: 45em) and (orientation: landscape) {
-    padding: 6%;
-  }
-
-  @media (min-width: 60em) and (orientation: landscape) {
-    padding: 5% 10%;
+  @media (min-width: 65em) {
+    padding: ${!user && "3% 10%"};
   }
 `;
 

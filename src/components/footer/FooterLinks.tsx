@@ -1,4 +1,4 @@
-import CustomLink from "../../components/custom-link/CustomLink";
+import CustomLink from "../custom-link/CustomLink";
 
 type Props = {
   to: string;

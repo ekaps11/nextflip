@@ -1,8 +1,8 @@
 import { styled } from "styled-components";
 import { colors, flex } from "../../utils/styles/commonStyle";
-import { ButtonContainer } from "../../components/button/Button-style";
-import { LinkContainer } from "../../components/custom-link/CustomLink-style";
-import { SelectContainer } from "../../components/select/Select-style";
+import { ButtonContainer } from "../button/Button-style";
+import { LinkContainer } from "../custom-link/CustomLink-style";
+import { SelectContainer } from "../select/Select-style";
 import store from "../../store/store";
 
 const { user } = store.getState().user;

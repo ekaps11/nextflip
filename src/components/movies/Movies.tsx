@@ -1,4 +1,4 @@
-import Carousel from "../../components/carousel/Carousel";
+import Carousel from "../carousel/Carousel";
 import { MOVIE_REQUESTS } from "../../utils/tmdb";
 import { MoviesContainer } from "./Movies-style";
 

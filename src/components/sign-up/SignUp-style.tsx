@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 import { colors } from "../../utils/styles/commonStyle";
-import { ButtonContainer } from "../../components/button/Button-style";
+import { ButtonContainer } from "../button/Button-style";
 
 export const Form = styled.form`
   display: flex;
@@ -10,7 +10,7 @@ export const Form = styled.form`
   ${ButtonContainer} {
     font-size: 1em;
     height: 3em;
-    margin: auto;
+    margin-right: auto;
     min-width: 30%;
   }
 
@@ -27,7 +27,7 @@ export const Form = styled.form`
 export const AuthError = styled.p`
   background: ${colors.orange};
   border-radius: 2px;
-  padding: 0.5em 0;
+  padding: 0.5em 1em;
 
   &::first-letter {
     text-transform: capitalize;
@@ -37,8 +37,6 @@ export const AuthError = styled.p`
 export const SignUpContainer = styled.div`
   display: flex;
   flex-direction: column;
-  text-align: center;
-  padding: 0 5%;
   margin: 1em 0;
 
   p {
@@ -51,11 +49,7 @@ export const SignUpContainer = styled.div`
     }
 
     ${Form} {
-      padding: 0 10%;
-    }
-
-    ${AuthError} {
-      margin: 1em 10%;
+      padding-right: 10%;
     }
   }
 `;

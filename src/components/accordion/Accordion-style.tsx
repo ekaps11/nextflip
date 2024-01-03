@@ -8,10 +8,10 @@ export const Header = styled(ButtonContainer)`
   justify-content: space-between;
   width: 100%;
   padding: 1em;
-  text-align: left;
   background: ${colors.grey[0]};
   font-size: 1.15em;
   overflow: hidden;
+  text-align: left;
 
   &:hover {
     background: ${colors.grey[1]};

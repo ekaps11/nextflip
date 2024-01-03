@@ -62,6 +62,60 @@
     "linkHub": "and"
   },
 
+  "plan": {
+    "title": "A Plan To Suit Your Needs",
+    "items": [
+      {
+        "title": "MOBILE",
+        "description": "A travel-friendly option for your mobile devices.A travel-friendly option for your mobile devices.",
+        "price": "IDR 54,000/month"
+      },
+      {
+        "title": "BASIC",
+        "description": "A great way to enjoy all your favorite shows and movies on a budget.",
+        "price": "IDR 65,000/month"
+      },
+      {
+        "title": "STANDARD",
+        "description": "All the entertainment you love, in Full HD video quality.",
+        "price": "IDR 120,000/month"
+      },
+      {
+        "title": "PREMIUM",
+        "description": "A cinematic experience with the best picture and audio quality.",
+        "price": "IDR 186,000/month"
+      }
+    ]
+  },
+
+  "games": {
+    "title": "Play Mobile Games",
+    "header": "Mobile games now included in every plan",
+    "detail": "No ads, extra fees, or in-app purchases. Enjoy unlimited access to a growing catalog of popular and exclusive games."
+  },
+
+  "join": {
+    "title": "More Reasons to Join",
+    "items": [
+      {
+        "title": "Stories tailored to your taste",
+        "image": "../../src/assets/images/join1.png"
+      },
+      {
+        "title": "Cancel or switch plans anytime",
+        "image": "../../src/assets/images/join2.png"
+      },
+      {
+        "title": "A place just for kids",
+        "image": "../../src/assets/images/join3.png"
+      },
+      {
+        "title": "For your phone, tablet, laptop, and TV",
+        "image": "../../src/assets/images/join4.png"
+      }
+    ]
+  },
+
   "storyCard": [
     {
       "title": "Enjoy on your TV",

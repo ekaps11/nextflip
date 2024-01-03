@@ -13,12 +13,10 @@ export const CardSliderContainer = styled.div`
 `;
 
 export const CarouselContainer = styled.div`
-  padding: 0 5%;
   margin-bottom: -20%;
 
   p {
-    margin-left: 0.2em;
-    margin-bottom: -3vw;
+    margin: 0 0 -3vw 0.2em;
   }
 
   @media (min-width: 35em) {

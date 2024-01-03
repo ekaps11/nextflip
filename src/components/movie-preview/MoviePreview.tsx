@@ -1,5 +1,5 @@
 import { BsFillPlayFill, BsInfoCircle } from "react-icons/bs";
-import Button from "../../components/button/Button";
+import Button from "../button/Button";
 import {
   MoviePreviewButton,
   MoviePreviewContainer,

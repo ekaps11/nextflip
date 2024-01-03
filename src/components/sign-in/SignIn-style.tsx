@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import { colors, flex } from "../../utils/styles/commonStyle";
-import { InputField, InputError } from "../../components/input/Input-style";
-import { ButtonContainer } from "../../components/button/Button-style";
-import { LinkContainer } from "../../components/custom-link/CustomLink-style";
+import { InputField, InputError } from "../input/Input-style";
+import { ButtonContainer } from "../button/Button-style";
+import { LinkContainer } from "../custom-link/CustomLink-style";
 
 export const Help = styled.div`
   ${flex}

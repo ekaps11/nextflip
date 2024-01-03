@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Article } from "./SignIn-style";
-import CustomLink from "../../components/custom-link/CustomLink";
+import CustomLink from "../custom-link/CustomLink";
 
 const SignInArticle = () => {
   const [isShow, setIsShow] = useState(true);

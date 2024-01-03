@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { SignInContainer } from "./SignIn-style";
 import { useForm } from "react-hook-form";
-import Button from "../../components/button/Button";
-import Input from "../../components/input/Input";
+import Button from "../button/Button";
+import Input from "../input/Input";
 import SignInDetail from "./SignInDetail";
 import SignInError from "./SignInError";
 import { Email, EmailSchema } from "../../utils/zod/schemes";
