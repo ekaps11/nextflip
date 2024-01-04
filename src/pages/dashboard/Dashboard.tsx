@@ -9,13 +9,12 @@ const Dashboard = () => {
   const { data } = useGetMovieQuery(MOVIE_REQUESTS.TRENDING);
   const [movieObj, setMovieObj] = useState<Movie>();
   const movies: Movie[] = data?.results;
-  const length: number = data?.results?.length;
 
   useEffect(() => {
-    const index = getRandomNumber(length);
+    const index = getRandomNumber(20);
 
     setMovieObj(movies[index]);
-  }, [length, movies]);
+  }, [movies]);
 
   if (!movieObj?.id) return movieObj?.id;
 
