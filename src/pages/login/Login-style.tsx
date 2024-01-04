@@ -1,5 +1,4 @@
 import { styled } from "styled-components";
-import banner from "../../assets/images/banner.webp";
 import { gradientBg } from "../../utils/styles/commonStyle";
 
 export const LoginContainer = styled.div`
@@ -10,7 +9,7 @@ export const LoginContainer = styled.div`
   }
 
   @media (min-width: 45em) {
-    background: ${gradientBg.top}, url(${banner});
+    background: ${gradientBg.top}, url(images/banner.webp);
     background-size: cover;
     padding-top: 7em;
 

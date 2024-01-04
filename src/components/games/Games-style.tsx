@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import games from "../../assets/images/games.webp";
 
 export const GamesContainer = styled.div`
   padding: 1em 5%;
@@ -9,7 +8,7 @@ export const GamesContainer = styled.div`
   }
 
   div {
-    background: url(${games}) no-repeat;
+    background: url(images/games.webp) no-repeat;
     background-size: cover;
     min-height: 50vh;
     border-radius: 1em;

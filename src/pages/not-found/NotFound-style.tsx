@@ -1,12 +1,11 @@
 import { styled } from "styled-components";
-import notFound from "../../assets/images/not-found.webp";
 import { colors, flex } from "../../utils/styles/commonStyle";
 import { ButtonContainer } from "../../components/button/Button-style";
 
 export const NotFoundContainer = styled.div`
   ${flex}
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)),
-    url(${notFound}) center;
+    url(images/not-found.webp) center;
   background-size: cover;
   flex-direction: column;
   height: 100vh;

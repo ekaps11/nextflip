@@ -1,9 +1,8 @@
 import { styled } from "styled-components";
-import banner from "../../assets/images/banner.webp";
 import { gradientBg } from "../../utils/styles/commonStyle";
 
 export const HomeContainer = styled.div`
-  background: ${gradientBg.top}, url(${banner});
+  background: ${gradientBg.top}, url(images/banner.webp);
   background-size: cover;
   padding: 5%;
   padding-bottom: 3.5em;

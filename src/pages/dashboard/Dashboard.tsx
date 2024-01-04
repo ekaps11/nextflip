@@ -7,14 +7,15 @@ import Movies from "../../components/movies/Movies";
 
 const Dashboard = () => {
   const { data } = useGetMovieQuery(MOVIE_REQUESTS.TRENDING);
-  const movies: Movie[] = data?.results;
   const [movieObj, setMovieObj] = useState<Movie>();
+  const movies: Movie[] = data?.results;
+  const length: number = data?.results?.length;
 
   useEffect(() => {
-    const index = getRandomNumber(movies?.length);
+    const index = getRandomNumber(length);
 
     setMovieObj(movies[index]);
-  }, [movies]);
+  }, [length, movies]);
 
   if (!movieObj?.id) return movieObj?.id;
 
