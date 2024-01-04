@@ -17,6 +17,8 @@ export const CarouselContainer = styled.div`
 
   p {
     margin: 0 0 -3vw 0.2em;
+    display: block;
+    cursor: pointer;
   }
 
   @media (min-width: 35em) {

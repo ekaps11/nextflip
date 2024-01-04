@@ -16,8 +16,6 @@ const Dashboard = () => {
     setMovieObj(movies[index]);
   }, [movies]);
 
-  console.log(movieObj?.id);
-
   if (!movieObj?.id) return movieObj?.id;
 
   return (

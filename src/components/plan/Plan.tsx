@@ -16,10 +16,7 @@ const Plan = ({ title, items }: PlanProps) => {
               <h3>{title}</h3>
               {price && <p>{description}</p>}
               {!price ? (
-                <img
-                  src={`../../src/assets/images/join${i + 1}.webp`}
-                  alt={title}
-                />
+                <img src={`/images/icon${++i}.webp`} alt={title} />
               ) : (
                 <p>{price}</p>
               )}
