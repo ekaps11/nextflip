@@ -3,7 +3,6 @@ import { gradientBg } from "../../utils/styles/commonStyle";
 
 export const LoginContainer = styled.div`
   footer {
-    background: black;
     opacity: 0.8;
     padding: 6%;
   }

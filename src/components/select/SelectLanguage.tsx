@@ -4,11 +4,9 @@ import { useAppDispatch, useAppSelector } from "../../store/store";
 import { setLanguage } from "../../store/slices/persistedSlice";
 import Select from "./Select";
 
-type SelectLanguageProps = { id: string };
-
 const languages = ["english", "bahasa"];
 
-const SelectLanguage = ({ id }: SelectLanguageProps) => {
+const SelectLanguage = () => {
   const dispatch = useAppDispatch();
   const { language } = useAppSelector(({ persisted }) => persisted);
   const { i18n } = useTranslation();
@@ -24,12 +22,7 @@ const SelectLanguage = ({ id }: SelectLanguageProps) => {
   };
 
   return (
-    <Select
-      id={id}
-      option={languages}
-      onChange={languageSwitcher}
-      value={language}
-    />
+    <Select option={languages} onChange={languageSwitcher} value={language} />
   );
 };
 

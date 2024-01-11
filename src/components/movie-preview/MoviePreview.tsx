@@ -20,13 +20,11 @@ const MoviePreview = ({ id, title }: MoviePreviewProps) => {
     `movie/${id}/images${extendedUrl}&include_image_language=en`
   );
 
+  const logo = image + data?.logos?.at(0)?.file_path;
+
   return (
     <MoviePreviewContainer $strLength={strLength}>
-      {data?.logos?.length ? (
-        <img src={image + data?.logos?.at(0)?.file_path} alt={title} />
-      ) : (
-        <h2>{title}</h2>
-      )}
+      {data?.logos?.length ? <img src={logo} alt={title} /> : <h2>{title}</h2>}
       <MoviePreviewButton>
         <Button>
           <i>

@@ -8,7 +8,7 @@ type CardProps = {
 const Card = ({ posterUrl, movieTitle }: CardProps) => {
   return (
     <CardContainer>
-      <img src={posterUrl} alt={movieTitle} loading="lazy" />
+      <img src={posterUrl} alt={movieTitle} />
       <div>
         <p>{movieTitle}</p>
       </div>

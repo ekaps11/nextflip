@@ -1,11 +1,8 @@
 import { styled } from "styled-components";
 import { SelectContainer } from "../select/Select-style";
 import { LinkContainer } from "../custom-link/CustomLink-style";
-import store from "../../store/store";
 
-const { user } = store.getState().user;
-
-export const FooterContainer = styled.footer`
+export const FooterContainer = styled.footer<{ $user: boolean }>`
   padding: 5%;
   border-top: 1px solid #181818;
 
@@ -20,6 +17,7 @@ export const FooterContainer = styled.footer`
 
   p:last-child {
     font-size: 13px;
+    margin-top: 1.5em;
   }
 
   ${LinkContainer} {
@@ -31,12 +29,18 @@ export const FooterContainer = styled.footer`
   }
 
   ${SelectContainer} {
-    margin: 1.5em 0;
-    min-width: 10em;
+    svg {
+      top: 1.75em;
+      left: 0.55em;
+    }
+
+    select {
+      padding: 0.65em 2em;
+    }
   }
 
   @media (min-width: 65em) {
-    padding: ${!user && "3% 10%"};
+    padding: ${({ $user }) => $user && "3% 10%"};
   }
 `;
 

@@ -40,12 +40,27 @@ export const NavContainer = styled.div<{ $bgCol?: boolean }>`
     gap: 1em;
   }
 
-  @media (max-width: 20em) {
-    ${SelectContainer}, ${ButtonContainer} {
-      font-size: 0.6em;
+  ${SelectContainer} {
+    display: flex;
+    align-items: center;
+    margin-right: -0.5em;
+  }
+
+  @media (max-width: 30em) and (orientation: portrait) {
+    ${SelectContainer} {
+      width: 5em;
+
+      svg {
+        font-size: 2em;
+        left: 50%;
+      }
+
+      option {
+        opacity: 0;
+      }
     }
 
-    ${SelectContainer} {
+    ${ButtonContainer} {
       width: 6em;
     }
   }
@@ -53,19 +68,18 @@ export const NavContainer = styled.div<{ $bgCol?: boolean }>`
   @media (min-width: 35em) {
     ${SelectContainer} {
       width: 12em;
-    }
-  }
 
-  @media (min-width: 60em) {
-    height: 4em;
+      svg {
+        left: 20%;
+      }
 
-    h1 {
-      font-size: 2em;
+      select {
+        padding: 0.65em 2em;
+      }
     }
 
     ${ButtonContainer} {
-      margin-left: 5px;
-      height: 2.5em;
+      width: 6.5em;
     }
   }
 `;

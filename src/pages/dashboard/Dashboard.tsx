@@ -23,7 +23,7 @@ const Dashboard = () => {
       <DashboardBg $bg={movieObj?.backdrop_path}>
         <MoviePreview
           id={movieObj?.id}
-          title={movieObj?.title ? movieObj?.title : movieObj?.name}
+          title={movieObj?.title || movieObj?.name}
         />
       </DashboardBg>
       <Movies />

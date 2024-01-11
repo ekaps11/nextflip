@@ -50,7 +50,4 @@ export const MoviePreviewContainer = styled.div<{
     width: 60%;
     margin-top: 1em;
   }
-
-  @media (orientation: landscape) {
-  }
 `;

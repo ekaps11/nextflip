@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { BiSolidUpArrow } from "react-icons/bi";
+import { LinkContainer } from "../custom-link/CustomLink-style";
 
 export const ProfileIndicator = styled(BiSolidUpArrow)`
   margin-left: 100%;
@@ -9,6 +10,7 @@ export const ProfileIndicator = styled(BiSolidUpArrow)`
 
 export const ManageProfileContainer = styled.div`
   display: flex;
+  justify-content: center;
   flex-direction: column !important;
   position: fixed;
   top: 6.5em;
@@ -22,21 +24,25 @@ export const ManageProfileContainer = styled.div`
   font-size: 0.65em;
   border: 1px solid grey;
 
-  p,
-  i {
+  div {
+    gap: 5px;
     cursor: pointer;
+  }
 
-    &:hover {
-      text-decoration: underline;
+  ${LinkContainer} {
+    color: white;
+    letter-spacing: unset;
+    font-weight: lighter;
+    font-family: unset;
+
+    svg {
+      margin-right: 5px;
     }
   }
 
-  div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex-direction: row;
-    gap: 5px;
+  div:hover,
+  ${LinkContainer}:hover {
+    text-decoration: underline;
   }
 
   @media (min-width: 60em) and (orientation: portrait) {
