@@ -56,11 +56,15 @@ export const NavContainer = styled.div<{ $bgCol?: boolean }>`
 
   @media (max-width: 30em) and (orientation: portrait) {
     ${SelectContainer} {
-      width: 5em;
+      width: 6em;
 
       svg {
         font-size: 3em;
         left: 45%;
+      }
+
+      option {
+        opacity: 0;
       }
     }
 

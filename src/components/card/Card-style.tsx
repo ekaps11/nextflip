@@ -16,7 +16,6 @@ export const CardContainer = styled.div`
     background: #181818;
     margin-top: -0.25em;
     border-radius: 0 0 4px 4px;
-    transition: 0.5s;
     transition-delay: 0.5s;
 
     p {
@@ -26,7 +25,7 @@ export const CardContainer = styled.div`
   }
 
   &:hover {
-    transform: scale(1.35);
+    transform: scale(1.3);
     transition-delay: 0.5s;
 
     img {

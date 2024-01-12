@@ -13,7 +13,7 @@ export type Movie = {
 };
 
 const tmdbConfig = {
-  api: "554bf125275f0d7cab9423f8446408c6",
+  api: import.meta.env.VITE_TMDB,
   baseUrl: "https://api.themoviedb.org/3",
   image: "https://image.tmdb.org/t/p/original",
 };

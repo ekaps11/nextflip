@@ -6,6 +6,7 @@ export const CardSliderContainer = styled.div`
   padding: 5%;
   margin-left: -5%;
   overflow-x: scroll;
+  overflow-y: hidden;
 
   &::-webkit-scrollbar {
     display: none;
@@ -13,23 +14,13 @@ export const CardSliderContainer = styled.div`
 `;
 
 export const CarouselContainer = styled.div`
-  margin-bottom: -20%;
+  margin-bottom: -12vh;
 
   p {
     margin: 0 0 -3vw 0.2em;
-    display: block;
-    cursor: pointer;
   }
 
-  @media (min-width: 35em) {
-    margin-bottom: -14%;
-  }
-
-  @media (min-width: 60em) {
-    margin-bottom: -10%;
-  }
-
-  @media (min-width: 85em) and (max-width: 86em) {
-    margin-bottom: -8%;
+  @media (orientation: landscape) {
+    margin-bottom: -20vh;
   }
 `;
