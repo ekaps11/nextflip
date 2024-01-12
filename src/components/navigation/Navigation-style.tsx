@@ -32,6 +32,7 @@ export const NavContainer = styled.div<{ $bgCol?: boolean }>`
 
   h1 {
     font-size: 1.75em;
+    margin-top: 0.5em;
   }
 
   div {
@@ -40,10 +41,17 @@ export const NavContainer = styled.div<{ $bgCol?: boolean }>`
     gap: 1em;
   }
 
-  ${SelectContainer} {
-    display: flex;
-    align-items: center;
-    margin-right: -0.5em;
+  ${ButtonContainer} {
+    width: 6em;
+    height: 2.6em;
+    margin-top: 0.1em;
+    margin-left: -0.5em;
+  }
+
+  @media (max-width: 20em) {
+    button {
+      width: fit-content;
+    }
   }
 
   @media (max-width: 30em) and (orientation: portrait) {
@@ -51,17 +59,13 @@ export const NavContainer = styled.div<{ $bgCol?: boolean }>`
       width: 5em;
 
       svg {
-        font-size: 2em;
-        left: 50%;
-      }
-
-      option {
-        opacity: 0;
+        font-size: 3em;
+        left: 45%;
       }
     }
 
     ${ButtonContainer} {
-      width: 6em;
+      margin-top: 0.5em;
     }
   }
 
@@ -71,15 +75,16 @@ export const NavContainer = styled.div<{ $bgCol?: boolean }>`
 
       svg {
         left: 20%;
+        font-size: 1.25em;
       }
 
       select {
         padding: 0.65em 2em;
       }
     }
+  }
 
-    ${ButtonContainer} {
-      width: 6.5em;
-    }
+  @media (min-width: 65em) {
+    padding: ${!user && "0 9%"};
   }
 `;

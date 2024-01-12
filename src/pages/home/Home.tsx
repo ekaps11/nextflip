@@ -13,7 +13,7 @@ const Home = () => {
       <HomeContainer>
         <div>
           <h1>{t("Home.title")}</h1>
-          <p>{t("Home.desc")}</p>
+          <p className="description">{t("Home.desc")}</p>
           <SignUp />
         </div>
       </HomeContainer>

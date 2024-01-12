@@ -47,9 +47,5 @@ export const SignUpContainer = styled.div`
     p {
       font-size: 1.1em;
     }
-
-    ${Form} {
-      padding-right: 10%;
-    }
   }
 `;

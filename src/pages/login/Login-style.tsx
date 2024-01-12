@@ -25,6 +25,19 @@ export const LoginContainer = styled.div`
       border-radius: 10px;
       padding: 10%;
       padding-top: 5%;
+
+      input:focus {
+        opacity: 1;
+      }
+
+      button {
+        opacity: 0.8;
+        transition: 0.5s ease;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
     }
 
     footer {
@@ -35,7 +48,7 @@ export const LoginContainer = styled.div`
 
   @media (min-width: 45em) and (max-width: 60em) {
     form {
-      margin-top: 10em;
+      margin-top: -1em;
     }
   }
 
@@ -50,6 +63,12 @@ export const LoginContainer = styled.div`
       width: 35%;
       padding: 5%;
       padding-top: 1em;
+    }
+
+    footer {
+      margin-top: 5em;
+      padding: 5% 10%;
+      background: black;
     }
   }
 `;

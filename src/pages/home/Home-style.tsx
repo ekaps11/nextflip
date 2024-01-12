@@ -1,5 +1,6 @@
 import { styled } from "styled-components";
 import { gradientBg } from "../../utils/styles/commonStyle";
+import { SignUpContainer } from "../../components/sign-up/SignUp-style";
 
 export const HomeContainer = styled.div`
   background: ${gradientBg.top}, url(images/banner.webp);
@@ -29,6 +30,13 @@ export const HomeContainer = styled.div`
   }
 
   @media (min-width: 65em) {
-    padding: 5% 10%;
+    div {
+      margin: 0 auto;
+      margin-bottom: 4em;
+    }
+
+    ${SignUpContainer} {
+      margin: 1em 0;
+    }
   }
 `;

@@ -11,7 +11,7 @@ const Dashboard = () => {
   const movies: Movie[] = data?.results;
 
   useEffect(() => {
-    const index = getRandomNumber(20);
+    const index = getRandomNumber(movies?.length);
 
     setMovieObj(movies[index]);
   }, [movies]);

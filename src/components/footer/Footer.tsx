@@ -34,7 +34,7 @@ const Footer = () => {
           if (!isMatched && element !== "footer") return footer;
         })}
       </Links>
-      <SelectLanguage />
+      <SelectLanguage id="footer-language" />
       <p>{!user ? "Nextflip Indonesia" : "© 2023-2024 Nextflip, Inc."}</p>
     </FooterContainer>
   );

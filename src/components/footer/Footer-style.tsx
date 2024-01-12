@@ -29,9 +29,10 @@ export const FooterContainer = styled.footer<{ $user: boolean }>`
   }
 
   ${SelectContainer} {
+    margin-left: -1em;
+
     svg {
-      top: 1.75em;
-      left: 0.55em;
+      left: 1.3em;
     }
 
     select {

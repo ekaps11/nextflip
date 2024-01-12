@@ -6,7 +6,11 @@ import Select from "./Select";
 
 const languages = ["english", "bahasa"];
 
-const SelectLanguage = () => {
+type SelectLanguageProps = {
+  id: string;
+};
+
+const SelectLanguage = ({ id }: SelectLanguageProps) => {
   const dispatch = useAppDispatch();
   const { language } = useAppSelector(({ persisted }) => persisted);
   const { i18n } = useTranslation();
@@ -22,7 +26,12 @@ const SelectLanguage = () => {
   };
 
   return (
-    <Select option={languages} onChange={languageSwitcher} value={language} />
+    <Select
+      id={id}
+      option={languages}
+      onChange={languageSwitcher}
+      value={language}
+    />
   );
 };
 

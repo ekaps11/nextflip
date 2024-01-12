@@ -1,11 +1,17 @@
 import { styled } from "styled-components";
 
 export const SelectContainer = styled.div`
+  display: flex;
+  align-items: center;
   width: fit-content;
+
+  label {
+    width: 0;
+    opacity: 0;
+  }
 
   svg {
     position: relative;
-    font-size: 1em;
     cursor: pointer;
     pointer-events: none;
     z-index: 1;

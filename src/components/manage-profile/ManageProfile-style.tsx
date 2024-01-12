@@ -27,9 +27,16 @@ export const ManageProfileContainer = styled.div`
   div {
     gap: 5px;
     cursor: pointer;
+
+    p {
+      letter-spacing: 0;
+      font-size: 1em;
+    }
   }
 
   ${LinkContainer} {
+    display: flex;
+    align-items: center;
     color: white;
     letter-spacing: unset;
     font-weight: lighter;

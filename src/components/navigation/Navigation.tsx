@@ -42,7 +42,7 @@ const Navigation = () => {
           <div>
             {!user ? (
               <>
-                <SelectLanguage />
+                <SelectLanguage id="header-language" />
                 <Button onClick={login}>{t("sign.in")}</Button>
               </>
             ) : (
