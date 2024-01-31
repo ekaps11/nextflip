@@ -9,23 +9,24 @@ export type Movie = {
   overview: string;
   iso_639_1: string;
   file_path: string;
-  genre: number[];
+  genre_ids: number[];
+  media_type: string;
 };
 
 const tmdbConfig = {
   api: import.meta.env.VITE_TMDB,
   baseUrl: "https://api.themoviedb.org/3",
-  image: "https://image.tmdb.org/t/p/original",
+  banner: "https://image.tmdb.org/t/p/original",
+  image: "https://image.tmdb.org/t/p/w500",
 };
 
-export const { api, baseUrl, image } = tmdbConfig;
+export const { api, baseUrl, banner, image } = tmdbConfig;
 export const extendedUrl = `?api_key=${api}&languages=en-US`;
 
 export const MOVIE_REQUESTS = {
-  POPULAR: `movie/popular${extendedUrl}&page=1&region=ID`,
-  TRENDING: `trending/all/day${extendedUrl}`,
+  POPULAR: `movie/popular${extendedUrl}&page=1`,
+  UPCOMING: `movie/upcoming${extendedUrl}&page=1`,
   INDONESIAN: `discover/movie${extendedUrl}&with_original_language=id`,
-  KOREAN: `discover/movie${extendedUrl}&with_original_language=ko`,
 };
 
 // Define a service using a base URL and expected endpoints

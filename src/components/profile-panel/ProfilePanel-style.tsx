@@ -3,47 +3,52 @@ import { BiSolidUpArrow } from "react-icons/bi";
 import { LinkContainer } from "../custom-link/CustomLink-style";
 
 export const ProfileIndicator = styled(BiSolidUpArrow)`
-  margin-left: 100%;
-  margin-top: -2.7em;
-  margin-bottom: 1em;
+  margin-left: 93%;
+  margin-top: -2.3em;
+  margin-bottom: 5px;
 `;
 
-export const ManageProfileContainer = styled.div`
+export const ProfilePanelContainer = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column !important;
   position: fixed;
-  top: 6.5em;
+  top: 5em;
   right: 5%;
   background: black;
-  padding: 1em 2em;
-  padding-top: 1.5em;
+  padding: 1.2em 2em;
   border-radius: 3px;
-  opacity: 0.7;
   gap: 0.3em;
   font-size: 0.65em;
   border: 1px solid grey;
+  opacity: 0.7;
 
   div {
-    gap: 5px;
+    display: flex;
+    align-items: center;
     cursor: pointer;
 
     p {
       letter-spacing: 0;
       font-size: 1em;
+      margin-left: -5px;
+    }
+
+    svg {
+      font-size: 1.5em;
     }
   }
 
   ${LinkContainer} {
     display: flex;
     align-items: center;
-    color: white;
     letter-spacing: unset;
     font-weight: lighter;
-    font-family: unset;
+    text-decoration: none;
 
     svg {
       margin-right: 5px;
+      font-size: 1.5em;
     }
   }
 
@@ -57,6 +62,6 @@ export const ManageProfileContainer = styled.div`
   }
 
   @media (min-width: 60em) and (orientation: landscape) {
-    top: 7.3em;
+    top: 6.35em;
   }
 `;

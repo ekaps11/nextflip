@@ -1,10 +1,11 @@
 import { styled } from "styled-components";
 import { SelectContainer } from "../select/Select-style";
 import { LinkContainer } from "../custom-link/CustomLink-style";
+import { colors } from "../../utils/styles/commonStyle";
 
 export const FooterContainer = styled.footer<{ $user: boolean }>`
   padding: 5%;
-  border-top: 1px solid #181818;
+  border-top: 1px solid ${colors.grey[2]};
 
   span:hover {
     text-decoration: underline;

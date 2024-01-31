@@ -1,47 +1,85 @@
 import styled from "styled-components";
+import { colors } from "../../utils/styles/commonStyle";
 
-export const CardContainer = styled.div`
-  cursor: pointer;
-  transition: 0.5s;
-  width: 10em;
+export const CardInfo = styled.div`
+  width: 100%;
+  opacity: 0;
+  position: absolute;
+  background: ${colors.grey[2]};
+  padding: 5%;
+  border-radius: 0 0 5px 5px;
+  pointer-events: none;
 
-  img {
-    border-radius: 4px;
-    width: inherit;
+  svg {
+    font-size: 1.25em;
+    margin: 5px 0;
+    padding: 5px;
+    border: 1px solid grey;
+    border-radius: 50%;
+    margin-right: 5px;
+
+    &:first-child {
+      background: white;
+      color: black;
+    }
+
+    &:last-child {
+      float: right;
+    }
   }
 
-  div {
-    opacity: 0;
-    padding: 10% 5px;
-    background: #181818;
-    margin-top: -0.25em;
-    border-radius: 0 0 4px 4px;
-    transition-delay: 0.5s;
+  p {
+    letter-spacing: unset;
+    font-size: 0.7em;
+    margin: 0.5em 0;
 
-    p {
-      font-size: 0.8em;
-      margin-bottom: auto;
+    span {
+      border: 1px solid;
+      border-radius: 3px;
+      padding: 0 3px;
+      margin-left: 5px;
     }
+  }
+`;
+
+export const CardContainer = styled.div`
+  transition: 0.5s;
+
+  img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+    cursor: pointer;
+    transition-delay: 0.7s;
   }
 
   &:hover {
+    transition-delay: 0.7s;
     transform: scale(1.3);
-    transition-delay: 0.5s;
 
     img {
-      border-radius: 4px 4px 0 0;
+      border-radius: 5px 5px 0 0;
     }
 
-    div {
+    ${CardInfo} {
       opacity: 1;
+      transition-delay: 0.7s;
     }
   }
 
-  @media (min-width: 60em) and (orientation: landscape) {
-    width: 12em;
+  @media (hover: none) {
+    &:hover {
+      all: unset;
+
+      ${CardInfo} {
+        opacity: 0;
+      }
+    }
   }
 
-  @media (min-width: 85em) and (max-width: 86em) {
-    width: 15em;
+  @media (min-width: 65em) {
+    &:hover {
+      transform: scale(1.5);
+    }
   }
 `;

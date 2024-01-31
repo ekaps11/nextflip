@@ -1,23 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  isLoading: false,
-  profilePanel: false,
+  navStack: false,
 };
 
 const uiSlice = createSlice({
   name: "ui",
   initialState,
   reducers: {
-    setIsLoading(state, { payload }) {
-      state.isLoading = payload;
-    },
-    setProfilePanel(state, { payload }) {
-      state.profilePanel = payload;
+    setNavStack(state, { payload }) {
+      state.navStack = payload;
     },
   },
 });
 
-export const { setIsLoading, setProfilePanel } = uiSlice.actions;
+export const { setNavStack } = uiSlice.actions;
 
 export default uiSlice.reducer;

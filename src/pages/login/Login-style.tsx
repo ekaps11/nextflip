@@ -4,13 +4,13 @@ import { gradientBg } from "../../utils/styles/commonStyle";
 export const LoginContainer = styled.div`
   footer {
     opacity: 0.8;
-    padding: 6%;
+    background: black;
   }
 
   @media (min-width: 45em) {
     background: ${gradientBg.top}, url(images/banner.webp);
     background-size: cover;
-    padding-top: 7em;
+    padding-top: 5%;
 
     h1 {
       font-size: 2em;
@@ -19,12 +19,12 @@ export const LoginContainer = styled.div`
     form {
       background: black;
       opacity: 0.8;
-      width: 50vw;
+      width: 50%;
       margin: auto;
       margin-top: 3em;
       border-radius: 10px;
-      padding: 10%;
-      padding-top: 5%;
+      padding: 5%;
+      padding-top: unset;
 
       input:focus {
         opacity: 1;
@@ -46,29 +46,48 @@ export const LoginContainer = styled.div`
     }
   }
 
-  @media (min-width: 45em) and (max-width: 60em) {
+  @media (min-width: 45em) and (orientation: portrait) {
     form {
-      margin-top: -1em;
-    }
-  }
-
-  @media (min-width: 60em) {
-    padding-top: 2em;
-
-    h1 {
-      font-size: 2em;
-    }
-
-    form {
-      width: 35%;
-      padding: 5%;
-      padding-top: 1em;
+      margin-top: 10vh;
     }
 
     footer {
-      margin-top: 5em;
+      margin-top: 11vh;
+    }
+  }
+
+  @media (min-width: 50em) and (orientation: portrait) {
+    form {
+      margin-top: 15vh;
+    }
+
+    footer {
+      margin-top: 15vh;
+    }
+  }
+
+  @media (min-width: 60em) and (orientation: portrait) {
+    footer {
+      font-size: 1.5em;
+      margin-top: 15vh;
+    }
+  }
+
+  @media (min-width: 60em) and (orientation: landscape) {
+    form {
+      width: 45%;
+    }
+  }
+
+  @media (min-width: 65em) {
+    form {
+      padding: 5%;
+      padding-top: 1%;
+      width: 35%;
+    }
+
+    footer {
       padding: 5% 10%;
-      background: black;
     }
   }
 `;

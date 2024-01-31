@@ -257,5 +257,26 @@
         "element": "footer"
       }
     ]
+  },
+  "genres": {
+    "28": "Aksi",
+    "12": "Petualangan",
+    "16": "Animasi",
+    "35": "Komedi",
+    "80": "Kriminal",
+    "99": "Dokumenter",
+    "18": "Drama",
+    "10751": "keluarga",
+    "14": "Fantasi",
+    "36": "Sejarah",
+    "27": "Horor",
+    "10402": "Musik",
+    "9648": "Misteri",
+    "10749": "Romantis",
+    "878": "Fiksi Ilmiah",
+    "10770": "Acara TV",
+    "53": "Pembunuhan",
+    "10752": "Perang",
+    "37": "Barat"
   }
 }

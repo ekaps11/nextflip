@@ -6,12 +6,17 @@ import { getUser } from "./utils/firebase/firebase.utils";
 import { setUser } from "./store/slices/userSlice";
 import Spinner from "./components/spinner/Spinner";
 import GlobalStyles from "./GlobalStyles";
+import styled from "styled-components";
 
 const Navigation = lazy(() => import("./components/navigation/Navigation"));
 const Home = lazy(() => import("./pages/home/Home"));
 const Dashboard = lazy(() => import("./pages/dashboard/Dashboard"));
 const Login = lazy(() => import("./pages/login/Login"));
 const NotFound = lazy(() => import("./pages/not-found/NotFound"));
+
+const AppContainer = styled.div`
+  overflow: hidden;
+`;
 
 const App = () => {
   const dispatch = useAppDispatch();
@@ -26,18 +31,18 @@ const App = () => {
   }, [dispatch]);
 
   return (
-    <>
+    <AppContainer>
       <GlobalStyles />
       <Suspense fallback={<Spinner />}>
         <Routes>
-          <Route path="/" element={<Navigation />}>
-            <Route index element={!user ? <Home /> : <Dashboard />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/*" element={<NotFound />} />
+          <Route path="/" Component={Navigation}>
+            <Route index Component={!user ? Home : Dashboard} />
+            <Route path={"/login"} Component={Login} />
+            <Route path="/*" Component={NotFound} />
           </Route>
         </Routes>
       </Suspense>
-    </>
+    </AppContainer>
   );
 };
 

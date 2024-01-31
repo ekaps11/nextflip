@@ -43,7 +43,6 @@ export const MoviePreviewContainer = styled.div<{
   h2 {
     font-size: ${({ $strLength }) =>
       $strLength && $strLength > 25 ? "4vw" : "4.5vw"};
-    margin-top: 1em;
   }
 
   img {

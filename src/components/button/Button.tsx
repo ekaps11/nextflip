@@ -1,17 +1,12 @@
 import { ReactNode, ButtonHTMLAttributes } from "react";
-import { ButtonContainer, ButtonSpinner } from "./Button-style";
+import { ButtonContainer } from "./Button-style";
 
 type ButtonProps = {
   children: ReactNode;
-  isLoading?: boolean;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
-const Button = ({ children, isLoading, ...props }: ButtonProps) => {
-  return (
-    <ButtonContainer disabled={isLoading} {...props}>
-      {isLoading ? <ButtonSpinner /> : children}
-    </ButtonContainer>
-  );
+const Button = ({ children, ...props }: ButtonProps) => {
+  return <ButtonContainer {...props}>{children}</ButtonContainer>;
 };
 
 export default Button;

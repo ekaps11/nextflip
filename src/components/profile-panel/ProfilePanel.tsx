@@ -1,27 +1,26 @@
 import { useTranslation } from "react-i18next";
-import {
-  ManageProfileContainer,
-  ProfileIndicator,
-} from "./ManageProfile-style";
+import { ProfilePanelContainer, ProfileIndicator } from "./ProfilePanel-style";
 import { logOut } from "../../utils/firebase/firebase.utils";
 import { PiPencilLight, PiSignOut, PiQuestion } from "react-icons/pi";
 import { BsPerson } from "react-icons/bs";
-import { useAppSelector } from "../../store/store";
 import CustomLink from "../custom-link/CustomLink";
+import { forwardRef } from "react";
 
-const ManageProfile = () => {
-  const { profilePanel } = useAppSelector(({ ui }) => ui);
-  const { t } = useTranslation();
+type ProfilePanelProps = {
+  mouseLeave: () => void;
+};
 
-  const [help, account] = Object.values(
-    t("footer.links", { returnObjects: true })
-  ).slice(1, 3);
+const ProfilePanel = forwardRef<HTMLDivElement, ProfilePanelProps>(
+  ({ mouseLeave }, ref) => {
+    const { t } = useTranslation();
+    const [help, account] = Object.values(
+      t("footer.links", { returnObjects: true })
+    ).slice(1, 3);
 
-  const signOut = () => logOut();
+    const signOut = () => logOut();
 
-  return (
-    profilePanel && (
-      <ManageProfileContainer>
+    return (
+      <ProfilePanelContainer ref={ref} onMouseLeave={mouseLeave}>
         <ProfileIndicator />
 
         <CustomLink to={account.url} target="_blank">
@@ -45,9 +44,9 @@ const ManageProfile = () => {
           <PiSignOut />
           <p onClick={signOut}>{t("sign.out")}</p>
         </div>
-      </ManageProfileContainer>
-    )
-  );
-};
+      </ProfilePanelContainer>
+    );
+  }
+);
 
-export default ManageProfile;
+export default ProfilePanel;

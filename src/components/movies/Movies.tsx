@@ -1,16 +1,18 @@
-import Carousel from "../carousel/Carousel";
 import { MOVIE_REQUESTS } from "../../utils/tmdb";
-import { MoviesContainer } from "./Movies-style";
+import Carousel from "../carousel/Carousel";
+import styled from "styled-components";
+
+const MoviesContainer = styled.div`
+  margin-top: -5%;
+  margin-bottom: 5%;
+`;
 
 const Movies = () => {
   return (
     <MoviesContainer>
-      <Carousel title="Trending" movieUrl={MOVIE_REQUESTS.TRENDING} />
-      <Carousel title="Popular" movieUrl={MOVIE_REQUESTS.POPULAR} />
-      <Carousel
-        title="Indonesian Movies"
-        movieUrl={MOVIE_REQUESTS.INDONESIAN}
-      />
+      <Carousel url={MOVIE_REQUESTS.POPULAR} title="Popular on Nextflip" />
+      <Carousel url={MOVIE_REQUESTS.INDONESIAN} title="Indonesian Movies" />
+      <Carousel url={MOVIE_REQUESTS.UPCOMING} title="Upcoming Movies" />
     </MoviesContainer>
   );
 };

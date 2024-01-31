@@ -1,17 +1,40 @@
-import { CardContainer } from "./Card-style";
+import { FaPlay, FaPlus, FaChevronDown } from "react-icons/fa";
+import { SlLike } from "react-icons/sl";
+import { CardContainer, CardInfo } from "./Card-style";
+import { t } from "i18next";
+import { getTime } from "../../utils/helper/helper";
+import { useGetMovieQuery, extendedUrl, image } from "../../utils/tmdb";
 
 type CardProps = {
-  posterUrl: string;
-  movieTitle: string;
+  id: number;
 };
 
-const Card = ({ posterUrl, movieTitle }: CardProps) => {
+const Card = ({ id, ...props }: CardProps) => {
+  const { data } = useGetMovieQuery(
+    `https://api.themoviedb.org/3/movie/${id}${extendedUrl}`
+  );
+
+  const movieDuration = getTime(data?.runtime);
+  const movieGenre = data?.genres
+    .map(({ id }: { id: number }) => t(`genres.${id}`))
+    .join(" • ");
+
   return (
-    <CardContainer>
-      <img src={posterUrl} alt={movieTitle} />
-      <div>
-        <p>{movieTitle}</p>
-      </div>
+    <CardContainer key={id} {...props}>
+      <img src={image + data?.backdrop_path} alt={data?.title} />
+
+      <CardInfo>
+        <div>
+          <FaPlay />
+          <FaPlus />
+          <SlLike />
+          <FaChevronDown />
+        </div>
+        <p>
+          {movieDuration} <span>HD</span>
+        </p>
+        <p>{movieGenre}</p>
+      </CardInfo>
     </CardContainer>
   );
 };

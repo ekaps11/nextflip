@@ -2,7 +2,7 @@ import { css } from "styled-components";
 
 export const colors = {
   red: ["#e50914", "#dc1721", "#fa2f2f"],
-  grey: ["#333", "#717272"],
+  grey: ["#333", "#717272", '#181818'],
   blue: ["#0071eb"],
   white: ["#f9f6e6"],
   orange: ["#e87c03"],
