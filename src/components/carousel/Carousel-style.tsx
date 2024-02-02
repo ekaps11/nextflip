@@ -5,6 +5,17 @@ export const Title = styled.p`
   margin-bottom: 5px;
 `;
 
+export const CardSlider = styled.div`
+  display: flex;
+  flex-direction: row;
+
+  div {
+    overflow: hidden;
+    width: 2em;
+    height: 6em;
+  }
+`;
+
 export const CarouselContainer = styled.div<{ $isShow?: boolean }>`
   padding: 5%;
   margin-bottom: -5%;

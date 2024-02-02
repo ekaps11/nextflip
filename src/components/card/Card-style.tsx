@@ -53,6 +53,10 @@ export const CardContainer = styled.div`
     transition-delay: 0.7s;
   }
 
+  &:focus {
+    outline: none;
+  }
+
   &:hover {
     transition-delay: 0.7s;
     transform: scale(1.3);

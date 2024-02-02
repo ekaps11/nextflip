@@ -11,8 +11,8 @@ const Movies = () => {
   return (
     <MoviesContainer>
       <Carousel url={MOVIE_REQUESTS.POPULAR} title="Popular on Nextflip" />
-      <Carousel url={MOVIE_REQUESTS.INDONESIAN} title="Indonesian Movies" />
-      <Carousel url={MOVIE_REQUESTS.UPCOMING} title="Upcoming Movies" />
+      {/* <Carousel url={MOVIE_REQUESTS.INDONESIAN} title="Indonesian Movies" />
+      <Carousel url={MOVIE_REQUESTS.UPCOMING} title="Upcoming Movies" /> */}
     </MoviesContainer>
   );
 };

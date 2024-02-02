@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useGetMovieQuery } from "../../utils/tmdb";
-import Cards from "../card/Card";
+import Card from "../card/Card";
 import CustomArrow from "./CustomArrow";
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa6";
 import { CarouselContainer, Title } from "./Carousel-style";
@@ -35,11 +35,12 @@ const Carousel = ({ url, title }: CarouselProps) => {
         breakpoint: 500,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 2,
-          swipeToSlide: true,
+          slidesToScroll: 1,
+          infinite: false,
           dots: false,
           arrows: false,
-          infinite: false,
+          swipeToSlide: true,
+          swipe: true,
         },
       },
     ],
@@ -50,7 +51,7 @@ const Carousel = ({ url, title }: CarouselProps) => {
       <Title>{title}</Title>
       <Slider ref={ref} {...settings}>
         {data?.results.map(({ id }: { id: number }) => (
-          <Cards key={id} id={id} />
+          <Card key={id} id={id} />
         ))}
       </Slider>
     </CarouselContainer>
