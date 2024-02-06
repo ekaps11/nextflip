@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
-import { colors } from "../../utils/styles/commonStyle";
 import { ButtonContainer } from "../button/Button-style";
+import { InputField, ShowPassword } from "../input/Input-style";
 
 export const Form = styled.form`
   display: flex;
@@ -25,13 +25,8 @@ export const Form = styled.form`
 `;
 
 export const AuthError = styled.p`
-  background: ${colors.orange};
   border-radius: 2px;
   padding: 0.5em 1em;
-
-  &::first-letter {
-    text-transform: capitalize;
-  }
 `;
 
 export const SignUpContainer = styled.div`
@@ -43,9 +38,55 @@ export const SignUpContainer = styled.div`
     margin-bottom: 1.5em;
   }
 
+  ${InputField} {
+    &[type="password"],
+    &[type="text"] {
+      margin-bottom: -1.5em;
+    }
+  }
+
+  ${ShowPassword} {
+    width: 1.35em;
+    top: -0.9em;
+  }
+
+  @media (min-width: 35em) {
+    ${InputField} {
+      &[type="password"],
+      &[type="text"] {
+        margin-bottom: -6em;
+      }
+    }
+
+    ${ShowPassword} {
+      top: 2.8em;
+      left: 85%;
+    }
+  }
+
+  @media (min-width: 45em) {
+    ${ShowPassword} {
+      left: 80%;
+    }
+  }
+
   @media (min-width: 50em) {
     p {
       font-size: 1.1em;
+    }
+  }
+
+  @media (min-width: 65em) {
+    ${InputField} {
+      &[type="password"],
+      &[type="text"] {
+        margin-bottom: -6.65em;
+      }
+    }
+
+    ${ShowPassword} {
+      left: 40%;
+      top: 3.35em;
     }
   }
 `;

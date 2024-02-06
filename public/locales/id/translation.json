@@ -174,12 +174,12 @@
     "links": [
       {
         "title": "Tanya Jawab",
-        "url": "https://help.netflix.com/en/node/412",
+        "url": "https://help.netflix.com/id/node/412",
         "element": "footer-login"
       },
       {
         "title": "Pusat Bantuan",
-        "url": "https://help.netflix.com/en/",
+        "url": "https://help.netflix.com/id/",
         "element": "footer"
       },
       {
@@ -189,7 +189,7 @@
       },
       {
         "title": "Pusat Media",
-        "url": "https://media.netflix.com/en/",
+        "url": "https://media.netflix.com/id/",
         "element": "footer"
       },
       {
@@ -218,27 +218,27 @@
       },
       {
         "title": "Ketentuan Penggunaan",
-        "url": "https://help.netflix.com/legal/termsofuse",
+        "url": "https://help.netflix.com/id/legal/termsofuse",
         "element": "footer-login"
       },
       {
         "title": "Privasi",
-        "url": "https://help.netflix.com/legal/privacy",
+        "url": "https://help.netflix.com/id/legal/privacy",
         "element": "footer-login"
       },
       {
         "title": "Preferensi Cookie",
-        "url": "http://localhost:5173/",
+        "url": "https://www.netflix.com/id-en/",
         "element": "footer-login"
       },
       {
         "title": "Informasi Perusahaan",
-        "url": "https://help.netflix.com/legal/corpinfo",
+        "url": "https://help.netflix.com/id/legal/corpinfo",
         "element": "footer-login"
       },
       {
         "title": "Hubungi Kami",
-        "url": "https://help.netflix.com/en/contactus",
+        "url": "https://help.netflix.com/id/contactus",
         "element": "footer"
       },
       {
@@ -248,12 +248,12 @@
       },
       {
         "title": "Informasi Legal",
-        "url": "https://help.netflix.com/legal/notices",
+        "url": "https://help.netflix.com/id/legal/notices",
         "element": "footer"
       },
       {
         "title": "Hanya di Nextflip",
-        "url": "https://www.netflix.com/id-en/browse/genre/839338",
+        "url": "https://www.netflix.com/id-id/browse/genre/839338",
         "element": "footer"
       }
     ]

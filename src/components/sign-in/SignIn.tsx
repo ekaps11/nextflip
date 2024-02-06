@@ -8,14 +8,17 @@ import SignInError from "./SignInError";
 import { Email, EmailSchema } from "../../utils/zod/schemes";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { login } from "../../utils/firebase/firebase.utils";
-import { useAppSelector } from "../../store/store";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useAppSelector } from "../../store/store";
+// import { setPasswordIcon } from "../../store/slices/uiSlice";
 
 const SignIn = () => {
+  // const dispatch = useAppDispatch();
   const [authError, setAuthError] = useState("");
   const navigate = useNavigate();
   const { user } = useAppSelector(({ user }) => user);
+  // const { passwordIcon } = useAppSelector(({ ui }) => ui);
   const { t } = useTranslation();
 
   const {
@@ -36,6 +39,8 @@ const SignIn = () => {
     user && navigate("/");
     if (user) window.location.reload();
   }, [user, navigate]);
+
+  // console.log(passwordIcon);
 
   return (
     <SignInContainer onSubmit={handleSubmit(handleSignIn)}>

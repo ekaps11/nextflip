@@ -17,6 +17,7 @@ export const CardInfo = styled.div`
     border: 1px solid grey;
     border-radius: 50%;
     margin-right: 5px;
+    cursor: pointer;
 
     &:first-child {
       background: white;
@@ -68,6 +69,7 @@ export const CardContainer = styled.div`
     ${CardInfo} {
       opacity: 1;
       transition-delay: 0.7s;
+      pointer-events: auto;
     }
   }
 

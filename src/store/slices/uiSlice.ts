@@ -1,19 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  navStack: false,
+  passwordIcon: false,
 };
 
 const uiSlice = createSlice({
   name: "ui",
   initialState,
   reducers: {
-    setNavStack(state, { payload }) {
-      state.navStack = payload;
+    setPasswordIcon(state, {payload}) {
+      state.passwordIcon = payload;
     },
   },
 });
 
-export const { setNavStack } = uiSlice.actions;
+export const { setPasswordIcon } = uiSlice.actions;
 
 export default uiSlice.reducer;

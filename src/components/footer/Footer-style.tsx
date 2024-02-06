@@ -3,6 +3,21 @@ import { SelectContainer } from "../select/Select-style";
 import { LinkContainer } from "../custom-link/CustomLink-style";
 import { colors } from "../../utils/styles/commonStyle";
 
+export const Links = styled.div`
+  margin: 1.5em 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1em;
+
+  @media (min-width: 30em) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (min-width: 60em) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+`;
+
 export const FooterContainer = styled.footer<{ $user: boolean }>`
   padding: 5%;
   border-top: 1px solid ${colors.grey[2]};
@@ -43,20 +58,5 @@ export const FooterContainer = styled.footer<{ $user: boolean }>`
 
   @media (min-width: 65em) {
     padding: ${({ $user }) => $user && "3% 10%"};
-  }
-`;
-
-export const Links = styled.div`
-  margin: 1.5em 0;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1em;
-
-  @media (min-width: 30em) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  @media (min-width: 60em) {
-    grid-template-columns: repeat(4, 1fr);
   }
 `;

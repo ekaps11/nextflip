@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { colors, flex } from "../../utils/styles/commonStyle";
-import { InputField, InputError } from "../input/Input-style";
+import { InputField, InputError, ShowPassword } from "../input/Input-style";
 import { ButtonContainer } from "../button/Button-style";
 import { LinkContainer } from "../custom-link/CustomLink-style";
 
@@ -96,10 +96,18 @@ export const SignInContainer = styled.form<{ $error?: boolean }>`
 
   ${InputField} {
     background: ${colors.grey[0]};
-    outline: none;
     border-top: none;
     border-left: none;
     border-right: none;
+
+    &[type="password"],
+    &[type="text"] {
+      margin-bottom: -2em;
+    }
+  }
+
+  ${ShowPassword}:hover {
+    background: grey;
   }
 
   ${InputError} {
@@ -110,6 +118,16 @@ export const SignInContainer = styled.form<{ $error?: boolean }>`
   @media (min-width: 30em) {
     h1 {
       margin-top: 1.25em;
+    }
+
+    ${ShowPassword} {
+      left: 93%;
+    }
+  }
+
+  @media (min-width: 45em) {
+    ${ShowPassword} {
+      left: 88%;
     }
   }
 `;

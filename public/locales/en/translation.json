@@ -204,7 +204,7 @@
       },
       {
         "title": "Redeem Gift Cards",
-        "url": "https://www.netflix.com/id/redeem",
+        "url": "https://www.netflix.com/id-en/redeem",
         "element": "footer"
       },
       {
@@ -228,7 +228,7 @@
       },
       {
         "title": "Cookie Preferences",
-        "url": "http://localhost:5173/",
+        "url": "https://www.netflix.com/id-en/",
         "element": "footer-login"
       },
       {

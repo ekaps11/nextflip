@@ -5,17 +5,6 @@ export const Title = styled.p`
   margin-bottom: 5px;
 `;
 
-export const CardSlider = styled.div`
-  display: flex;
-  flex-direction: row;
-
-  div {
-    overflow: hidden;
-    width: 2em;
-    height: 6em;
-  }
-`;
-
 export const CarouselContainer = styled.div<{ $isShow?: boolean }>`
   padding: 5%;
   margin-bottom: -5%;
@@ -69,25 +58,27 @@ export const CarouselContainer = styled.div<{ $isShow?: boolean }>`
 
     .slick-slide {
       padding-right: 3px;
-    }
 
-    .slick-slide[data-index="-1"] {
-      img {
-        display: ${({ $isShow }) => $isShow === false && "none"};
+      &[data-index="-1"] {
+        img {
+          display: ${({ $isShow }) => $isShow === false && "none"};
+        }
       }
     }
   }
 
   .slick-dots {
     top: -1.9em;
-    right: -0.5em;
+    right: 0;
     height: 1.5em;
     width: 40%;
 
     li button {
       &:before {
+        /* color: white; */
         content: "➖";
         font-size: 25px;
+        margin-right: -5px;
       }
     }
   }
@@ -100,7 +91,7 @@ export const CarouselContainer = styled.div<{ $isShow?: boolean }>`
     }
 
     .slick-dots {
-      right: -13%;
+      right: -14%;
     }
   }
 `;

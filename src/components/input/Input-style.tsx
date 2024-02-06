@@ -1,10 +1,15 @@
 import { styled } from "styled-components";
 import { colors } from "../../utils/styles/commonStyle";
 
-export const InputContainer = styled.div`
+export const ShowPassword = styled.div`
+  width: fit-content;
+  cursor: pointer;
+  padding: 4px 3px 0 3px;
+  transition: 0.3s;
+  border-radius: 50%;
   position: relative;
-  display: flex;
-  flex-direction: column;
+  top: -0.5em;
+  left: 90%;
 `;
 
 export const InputField = styled.input<{
@@ -49,7 +54,7 @@ export const InputField = styled.input<{
     letter-spacing: 3px;
   }
 
-  input[type="checkbox"] {
+  &[type="checkbox"] {
     margin-right: 3px;
     height: 0.9em;
     accent-color: grey;
@@ -77,4 +82,10 @@ export const InputError = styled.p`
     padding-right: 0.1em;
     margin-top: 2px;
   }
+`;
+
+export const InputContainer = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
 `;
