@@ -1,6 +1,6 @@
 import { Suspense, lazy, useEffect } from "react";
 import { User } from "firebase/auth";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import { useAppSelector, useAppDispatch } from "./store/store";
 import { getUser } from "./utils/firebase/firebase.utils";
 import { setUser } from "./store/slices/userSlice";
@@ -21,14 +21,18 @@ const AppContainer = styled.div`
 const App = () => {
   const dispatch = useAppDispatch();
   const { user } = useAppSelector(({ user }) => user);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const unsubscribe = getUser((user: User) => {
       dispatch(setUser(user));
     });
 
+    if (user && location.pathname === "/login") navigate("/");
+
     return unsubscribe;
-  }, [dispatch]);
+  }, [dispatch, location, navigate, user]);
 
   return (
     <AppContainer>

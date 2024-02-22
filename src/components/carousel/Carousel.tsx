@@ -35,9 +35,12 @@ const Carousel = ({ url, title }: CarouselProps) => {
         breakpoint: 500,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 2,
+          slidesToScroll: 1,
           swipeToSlide: true,
           dots: false,
+          arrows: false,
+          fade: false,
+          useCSS: false,
         },
       },
     ],

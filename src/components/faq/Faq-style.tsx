@@ -1,10 +1,11 @@
 import { styled } from "styled-components";
 import { ButtonContainer } from "../button/Button-style";
-import { InputField, ShowPassword } from "../input/Input-style";
+import { ShowPassword } from "../input/Input-style";
 
 export const FaqContainer = styled.div`
   padding: 5%;
   padding-top: unset;
+  margin-bottom: 5%;
 
   h2 {
     margin-bottom: 1em;
@@ -14,25 +15,17 @@ export const FaqContainer = styled.div`
     text-transform: initial;
   }
 
-  ${InputField} {
-    &[type="password"],
-    &[type="text"] {
-      margin-bottom: -1.75em;
-    }
-  }
-
   ${ShowPassword} {
     top: -0.75em;
   }
 
-  @media (min-width: 50em) {
+  @media (min-width: 45em) {
     ${ShowPassword} {
-      left: 85%;
+      left: 85% !important;
     }
   }
 
   @media (min-width: 65em) {
     padding: 0 10%;
-    margin-bottom: 5%;
   }
 `;

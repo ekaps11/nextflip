@@ -103,6 +103,7 @@ export const SignInContainer = styled.form<{ $error?: boolean }>`
     &[type="password"],
     &[type="text"] {
       margin-bottom: -2em;
+      outline: none;
     }
   }
 

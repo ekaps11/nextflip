@@ -75,7 +75,6 @@ export const CarouselContainer = styled.div<{ $isShow?: boolean }>`
 
     li button {
       &:before {
-        /* color: white; */
         content: "➖";
         font-size: 25px;
         margin-right: -5px;

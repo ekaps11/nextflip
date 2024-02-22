@@ -1,6 +1,7 @@
 import { styled } from "styled-components";
 import { ButtonContainer } from "../button/Button-style";
 import { InputField, ShowPassword } from "../input/Input-style";
+import { colors } from "../../utils/styles/commonStyle";
 
 export const Form = styled.form`
   display: flex;
@@ -25,6 +26,7 @@ export const Form = styled.form`
 `;
 
 export const AuthError = styled.p`
+  background: ${colors.orange};
   border-radius: 2px;
   padding: 0.5em 1em;
 `;
