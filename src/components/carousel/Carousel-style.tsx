@@ -5,9 +5,49 @@ export const Title = styled.p`
   margin-bottom: 5px;
 `;
 
+export const CardSlider = styled.div`
+  display: flex;
+  gap: 3px;
+  overflow-x: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  img {
+    border-radius: 5px;
+    width: 42vw;
+    aspect-ratio: 16/9;
+  }
+
+  @media (min-width: 35em) {
+    img {
+      width: 28vw;
+    }
+  }
+
+  @media (min-width: 45em) {
+    img {
+      width: 21.5vw;
+    }
+  }
+
+  @media (min-width: 45em) and (orientation: portrait) {
+    img {
+      width: 28vw;
+    }
+  }
+
+  @media (min-width: 65em) {
+    img {
+      width: 17vw;
+    }
+  }
+`;
+
 export const CarouselContainer = styled.div<{ $isShow?: boolean }>`
   padding: 5%;
-  margin-bottom: -5%;
+  margin-bottom: -7%;
 
   .slick-arrow {
     height: 100%;
@@ -25,10 +65,6 @@ export const CarouselContainer = styled.div<{ $isShow?: boolean }>`
       svg {
         transition: 0.3s;
         transform: scale(1.3);
-
-        @media (hover: none) {
-          transform: unset;
-        }
       }
     }
   }
@@ -83,8 +119,6 @@ export const CarouselContainer = styled.div<{ $isShow?: boolean }>`
   }
 
   @media (min-width: 60em) {
-    margin-bottom: -7%;
-
     .slick-arrow {
       font-size: 1.5em;
     }

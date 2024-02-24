@@ -25,11 +25,11 @@ const App = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    if (user && location.pathname === "/login") navigate("/");
+
     const unsubscribe = getUser((user: User) => {
       dispatch(setUser(user));
     });
-
-    if (user && location.pathname === "/login") navigate("/");
 
     return unsubscribe;
   }, [dispatch, location, navigate, user]);

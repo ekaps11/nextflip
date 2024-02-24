@@ -73,16 +73,6 @@ export const CardContainer = styled.div`
     }
   }
 
-  @media (hover: none) {
-    &:hover {
-      all: unset;
-
-      ${CardInfo} {
-        opacity: 0;
-      }
-    }
-  }
-
   @media (min-width: 65em) {
     &:hover {
       transform: scale(1.5);

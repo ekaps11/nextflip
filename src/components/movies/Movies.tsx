@@ -1,11 +1,6 @@
 import { MOVIE_REQUESTS } from "../../utils/tmdb";
 import Carousel from "../carousel/Carousel";
-import styled from "styled-components";
-
-const MoviesContainer = styled.div`
-  margin-top: -5%;
-  margin-bottom: 5%;
-`;
+import { MoviesContainer } from "./Movies-style";
 
 const Movies = () => {
   return (

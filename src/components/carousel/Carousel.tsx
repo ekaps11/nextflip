@@ -1,19 +1,19 @@
-import { RefObject, useRef, useState } from "react";
+import { useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { useGetMovieQuery } from "../../utils/tmdb";
+import { Movie, image, useGetMovieQuery } from "../../utils/tmdb";
 import Card from "../card/Card";
 import CustomArrow from "./CustomArrow";
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa6";
-import { CarouselContainer, Title } from "./Carousel-style";
+import { CarouselContainer, Title, CardSlider } from "./Carousel-style";
 
 type CarouselProps = { url: string; title: string };
 
 const Carousel = ({ url, title }: CarouselProps) => {
-  const ref: RefObject<Slider> = useRef(null);
   const [isShow, setIsShow] = useState(false);
   const { data } = useGetMovieQuery(url);
+  const desktopMode = navigator.userAgent.includes("Windows");
 
   const settings = {
     dots: true,
@@ -31,29 +31,29 @@ const Carousel = ({ url, title }: CarouselProps) => {
           slidesToScroll: 3,
         },
       },
-      {
-        breakpoint: 500,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          swipeToSlide: true,
-          dots: false,
-          arrows: false,
-          fade: false,
-          useCSS: false,
-        },
-      },
     ],
+  };
+
+  const getMovies = () => {
+    const movies = data?.results.map(({ id, backdrop_path, title }: Movie) =>
+      desktopMode ? (
+        <Card key={id} id={id} />
+      ) : (
+        <img key={id} src={image + backdrop_path} alt={title} />
+      )
+    );
+
+    return desktopMode ? (
+      <Slider {...settings}>{movies}</Slider>
+    ) : (
+      <CardSlider>{movies}</CardSlider>
+    );
   };
 
   return (
     <CarouselContainer $isShow={isShow}>
       <Title>{title}</Title>
-      <Slider ref={ref} {...settings}>
-        {data?.results.map(({ id }: { id: number }) => (
-          <Card key={id} id={id} />
-        ))}
-      </Slider>
+      {getMovies()}
     </CarouselContainer>
   );
 };
