@@ -7,11 +7,13 @@ import { setUser } from "./store/slices/userSlice";
 import Spinner from "./components/spinner/Spinner";
 import GlobalStyles from "./GlobalStyles";
 import styled from "styled-components";
+import { device } from "./utils/helper/helper";
 
 const Navigation = lazy(() => import("./components/navigation/Navigation"));
 const Home = lazy(() => import("./pages/home/Home"));
 const Dashboard = lazy(() => import("./pages/dashboard/Dashboard"));
 const Login = lazy(() => import("./pages/login/Login"));
+const Preview = lazy(() => import("./pages/preview/Preview"));
 const NotFound = lazy(() => import("./pages/not-found/NotFound"));
 
 const AppContainer = styled.div`
@@ -41,9 +43,10 @@ const App = () => {
         <Routes>
           <Route path="/" Component={Navigation}>
             <Route index Component={!user ? Home : Dashboard} />
-            <Route path={"/login"} Component={Login} />
+            <Route path="/login" Component={Login} />
             <Route path="/*" Component={NotFound} />
           </Route>
+          {!device && user && <Route path={"/preview/*"} Component={Preview} />}
         </Routes>
       </Suspense>
     </AppContainer>

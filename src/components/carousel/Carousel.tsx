@@ -7,13 +7,14 @@ import Card from "../card/Card";
 import CustomArrow from "./CustomArrow";
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa6";
 import { CarouselContainer, Title, CardSlider } from "./Carousel-style";
+import CustomLink from "../custom-link/CustomLink";
+import { device } from "../../utils/helper/helper";
 
 type CarouselProps = { url: string; title: string };
 
 const Carousel = ({ url, title }: CarouselProps) => {
   const [isShow, setIsShow] = useState(false);
   const { data } = useGetMovieQuery(url);
-  const desktopMode = navigator.userAgent.includes("Windows");
 
   const settings = {
     dots: true,
@@ -31,19 +32,36 @@ const Carousel = ({ url, title }: CarouselProps) => {
           slidesToScroll: 3,
         },
       },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          arrows: false,
+          dots: false,
+        },
+      },
     ],
   };
 
-  const getMovies = () => {
-    const movies = data?.results.map(({ id, backdrop_path, title }: Movie) =>
-      desktopMode ? (
-        <Card key={id} id={id} />
-      ) : (
-        <img key={id} src={image + backdrop_path} alt={title} />
-      )
-    );
+  const getMovieList = () => {
+    const movies = data?.results.map(({ id, backdrop_path, title }: Movie) => {
+      if (backdrop_path)
+        return device ? (
+          <Card key={id} id={id} />
+        ) : (
+          <CustomLink
+            key={id}
+            to={{
+              pathname: "/preview",
+              search: `?movie=${id}`,
+            }}
+          >
+            <img src={image + backdrop_path} alt={title} />
+          </CustomLink>
+        );
+    });
 
-    return desktopMode ? (
+    return device ? (
       <Slider {...settings}>{movies}</Slider>
     ) : (
       <CardSlider>{movies}</CardSlider>
@@ -53,7 +71,7 @@ const Carousel = ({ url, title }: CarouselProps) => {
   return (
     <CarouselContainer $isShow={isShow}>
       <Title>{title}</Title>
-      {getMovies()}
+      {getMovieList()}
     </CarouselContainer>
   );
 };

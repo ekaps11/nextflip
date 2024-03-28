@@ -1,29 +1,26 @@
-import { useState, useLayoutEffect } from "react";
 import { useGetMovieQuery, MOVIE_REQUESTS, Movie } from "../../utils/tmdb";
 import { getRandomNumber } from "../../utils/helper/helper";
-import { DashboardBg } from "./Dashboard-style";
-import MoviePreview from "../../components/movie-preview/MoviePreview";
-import Movies from "../../components/movies/Movies";
+import { DashboardBg, MoviesContainer } from "./Dashboard-style";
+import MoviePreview from "../../components/movie-detail/MovieDetail";
+import Carousel from "../../components/carousel/Carousel";
 
 const Dashboard = () => {
   const { data } = useGetMovieQuery(MOVIE_REQUESTS.POPULAR);
-  const movies: Movie[] = data?.results;
-  const [movieObj, setMovieObj] = useState<Movie>();
-
-  useLayoutEffect(() => {
-    const index = getRandomNumber(movies?.length);
-
-    setMovieObj(movies[index]);
-  }, [movies]);
-
-  if (!movieObj?.id) return movieObj?.id;
+  const movies: Movie = data?.results[getRandomNumber(data?.results.length)];
 
   return (
     <>
-      <DashboardBg $bg={movieObj?.backdrop_path}>
-        <MoviePreview id={movieObj?.id} title={movieObj?.title} />
+      <DashboardBg $bg={movies?.backdrop_path}>
+        <MoviePreview id={movies?.id} title={movies?.title} />
       </DashboardBg>
-      <Movies />
+
+      <MoviesContainer>
+        <Carousel url={MOVIE_REQUESTS.POPULAR} title="Popular on Nextflip" />
+        <Carousel url={MOVIE_REQUESTS.TOP_RATED} title="Top Rated Movies" />
+        <Carousel url={MOVIE_REQUESTS.ANIMATION} title="Animation" />
+        <Carousel url={MOVIE_REQUESTS.INDONESIAN} title="Indonesian Movies" />
+        <Carousel url={MOVIE_REQUESTS.KOREAN} title="Korean Movies" />
+      </MoviesContainer>
     </>
   );
 };

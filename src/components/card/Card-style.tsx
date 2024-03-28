@@ -27,9 +27,16 @@ export const CardInfo = styled.div`
     &:last-child {
       float: right;
     }
+
+    &:hover {
+      border: 1px solid white;
+    }
   }
 
   p {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
     letter-spacing: unset;
     font-size: 0.7em;
     margin: 0.5em 0;
@@ -38,7 +45,10 @@ export const CardInfo = styled.div`
       border: 1px solid;
       border-radius: 3px;
       padding: 0 3px;
-      margin-left: 5px;
+    }
+
+    img {
+      width: 3.5em !important;
     }
   }
 `;
@@ -61,6 +71,7 @@ export const CardContainer = styled.div`
   &:hover {
     transition-delay: 0.7s;
     transform: scale(1.3);
+    margin-top: -5em;
 
     img {
       border-radius: 5px 5px 0 0;

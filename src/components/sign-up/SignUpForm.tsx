@@ -43,6 +43,7 @@ const SignUpForm = () => {
         <Input
           type="email"
           label={t("signup.input")}
+          autoComplete="on"
           {...register("email", { onChange: handleChange })}
           errors={email && errors.email?.message}
         />

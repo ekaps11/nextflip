@@ -46,6 +46,7 @@ const SignIn = () => {
         label={t("sign.email")}
         errors={errors.email?.message}
         borderBottom={Boolean(errors.email)}
+        autoComplete="on"
         {...register("email")}
       />
       <Input

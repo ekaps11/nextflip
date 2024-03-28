@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const MoviePreviewButton = styled.div`
+export const MovieDetailButton = styled.div`
   display: flex;
   flex-direction: row;
   gap: 0.5em;
@@ -35,7 +35,7 @@ export const MoviePreviewButton = styled.div`
   }
 `;
 
-export const MoviePreviewContainer = styled.div<{
+export const MovieDetailContainer = styled.div<{
   $strLength?: number;
 }>`
   width: 50%;

@@ -5,15 +5,15 @@ import { TypedUseSelectorHook } from "react-redux/es/types";
 import storage from "redux-persist/lib/storage";
 import { persistReducer, persistStore } from "redux-persist";
 // import logger from "redux-logger";
-import uiReducer from "./slices/uiSlice";
+import movieReducer from "./slices/movieSlice";
 import userReducer from "./slices/userSlice";
 import persistingReducer from "./slices/persistedSlice";
 import { tmdb } from "../utils/tmdb";
 
 const rootReducer = combineReducers({
-  ui: uiReducer,
   user: userReducer,
   persisted: persistingReducer,
+  movie: movieReducer,
   [tmdb.reducerPath]: tmdb.reducer,
 });
 
