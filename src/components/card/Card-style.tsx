@@ -9,6 +9,7 @@ export const CardInfo = styled.div`
   padding: 5%;
   border-radius: 0 0 5px 5px;
   pointer-events: none;
+  margin-top: -0.15em;
 
   svg {
     font-size: 1.25em;

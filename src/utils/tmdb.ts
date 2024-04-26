@@ -1,13 +1,21 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
+type MovieGenre = {
+  id: number;
+  name: string;
+};
+
 export type Movie = {
   id: number;
   title: string;
   name: string;
+  release_date: string;
   backdrop_path: string;
   poster_path: string;
   overview: string;
   file_path: string;
+  runtime: number;
+  genres: MovieGenre[];
 };
 
 const tmdbConfig = {
@@ -21,11 +29,11 @@ export const { apiKey, baseUrl, banner, image } = tmdbConfig;
 export const extendedUrl = `?api_key=${apiKey}`;
 
 export const MOVIE_REQUESTS = {
-  POPULAR: `discover/movie${extendedUrl}&with_original_language=en&without_genres=16%2C27&page=1`,
-  INDONESIAN: `discover/movie${extendedUrl}&include_adult=false&with_original_language=id&without_genres=27%2C18%2C99`,
-  KOREAN: `discover/movie${extendedUrl}&with_original_language=ko`,
-  TOP_RATED: `movie/top_rated${extendedUrl}&page=1`,
-  ANIMATION: `discover/movie${extendedUrl}&with_genres=16&page=1`,
+  POPULAR: `discover/movie${extendedUrl}&page=1&primary_release_year=2023&without_genres=16%2C27`,
+  INDONESIAN: `discover/movie${extendedUrl}&page=1&with_original_language=id&without_genres=27%2C18%2C99`,
+  KOREAN: `discover/movie${extendedUrl}&page=1&with_original_language=ko&without_genres=10749`,
+  ANIMATION: `discover/movie${extendedUrl}&page=1&with_genres=16`,
+  TOP_RATED: `movie/top_rated${extendedUrl}`,
 };
 
 // Define a service using a base URL and expected endpoints

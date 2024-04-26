@@ -51,6 +51,8 @@ export const ActionButton = styled.div`
 `;
 
 export const PreviewDetailContainer = styled.div`
+  display: block;
+
   @media (orientation: portrait) {
     margin-top: 70%;
   }

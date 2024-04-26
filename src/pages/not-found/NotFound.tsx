@@ -1,11 +1,9 @@
-import { useTranslation } from "react-i18next";
+import { t } from "i18next";
 import Button from "../../components/button/Button";
 import Link from "../../components/custom-link/CustomLink";
 import { NotFoundContainer, NotFoundContent } from "./NotFound-style";
 
 const NotFound = () => {
-  const { t } = useTranslation();
-
   return (
     <NotFoundContainer>
       <h1>{t("notFound.header")}?</h1>

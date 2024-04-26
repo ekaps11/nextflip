@@ -1,13 +1,11 @@
 import Faq from "../../components/faq/Faq";
 import { HomeContainer } from "./Home-style";
 import SignUp from "../../components/sign-up/SignUp";
-import { useTranslation } from "react-i18next";
+import { t } from "i18next";
 import Plan from "../../components/plan/Plan";
 import Games from "../../components/games/Games";
 
 const Home = () => {
-  const { t } = useTranslation();
-
   return (
     <>
       <HomeContainer>

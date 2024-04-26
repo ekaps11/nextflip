@@ -1,4 +1,4 @@
-import { useTranslation } from "react-i18next";
+import { t } from "i18next";
 import { ProfilePanelContainer, ProfileIndicator } from "./ProfilePanel-style";
 import { logOut } from "../../utils/firebase/firebase.utils";
 import { PiPencilLight, PiSignOut, PiQuestion } from "react-icons/pi";
@@ -12,7 +12,6 @@ type ProfilePanelProps = {
 
 const ProfilePanel = forwardRef<HTMLDivElement, ProfilePanelProps>(
   ({ mouseLeave }, ref) => {
-    const { t } = useTranslation();
     const [help, account] = Object.values(
       t("footer.links", { returnObjects: true })
     ).slice(1, 3);

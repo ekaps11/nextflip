@@ -2,10 +2,10 @@ import styled from "styled-components";
 import { banner } from "../../utils/tmdb";
 import { gradientBg, flex } from "../../utils/styles/commonStyle";
 
-export const DashboardBg = styled.div<{ $bg: string; $trailer?: string }>`
+export const DashboardBg = styled.div<{ $bg: string }>`
   ${flex}
   justify-content: flex-start;
-  background: ${gradientBg.bot}, url(${({ $bg }) => $bg && banner + $bg});
+  background: ${gradientBg.bot}, url(${({ $bg }) => banner + $bg});
   background-size: cover;
   aspect-ratio: 2;
   padding-left: 5%;

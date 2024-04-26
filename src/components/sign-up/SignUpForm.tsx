@@ -7,13 +7,12 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { AuthError, Form } from "./SignUp-style";
 import { signUpWithEmail } from "../../utils/firebase/firebase.utils";
-import { useTranslation } from "react-i18next";
+import { t } from "i18next";
 
 const SignUpForm = () => {
   const [isEmailValid, setIsEmailValid] = useState("");
   const [authError, setAuthError] = useState("");
   const validEmail = isEmailValid.endsWith(".com");
-  const { t } = useTranslation();
 
   const {
     register,

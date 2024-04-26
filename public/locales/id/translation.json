@@ -12,7 +12,12 @@
 
   "dashboard": {
     "playButton": "Putar",
-    "infoButton": "Selengkapnya"
+    "infoButton": "Selengkapnya",
+    "popular": "Popular di Nextflip",
+    "top": "Film Penilaian Terbaik",
+    "animation": "Animasi",
+    "indonesian": "Film Indonesia",
+    "korean": "Film Korea"
   },
 
   "profile": {
@@ -60,6 +65,17 @@
     "link1": "Kebijakan Privasi",
     "link2": " Ketentuan Layanan",
     "linkHub": "dan"
+  },
+
+  "preview": {
+    "home": "Beranda",
+    "browse": "Telusuri Film",
+    "cast": "Pemeran",
+    "director": "Sutradara",
+    "list": "Daftar Saya",
+    "rate": "Nilai",
+    "share": "Bagikan",
+    "more": "Lainnya Seperti"
   },
 
   "plan": {

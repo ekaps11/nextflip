@@ -1,11 +1,9 @@
-import { useTranslation } from "react-i18next";
+import { t } from "i18next";
 import CustomLink from "../custom-link/CustomLink";
 import { Help } from "./SignIn-style";
 import SignInArticle from "./SignInArticle";
 
 const SignInDetail = () => {
-  const { t } = useTranslation();
-
   return (
     <>
       <Help>

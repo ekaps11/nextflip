@@ -12,7 +12,12 @@
 
   "dashboard": {
     "playButton": "Play",
-    "infoButton": "More Info"
+    "infoButton": "More Info",
+    "popular": "Popular on Nextflip",
+    "top": "Top Rated Movies",
+    "animation": "Animation",
+    "indonesian": "Indonesian Movies",
+    "korean": "Korean Movies"
   },
 
   "profile": {
@@ -60,6 +65,17 @@
     "link1": "Privacy Policy",
     "link2": "Terms of Service",
     "linkHub": "and"
+  },
+
+  "preview": {
+    "home": "Home",
+    "browse": "Browse a Movie",
+    "cast": "Casts",
+    "director": "Director",
+    "list": "My List",
+    "rate": "Rate",
+    "share": "Share",
+    "more": "More Like"
   },
 
   "plan": {

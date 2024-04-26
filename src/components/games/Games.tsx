@@ -1,9 +1,7 @@
-import { useTranslation } from "react-i18next";
+import { t } from "i18next";
 import { GamesContainer } from "./Games-style";
 
 const Games = () => {
-  const { t } = useTranslation();
-
   return (
     <GamesContainer>
       <h2>{t("games.title")}</h2>

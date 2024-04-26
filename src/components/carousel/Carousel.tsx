@@ -10,7 +10,10 @@ import { CarouselContainer, Title, CardSlider } from "./Carousel-style";
 import CustomLink from "../custom-link/CustomLink";
 import { device } from "../../utils/helper/helper";
 
-type CarouselProps = { url: string; title: string };
+type CarouselProps = {
+  url: string;
+  title: string;
+};
 
 const Carousel = ({ url, title }: CarouselProps) => {
   const [isShow, setIsShow] = useState(false);
@@ -45,7 +48,7 @@ const Carousel = ({ url, title }: CarouselProps) => {
 
   const getMovieList = () => {
     const movies = data?.results.map(({ id, backdrop_path, title }: Movie) => {
-      if (backdrop_path)
+      if (backdrop_path) {
         return device ? (
           <Card key={id} id={id} />
         ) : (
@@ -59,6 +62,7 @@ const Carousel = ({ url, title }: CarouselProps) => {
             <img src={image + backdrop_path} alt={title} />
           </CustomLink>
         );
+      }
     });
 
     return device ? (

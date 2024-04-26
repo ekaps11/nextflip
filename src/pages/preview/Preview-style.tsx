@@ -21,6 +21,7 @@ export const PreviewContainer = styled.div`
   iframe,
   .banner {
     aspect-ratio: 16/9;
+    display: block;
   }
 
   div {
@@ -57,7 +58,7 @@ export const PreviewContainer = styled.div`
 
   @media (orientation: portrait) {
     iframe {
-      margin-top: 2.5em;
+      margin-top: 2.4em;
     }
 
     .banner {
@@ -108,7 +109,7 @@ export const PreviewContainer = styled.div`
       padding: 2% 4%;
 
       button {
-        font-size: 1.25em;
+        font-size: 1.5em;
         border-radius: 5px;
       }
     }

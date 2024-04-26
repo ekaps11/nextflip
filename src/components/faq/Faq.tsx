@@ -1,10 +1,9 @@
-import { useTranslation } from "react-i18next";
+import { t } from "i18next";
 import Accordion from "../accordion/Accordion";
 import { FaqContainer } from "./Faq-style";
 import SignUp from "../sign-up/SignUp";
 
 const Faq = () => {
-  const { t } = useTranslation();
   const items = Object.values(t("faq.accordion", { returnObjects: true }));
 
   return (

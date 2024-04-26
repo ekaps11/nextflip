@@ -1,11 +1,10 @@
 import { useState } from "react";
-import { useTranslation } from "react-i18next";
+import { t } from "i18next";
 import { Article } from "./SignIn-style";
 import CustomLink from "../custom-link/CustomLink";
 
 const SignInArticle = () => {
   const [isShow, setIsShow] = useState(true);
-  const { t } = useTranslation();
 
   const toggleDetail = () => setIsShow(false);
 

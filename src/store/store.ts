@@ -2,13 +2,14 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
 import { useSelector, useDispatch } from "react-redux";
 import { TypedUseSelectorHook } from "react-redux/es/types";
-import storage from "redux-persist/lib/storage";
 import { persistReducer, persistStore } from "redux-persist";
-// import logger from "redux-logger";
 import movieReducer from "./slices/movieSlice";
 import userReducer from "./slices/userSlice";
 import persistingReducer from "./slices/persistedSlice";
 import { tmdb } from "../utils/tmdb";
+import storage from "redux-persist/lib/storage";
+// import localforage from "localforage";
+// import logger from "redux-logger";
 
 const rootReducer = combineReducers({
   user: userReducer,
@@ -20,7 +21,7 @@ const rootReducer = combineReducers({
 const persistConfig = {
   key: "root",
   storage,
-  blacklist: ["ui"],
+  blacklist: ["movie"],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

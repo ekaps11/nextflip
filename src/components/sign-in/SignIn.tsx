@@ -9,14 +9,13 @@ import { Email, EmailSchema } from "../../utils/zod/schemes";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { login } from "../../utils/firebase/firebase.utils";
 import { useNavigate } from "react-router-dom";
-import { useTranslation } from "react-i18next";
+import { t } from "i18next";
 import { useAppSelector } from "../../store/store";
 
 const SignIn = () => {
   const [authError, setAuthError] = useState("");
   const navigate = useNavigate();
   const { user } = useAppSelector(({ user }) => user);
-  const { t } = useTranslation();
 
   const {
     register,
@@ -34,7 +33,7 @@ const SignIn = () => {
 
   useEffect(() => {
     user && navigate("/");
-    if (user) window.location.reload();
+    if (user) location.reload();
   }, [user, navigate]);
 
   return (

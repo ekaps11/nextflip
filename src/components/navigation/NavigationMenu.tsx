@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { useTranslation } from "react-i18next";
+import { t } from "i18next";
 import { HiMagnifyingGlass } from "react-icons/hi2";
 import { useNavigate } from "react-router-dom";
 import { useAppSelector } from "../../store/store";
@@ -12,7 +12,6 @@ const NavigationMenu = () => {
   const [showPanel, setShowPanel] = useState(false);
   const iconRef = useRef<HTMLDivElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
-  const { t } = useTranslation();
   const navigate = useNavigate();
   const { user } = useAppSelector(({ user }) => user);
 

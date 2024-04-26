@@ -1,9 +1,7 @@
-import { useTranslation } from "react-i18next";
+import { t } from "i18next";
 import StoryCardContent from "./StoryCardContent";
 
 const StoryCard = () => {
-  const { t } = useTranslation();
-
   return (
     <>
       {Object.values(t("storyCard", { returnObjects: true })).map(

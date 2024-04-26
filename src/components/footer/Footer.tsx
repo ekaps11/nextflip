@@ -1,9 +1,9 @@
 import { useLocation } from "react-router-dom";
-import { useTranslation } from "react-i18next";
 import { FooterContainer, Links } from "./Footer-style";
 import FooterLinks from "./FooterLinks";
 import SelectLanguage from "../select/SelectLanguage";
 import { useAppSelector } from "../../store/store";
+import { t } from "i18next";
 
 type FooterLinkProps = {
   title: string;
@@ -13,7 +13,6 @@ type FooterLinkProps = {
 
 const Footer = () => {
   const isMatched = useLocation().pathname === "/";
-  const { t } = useTranslation();
   const { user } = useAppSelector(({ user }) => user);
 
   const links: FooterLinkProps[] = Object.values(

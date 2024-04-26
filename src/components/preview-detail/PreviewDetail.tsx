@@ -1,14 +1,17 @@
+import { useNavigate } from "react-router-dom";
 import Button from "../button/Button";
 import { getTime } from "../../utils/helper/helper";
 import { useGetMovieQuery, extendedUrl } from "../../utils/tmdb";
-import { FaPlay, FaPlus, FaShare } from "react-icons/fa";
+import { FaPlus, FaShare } from "react-icons/fa";
 import { SlLike } from "react-icons/sl";
+import { AiOutlineRollback } from "react-icons/ai";
 import {
   PreviewDetailContainer,
   TrailerYear,
   TrailerDetail,
   ActionButton,
 } from "./PreviewDetail-style";
+import { t } from "i18next";
 
 type PreviewDetailProps = {
   movieID: string | null;
@@ -21,6 +24,7 @@ type PreviewDetailProps = {
 };
 
 const PreviewDetail = ({ movieID, movieDetail }: PreviewDetailProps) => {
+  const navigate = useNavigate();
   const { data: credits } = useGetMovieQuery(
     `movie/${movieID}/credits${extendedUrl}`
   );
@@ -45,31 +49,35 @@ const PreviewDetail = ({ movieID, movieDetail }: PreviewDetailProps) => {
         <img src="images/spatial.png" alt={movieDetail?.title} />
       </TrailerYear>
 
-      <Button>
-        <FaPlay />
-        Play
+      <Button onClick={() => navigate("/")}>
+        <AiOutlineRollback />
+        {t("preview.home")}
       </Button>
 
       <TrailerDetail>
         <p>{movieDetail?.overview}</p>
-        <p>Casts: {casts}</p>
-        <p>Director: {director?.at(0)?.name}</p>
+        <p>
+          {t("preview.cast")}: {casts}
+        </p>
+        <p>
+          {t("preview.director")}: {director?.at(0)?.name}
+        </p>
       </TrailerDetail>
 
       <ActionButton>
         <div>
           <FaPlus />
-          <p>My List</p>
+          <p>{t("preview.list")}</p>
         </div>
 
         <div>
           <SlLike />
-          <p>Rate</p>
+          <p>{t("preview.rate")}</p>
         </div>
 
         <div>
           <FaShare />
-          <p>Share</p>
+          <p>{t("preview.share")}</p>
         </div>
       </ActionButton>
       <hr />
