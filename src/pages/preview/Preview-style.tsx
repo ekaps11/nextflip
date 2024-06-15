@@ -127,6 +127,12 @@ export const PreviewContainer = styled.div`
     }
   }
 
+  @media (min-width: 45em) and (orientation: landscape) {
+    .banner {
+      height: 90vh;
+    }
+  }
+
   @media (min-width: 60em) {
     ${PreviewNav} {
       font-size: 2em;

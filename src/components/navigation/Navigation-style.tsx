@@ -21,10 +21,10 @@ export const NavLogo = styled(LinkContainer)`
 export const ProfileIcon = styled.div`
   background: url(images/profile.webp);
   width: 2em;
-  aspect-ratio: 1;
+  height: 2em;
   cursor: pointer;
   border-radius: 3px;
-  margin-right: -13px;
+  margin-right: -1.25em;
   margin-left: -5px;
 `;
 
@@ -92,9 +92,5 @@ export const NavContainer = styled.div<{
 
   @media (min-width: 60em) {
     height: 3.5em;
-  }
-
-  @media (min-width: 65em) {
-    padding: ${!user && "0 9%"};
   }
 `;

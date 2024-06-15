@@ -11,9 +11,10 @@
   },
 
   "dashboard": {
+    "search": "film atau artis",
     "playButton": "Putar",
     "infoButton": "Selengkapnya",
-    "popular": "Popular di Nextflip",
+    "popular": "Populer di Nextflip",
     "top": "Film Penilaian Terbaik",
     "animation": "Animasi",
     "indonesian": "Film Indonesia",
@@ -185,6 +186,12 @@
     ]
   },
 
+  "search": {
+    "results": "Pencarian untuk",
+    "noResults": "tidak ada hasil pencarian untuk",
+    "tryAgain": "coba film atau artis lain"
+  },
+
   "footer": {
     "title": "Ada pertanyaan? Hubungi",
     "links": [
@@ -269,11 +276,11 @@
       },
       {
         "title": "Hanya di Nextflip",
-        "url": "https://www.netflix.com/id-id/browse/genre/839338",
         "element": "footer"
       }
     ]
   },
+
   "genres": {
     "28": "Aksi",
     "12": "Petualangan",

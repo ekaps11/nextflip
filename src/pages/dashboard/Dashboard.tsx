@@ -17,7 +17,6 @@ const Dashboard = () => {
     getRandomNumber(filteredMovie?.length)
   ) as Movie;
 
-  if (!movie) return;
   if (isLoading) return <Spinner />;
 
   return (
@@ -33,6 +32,7 @@ const Dashboard = () => {
           url={MOVIE_REQUESTS.ANIMATION}
           title={t("dashboard.animation")}
         />
+        <Carousel url={MOVIE_REQUESTS.ANIME} title="Anime" />
         <Carousel
           url={MOVIE_REQUESTS.INDONESIAN}
           title={t("dashboard.indonesian")}

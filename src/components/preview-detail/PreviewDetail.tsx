@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import Button from "../button/Button";
-import { getTime } from "../../utils/helper/helper";
+import { getDuration } from "../../utils/helper/helper";
 import { useGetMovieQuery, extendedUrl } from "../../utils/tmdb";
 import { FaPlus, FaShare } from "react-icons/fa";
 import { SlLike } from "react-icons/sl";
@@ -12,9 +12,10 @@ import {
   ActionButton,
 } from "./PreviewDetail-style";
 import { t } from "i18next";
+import Spinner from "../spinner/Spinner";
 
 type PreviewDetailProps = {
-  movieID: string | null;
+  movieID: string;
   movieDetail: {
     title: string;
     release_date: string;
@@ -25,26 +26,33 @@ type PreviewDetailProps = {
 
 const PreviewDetail = ({ movieID, movieDetail }: PreviewDetailProps) => {
   const navigate = useNavigate();
-  const { data: credits } = useGetMovieQuery(
-    `movie/${movieID}/credits${extendedUrl}`
+  const { data, isLoading } = useGetMovieQuery(
+    `movie/${movieID}/credits${extendedUrl}&language=en-US`
   );
 
+  const overview =
+    movieDetail?.overview.length > 400
+      ? movieDetail?.overview.slice(0, 400)
+      : movieDetail?.overview;
+
   const casts =
-    credits?.cast
+    data?.cast
       .slice(0, 5)
       .map(({ name }: { name: string }) => name)
       .join(", ") + ", ...more";
 
-  const director = credits?.crew.filter(
+  const director = data?.crew.filter(
     ({ job }: { job: string }) => job === "Director"
   );
+
+  if (isLoading) return <Spinner />;
 
   return (
     <PreviewDetailContainer>
       <h2>{movieDetail?.title}</h2>
       <TrailerYear>
         <p>{movieDetail?.release_date.slice(0, 4)}</p>
-        <p>{getTime(movieDetail?.runtime)}</p>
+        <p>{getDuration(movieDetail?.runtime)}</p>
         <span>HD</span>
         <img src="images/spatial.png" alt={movieDetail?.title} />
       </TrailerYear>
@@ -55,7 +63,7 @@ const PreviewDetail = ({ movieID, movieDetail }: PreviewDetailProps) => {
       </Button>
 
       <TrailerDetail>
-        <p>{movieDetail?.overview}</p>
+        <p>{overview}</p>
         <p>
           {t("preview.cast")}: {casts}
         </p>

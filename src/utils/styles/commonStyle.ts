@@ -1,4 +1,4 @@
-import { css } from "styled-components";
+import { css, keyframes } from "styled-components";
 
 export const colors = {
   red: ["#e50914", "#dc1721", "#fa2f2f"],
@@ -21,4 +21,44 @@ export const gradientBg = {
     rgba(0, 0, 0, 0) 0%,
     rgba(0, 0, 0, 1) 95%
   )`,
+};
+
+export const animation = {
+  fadeIn1: keyframes`
+    from {
+      opacity: 0;
+    } to {
+      opacity: 1;
+    }
+  `,
+
+  fadeIn2: keyframes`
+    from {
+      opacity: 0;
+    } to {
+      opacity: 0.7;
+    }
+  `,
+
+  fullWidth: keyframes`
+    from {
+      width: 0;
+    } to {
+      width: 100%;
+    }
+  `,
+
+  popUp: keyframes`
+    from {
+      transform: scale(0);
+    } to {
+      transform: scale(1);
+    }
+  `,
+
+  spin: keyframes`
+    to {
+      transform: rotate(360deg);
+    }
+  `,
 };

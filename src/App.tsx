@@ -14,6 +14,9 @@ const Home = lazy(() => import("./pages/home/Home"));
 const Dashboard = lazy(() => import("./pages/dashboard/Dashboard"));
 const Login = lazy(() => import("./pages/login/Login"));
 const Preview = lazy(() => import("./pages/preview/Preview"));
+const SearchResults = lazy(
+  () => import("./components/search-results/SearchResults")
+);
 const NotFound = lazy(() => import("./pages/not-found/NotFound"));
 
 const AppContainer = styled.div`
@@ -23,18 +26,22 @@ const AppContainer = styled.div`
 const App = () => {
   const dispatch = useAppDispatch();
   const { user } = useAppSelector(({ user }) => user);
-  const location = useLocation();
+  const { pathname, search } = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (user && location.pathname === "/login") navigate("/");
+    if (user) {
+      pathname === "/login" && navigate("/");
+    } else {
+      pathname === "/search" && navigate("pageNotFound");
+    }
 
     const unsubscribe = getUser((user: User) => {
       dispatch(setUser(user));
     });
 
     return unsubscribe;
-  }, [dispatch, location, navigate, user]);
+  }, [dispatch, navigate, pathname, user]);
 
   return (
     <AppContainer>
@@ -43,8 +50,11 @@ const App = () => {
         <Routes>
           <Route path="/" Component={Navigation}>
             <Route index Component={!user ? Home : Dashboard} />
-            <Route path="/login" Component={Login} />
-            <Route path="/*" Component={NotFound} />
+            <Route path="login" Component={Login} />
+            {user && search && (
+              <Route path="search/*" Component={SearchResults} />
+            )}
+            <Route path="*" Component={NotFound} />
           </Route>
           {!device && user && <Route path={"/preview/*"} Component={Preview} />}
         </Routes>

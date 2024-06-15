@@ -3,7 +3,6 @@ import { setupListeners } from "@reduxjs/toolkit/query";
 import { useSelector, useDispatch } from "react-redux";
 import { TypedUseSelectorHook } from "react-redux/es/types";
 import { persistReducer, persistStore } from "redux-persist";
-import movieReducer from "./slices/movieSlice";
 import userReducer from "./slices/userSlice";
 import persistingReducer from "./slices/persistedSlice";
 import { tmdb } from "../utils/tmdb";
@@ -14,14 +13,13 @@ import storage from "redux-persist/lib/storage";
 const rootReducer = combineReducers({
   user: userReducer,
   persisted: persistingReducer,
-  movie: movieReducer,
   [tmdb.reducerPath]: tmdb.reducer,
 });
 
 const persistConfig = {
   key: "root",
   storage,
-  blacklist: ["movie"],
+  blacklist: ["tmdb"],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

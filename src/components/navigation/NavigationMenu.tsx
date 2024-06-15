@@ -1,12 +1,12 @@
 import { useRef, useState } from "react";
 import { t } from "i18next";
-import { HiMagnifyingGlass } from "react-icons/hi2";
 import { useNavigate } from "react-router-dom";
 import { useAppSelector } from "../../store/store";
 import Button from "../button/Button";
 import ProfilePanel from "../profile-panel/ProfilePanel";
 import SelectLanguage from "../select/SelectLanguage";
 import { ProfileIcon } from "./Navigation-style";
+import Search from "../../pages/search/Search";
 
 const NavigationMenu = () => {
   const [showPanel, setShowPanel] = useState(false);
@@ -24,9 +24,9 @@ const NavigationMenu = () => {
         </>
       ) : (
         <>
-          <HiMagnifyingGlass
-            size="2em"
-            onMouseEnter={() => setShowPanel(false)}
+          <Search
+            placeholder={t("dashboard.search")}
+            mouseEnter={() => setShowPanel(false)}
           />
           <ProfileIcon
             ref={iconRef}

@@ -6,12 +6,15 @@ import NavigationMenu from "./NavigationMenu";
 
 const Navigation = () => {
   const [navBg, setNavBg] = useState(false);
-  const isMatched = useLocation().pathname === "/";
-
-  const handleTransition = () => setNavBg(window.scrollY > 30 ? true : false);
+  const { pathname, search } = useLocation();
+  const isMatched = pathname === "/" || (pathname === "/search" && search);
 
   useEffect(() => {
+    const handleTransition = () => setNavBg(window.scrollY > 30 ? true : false);
+
     window.addEventListener("scroll", handleTransition);
+
+    return () => window.removeEventListener("scroll", handleTransition);
   }, []);
 
   return (

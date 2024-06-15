@@ -7,19 +7,16 @@ import Footer from "../../components/footer/Footer";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { HiMagnifyingGlass } from "react-icons/hi2";
 import { PreviewContainer, PreviewNav } from "./Preview-style";
-import Spinner from "../../components/spinner/Spinner";
 
 const Preview = () => {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const location = useLocation();
-  const movieID = searchParams.get("movie");
+  const movieID = searchParams.get("movie") as string;
 
   const { data } = useGetMovieQuery(`movie/${movieID}/videos${extendedUrl}`);
 
-  const { data: detail, isLoading } = useGetMovieQuery(
-    `movie/${movieID}${extendedUrl}`
-  );
+  const { data: detail } = useGetMovieQuery(`movie/${movieID}${extendedUrl}`);
 
   const trailer = data?.results.filter(
     ({ name }: { name: string }) => name === "Official Trailer"
@@ -28,8 +25,6 @@ const Preview = () => {
   useEffect(() => {
     document.documentElement.scrollTo(0, 0);
   }, [location]);
-
-  if (isLoading) return <Spinner />;
 
   return (
     <PreviewContainer>
@@ -56,6 +51,7 @@ const Preview = () => {
       )}
 
       <PreviewDetail movieID={movieID} movieDetail={detail} />
+
       <PreviewRecommendation
         movieID={movieID}
         title={detail?.title}

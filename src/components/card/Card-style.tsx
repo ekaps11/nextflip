@@ -52,6 +52,10 @@ export const CardInfo = styled.div`
       width: 3.5em !important;
     }
   }
+
+  @media (hover: none) {
+    display: none;
+  }
 `;
 
 export const CardContainer = styled.div`
@@ -69,25 +73,21 @@ export const CardContainer = styled.div`
     outline: none;
   }
 
-  &:hover {
-    transition-delay: 0.7s;
-    transform: scale(1.3);
-    margin-top: -5em;
-
-    img {
-      border-radius: 5px 5px 0 0;
-    }
-
-    ${CardInfo} {
-      opacity: 1;
-      transition-delay: 0.7s;
-      pointer-events: auto;
-    }
-  }
-
-  @media (min-width: 65em) {
+  @media (hover: hover) {
     &:hover {
-      transform: scale(1.5);
+      transition-delay: 0.7s;
+      transform: scale(1.3);
+      margin-top: -5em;
+
+      img {
+        border-radius: 5px 5px 0 0;
+      }
+
+      ${CardInfo} {
+        opacity: 1;
+        transition-delay: 0.7s;
+        pointer-events: auto;
+      }
     }
   }
 `;

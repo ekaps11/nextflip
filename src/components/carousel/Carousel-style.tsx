@@ -6,9 +6,12 @@ export const Title = styled.p`
 `;
 
 export const CardSlider = styled.div`
-  display: flex;
-  gap: 3px;
   overflow-x: scroll;
+
+  div {
+    display: flex;
+    gap: 3px;
+  }
 
   &::-webkit-scrollbar {
     display: none;
@@ -60,8 +63,6 @@ export const CarouselContainer = styled.div<{ $isShow?: boolean }>`
     z-index: 1;
 
     &:hover {
-      opacity: 0.9;
-
       svg {
         transition: 0.3s;
         transform: scale(1.3);
@@ -78,7 +79,6 @@ export const CarouselContainer = styled.div<{ $isShow?: boolean }>`
 
   .slick-prev {
     left: -6%;
-    display: ${({ $isShow }) => $isShow === false && "none !important"};
   }
 
   .slick-next {
@@ -97,7 +97,7 @@ export const CarouselContainer = styled.div<{ $isShow?: boolean }>`
 
       &[data-index="-1"] {
         img {
-          display: ${({ $isShow }) => $isShow === false && "none"};
+          display: ${({ $isShow }) => !$isShow && "none"};
         }
       }
     }

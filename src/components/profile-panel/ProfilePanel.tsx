@@ -1,10 +1,16 @@
+import { useNavigate } from "react-router-dom";
+import { logOut } from "../../utils/firebase/firebase.utils";
 import { t } from "i18next";
 import { ProfilePanelContainer, ProfileIndicator } from "./ProfilePanel-style";
-import { logOut } from "../../utils/firebase/firebase.utils";
 import { PiPencilLight, PiSignOut, PiQuestion } from "react-icons/pi";
 import { BsPerson } from "react-icons/bs";
 import CustomLink from "../custom-link/CustomLink";
 import { forwardRef } from "react";
+import { useAppDispatch } from "../../store/store";
+import {
+  defaultSearchState,
+  setSearchedMovies,
+} from "../../store/slices/persistedSlice";
 
 type ProfilePanelProps = {
   mouseLeave: () => void;
@@ -12,11 +18,17 @@ type ProfilePanelProps = {
 
 const ProfilePanel = forwardRef<HTMLDivElement, ProfilePanelProps>(
   ({ mouseLeave }, ref) => {
+    const dispatch = useAppDispatch();
+    const navigate = useNavigate();
     const [help, account] = Object.values(
       t("footer.links", { returnObjects: true })
     ).slice(1, 3);
 
-    const signOut = () => logOut();
+    const signOut = async () => {
+      dispatch(setSearchedMovies(defaultSearchState));
+      await logOut();
+      navigate("/");
+    };
 
     return (
       <ProfilePanelContainer ref={ref} onMouseLeave={mouseLeave}>
@@ -39,9 +51,9 @@ const ProfilePanel = forwardRef<HTMLDivElement, ProfilePanelProps>(
 
         <hr />
 
-        <div>
+        <div onClick={signOut}>
           <PiSignOut />
-          <p onClick={signOut}>{t("sign.out")}</p>
+          <p>{t("sign.out")}</p>
         </div>
       </ProfilePanelContainer>
     );

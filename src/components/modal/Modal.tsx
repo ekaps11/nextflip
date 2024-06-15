@@ -1,6 +1,7 @@
 import { ReactNode, useEffect, useRef } from "react";
 import Button from "../button/Button";
-import { ModalContainer } from "./Modal-style";
+import { ModalContainer, Backdrop } from "./Modal-style";
+import { handleClickOutside, handleEsc } from "../../utils/helper/helper";
 
 type ModalProps = {
   isOpen: boolean;
@@ -8,36 +9,26 @@ type ModalProps = {
   children: ReactNode;
 };
 
-const Modal = ({ isOpen, onClose, children }: ModalProps) => {
+const Modal = ({ isOpen = false, onClose, children }: ModalProps) => {
   const modalRef = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {
-    const handleEsc = ({ key }: KeyboardEvent) => {
-      key === "Escape" && isOpen && onClose();
-    };
-
-    const handleClickOutside = ({ target }: MouseEvent) => {
-      modalRef.current &&
-        !modalRef.current.contains(target as Node) &&
-        onClose();
-    };
+    const closeModal = () => onClose();
 
     if (isOpen) {
-      window.addEventListener("keydown", handleEsc);
-      document.addEventListener("mousedown", handleClickOutside);
+      handleEsc(closeModal);
+      handleClickOutside(modalRef, closeModal);
     }
-
-    return () => {
-      window.removeEventListener("keydown", handleEsc);
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
   }, [isOpen, onClose]);
 
   return (
-    <ModalContainer ref={modalRef} open={isOpen}>
-      <Button onClick={onClose}>&times;</Button>
-      {children}
-    </ModalContainer>
+    <>
+      {isOpen && <Backdrop />}
+      <ModalContainer ref={modalRef} open={isOpen}>
+        <Button onClick={onClose}>&times;</Button>
+        {children}
+      </ModalContainer>
+    </>
   );
 };
 

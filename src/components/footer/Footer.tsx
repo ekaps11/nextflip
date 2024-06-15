@@ -12,8 +12,10 @@ type FooterLinkProps = {
 };
 
 const Footer = () => {
-  const isMatched = useLocation().pathname === "/";
+  const { pathname } = useLocation();
   const { user } = useAppSelector(({ user }) => user);
+
+  const isMatched = pathname === "/" || pathname === "/search";
 
   const links: FooterLinkProps[] = Object.values(
     t("footer.links", { returnObjects: true })

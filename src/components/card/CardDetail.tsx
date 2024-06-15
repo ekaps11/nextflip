@@ -2,7 +2,7 @@ import { FaPlay, FaPlus, FaChevronDown } from "react-icons/fa";
 import { SlLike } from "react-icons/sl";
 import { CardInfo } from "./Card-style";
 import { t } from "i18next";
-import { getTime } from "../../utils/helper/helper";
+import { getDuration } from "../../utils/helper/helper";
 import { Movie, extendedUrl, useGetMovieQuery } from "../../utils/tmdb";
 
 type CardDetailProps = {
@@ -17,7 +17,7 @@ const CardDetail = ({ data, isDisplay = true }: CardDetailProps) => {
 
   const releaseDate = data?.release_date.slice(0, 4);
 
-  const movieDuration = getTime(data?.runtime);
+  const movieDuration = getDuration(data?.runtime);
 
   const movieGenre = data?.genres
     .map(({ id }: { id: number }) => t(`genres.${id}`))
@@ -31,6 +31,10 @@ const CardDetail = ({ data, isDisplay = true }: CardDetailProps) => {
 
   return (
     <CardInfo>
+      <p>
+        <b>{data?.title}</b>
+      </p>
+
       {isDisplay && (
         <div>
           <FaPlay />

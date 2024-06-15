@@ -73,7 +73,4 @@ export const login = async (
   }
 };
 
-export const logOut = async () => {
-  location.reload();
-  await signOut(auth);
-};
+export const logOut = async () => await signOut(auth);

@@ -34,6 +34,8 @@ const MovieDetail = ({ id, title }: MovieDetailProps) => {
 
   const toggleModal = () => setShowModal(!showModal);
 
+  if (!detail) return;
+
   return (
     <MovieDetailContainer $strLength={strLength}>
       <Modal isOpen={showModal} onClose={toggleModal}>

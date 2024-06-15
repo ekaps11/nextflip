@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { CardInfo } from "../card/Card-style";
 import { ModalContainer } from "../modal/Modal-style";
-import { colors } from "../../utils/styles/commonStyle";
+import { animation, colors } from "../../utils/styles/commonStyle";
 
 export const MovieDetailButton = styled.div`
   display: flex;
@@ -77,6 +77,7 @@ export const MovieDetailContainer = styled.div<{
 
   img {
     width: 60%;
+    max-height: 10em;
     margin-top: 1em;
   }
 
@@ -84,15 +85,12 @@ export const MovieDetailContainer = styled.div<{
     padding: 4% !important;
     color: grey;
     background-color: ${colors.grey[2]};
-    animation: pop-up 0.7s;
+    animation: ${animation.popUp} 0.7s;
+  }
 
-    @keyframes pop-up {
-      from {
-        transform: scale(0);
-      }
-      to {
-        transform: scale(1);
-      }
+  @media (min-width: 25em) {
+    img {
+      max-height: 6em;
     }
   }
 
@@ -103,6 +101,10 @@ export const MovieDetailContainer = styled.div<{
   }
 
   @media (min-width: 45em) and (orientation: landscape) {
+    img {
+      max-height: 12em;
+    }
+
     ${ModalContainer} {
       width: 70%;
     }

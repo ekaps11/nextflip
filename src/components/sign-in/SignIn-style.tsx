@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors, flex } from "../../utils/styles/commonStyle";
+import { animation, colors, flex } from "../../utils/styles/commonStyle";
 import { InputField, InputError, ShowPassword } from "../input/Input-style";
 import { ButtonContainer } from "../button/Button-style";
 import { LinkContainer } from "../custom-link/CustomLink-style";
@@ -28,19 +28,10 @@ export const Article = styled.article`
       margin-top: 1em;
       cursor: context-menu;
       line-height: 1.3em;
-      animation: fadeIn 1s;
+      animation: ${animation.fadeIn1} 1s;
 
       ${LinkContainer} {
         color: ${colors.blue};
-      }
-    }
-
-    @keyframes fadeIn {
-      0% {
-        opacity: 0;
-      }
-      100% {
-        opacity: 1;
       }
     }
   }

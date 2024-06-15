@@ -1,7 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+export const defaultSearchState = {
+  query: "",
+  searchResults: [],
+};
+
 const initialState = {
   language: "english",
+  searchedMovies: defaultSearchState,
 };
 
 export const persistedSlice = createSlice({
@@ -11,9 +17,12 @@ export const persistedSlice = createSlice({
     setLanguage(state, { payload }) {
       state.language = payload;
     },
+    setSearchedMovies(state, { payload }) {
+      state.searchedMovies = payload;
+    },
   },
 });
 
-export const { setLanguage } = persistedSlice.actions;
+export const { setLanguage, setSearchedMovies } = persistedSlice.actions;
 
 export default persistedSlice.reducer;
