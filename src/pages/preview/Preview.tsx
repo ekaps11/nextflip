@@ -1,16 +1,12 @@
 import { useEffect } from "react";
-import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
+import { useLocation, useSearchParams } from "react-router-dom";
 import { banner, extendedUrl, useGetMovieQuery } from "../../utils/tmdb";
 import PreviewDetail from "../../components/preview-detail/PreviewDetail";
 import PreviewRecommendation from "../../components/preview-recommendation/PreviewRecommendation";
-import Footer from "../../components/footer/Footer";
-import { IoIosArrowRoundBack } from "react-icons/io";
-import { HiMagnifyingGlass } from "react-icons/hi2";
-import { PreviewContainer, PreviewNav } from "./Preview-style";
+import { PreviewContainer } from "./Preview-style";
 
 const Preview = () => {
   const [searchParams] = useSearchParams();
-  const navigate = useNavigate();
   const location = useLocation();
   const movieID = searchParams.get("movie") as string;
 
@@ -28,11 +24,6 @@ const Preview = () => {
 
   return (
     <PreviewContainer>
-      <PreviewNav>
-        <IoIosArrowRoundBack onClick={() => navigate(-1)} />
-        <HiMagnifyingGlass />
-      </PreviewNav>
-
       {trailer?.at(0) ? (
         <iframe
           width="100%"
@@ -57,7 +48,6 @@ const Preview = () => {
         title={detail?.title}
         genre={detail?.genres[0].id}
       />
-      <Footer />
     </PreviewContainer>
   );
 };

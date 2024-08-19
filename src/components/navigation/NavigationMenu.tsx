@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { t } from "i18next";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useAppSelector } from "../../store/store";
 import Button from "../button/Button";
 import ProfilePanel from "../profile-panel/ProfilePanel";
@@ -13,16 +13,19 @@ const NavigationMenu = () => {
   const iconRef = useRef<HTMLDivElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
+  const { pathname } = useLocation();
   const { user } = useAppSelector(({ user }) => user);
 
   return (
     <div>
-      {!user ? (
+      {!user && pathname !== "/login" && (
         <>
           <SelectLanguage id="header-language" />
           <Button onClick={() => navigate("/login")}>{t("sign.in")}</Button>
         </>
-      ) : (
+      )}
+
+      {user && (
         <>
           <Search
             placeholder={t("dashboard.search")}

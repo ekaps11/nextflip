@@ -7,6 +7,8 @@ import {
   onAuthStateChanged,
   AuthError,
   signOut,
+  NextOrObserver,
+  User,
 } from "firebase/auth";
 import "../i18n/i18n";
 import i18n from "../i18n/i18n";
@@ -49,8 +51,8 @@ export const signUpWithEmail = async (
   }
 };
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const getUser = (cb: any) => onAuthStateChanged(auth, cb);
+export const getUser = (cb: NextOrObserver<User>) =>
+  onAuthStateChanged(auth, cb);
 
 export const login = async (
   email: string,

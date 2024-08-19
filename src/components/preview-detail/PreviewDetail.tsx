@@ -1,10 +1,7 @@
-import { useNavigate } from "react-router-dom";
-import Button from "../button/Button";
 import { getDuration } from "../../utils/helper/helper";
 import { useGetMovieQuery, extendedUrl } from "../../utils/tmdb";
 import { FaPlus, FaShare } from "react-icons/fa";
 import { SlLike } from "react-icons/sl";
-import { AiOutlineRollback } from "react-icons/ai";
 import {
   PreviewDetailContainer,
   TrailerYear,
@@ -25,7 +22,6 @@ type PreviewDetailProps = {
 };
 
 const PreviewDetail = ({ movieID, movieDetail }: PreviewDetailProps) => {
-  const navigate = useNavigate();
   const { data, isLoading } = useGetMovieQuery(
     `movie/${movieID}/credits${extendedUrl}&language=en-US`
   );
@@ -56,11 +52,6 @@ const PreviewDetail = ({ movieID, movieDetail }: PreviewDetailProps) => {
         <span>HD</span>
         <img src="images/spatial.png" alt={movieDetail?.title} />
       </TrailerYear>
-
-      <Button onClick={() => navigate("/")}>
-        <AiOutlineRollback />
-        {t("preview.home")}
-      </Button>
 
       <TrailerDetail>
         <p>{overview}</p>

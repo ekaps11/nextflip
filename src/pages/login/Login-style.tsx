@@ -2,11 +2,6 @@ import { styled } from "styled-components";
 import { gradientBg } from "../../utils/styles/commonStyle";
 
 export const LoginContainer = styled.div`
-  footer {
-    opacity: 0.8;
-    background: black;
-  }
-
   @media (min-width: 45em) {
     background: ${gradientBg.top}, url(images/banner.webp);
     background-size: cover;
@@ -39,11 +34,6 @@ export const LoginContainer = styled.div`
         }
       }
     }
-
-    footer {
-      margin-top: 5em;
-      padding: 5%;
-    }
   }
 
   @media (min-width: 45em) and (orientation: portrait) {
@@ -60,17 +50,6 @@ export const LoginContainer = styled.div`
     form {
       margin-top: 15vh;
     }
-
-    footer {
-      margin-top: 15vh;
-    }
-  }
-
-  @media (min-width: 60em) and (orientation: portrait) {
-    footer {
-      font-size: 1.5em;
-      margin-top: 15vh;
-    }
   }
 
   @media (min-width: 60em) and (orientation: landscape) {
@@ -84,10 +63,6 @@ export const LoginContainer = styled.div`
       padding: 5%;
       padding-top: 1%;
       width: 35%;
-    }
-
-    footer {
-      padding: 5% 10%;
     }
   }
 `;

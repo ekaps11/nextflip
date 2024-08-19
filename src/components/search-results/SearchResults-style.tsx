@@ -64,6 +64,10 @@ export const MovieResults = styled.div`
   }
 
   @media (orientation: portrait) {
+    ${CardInfo} {
+      width: unset;
+    }
+
     @media (min-width: 45em) {
       ${cardWidth("29.75vw")}
     }

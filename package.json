@@ -27,6 +27,7 @@
     "react-slick": "^0.30.0",
     "redux-logger": "^3.0.6",
     "redux-persist": "^6.0.0",
+    "redux-persist-transform-compress": "^4.2.0",
     "slick-carousel": "^1.8.1",
     "styled-components": "^6.0.4",
     "zod": "^3.21.4"

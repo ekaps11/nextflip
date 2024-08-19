@@ -34,11 +34,11 @@ export const { apiKey, baseUrl, banner, image } = tmdbConfig;
 export const extendedUrl = `?api_key=${apiKey}`;
 
 export const MOVIE_REQUESTS = {
-  POPULAR: `discover/movie${extendedUrl}&page=1&with_original_language=en&without_genres=16%2C27`,
-  INDONESIAN: `discover/movie${extendedUrl}&page=1&with_original_language=id&without_genres=27%2C18%2C99`,
-  ANIME: `discover/movie${extendedUrl}&page=1&with_original_language=ja&with_genres=16`,
-  KOREAN: `discover/movie${extendedUrl}&page=1&with_original_language=ko&without_genres=10749`,
-  ANIMATION: `discover/movie${extendedUrl}&page=1&with_genres=16`,
+  POPULAR: `discover/movie${extendedUrl}&page=1&with_original_language=en&without_genres=16%2C27&with_watch_providers=8`,
+  INDONESIAN: `discover/movie${extendedUrl}&page=1&with_original_language=id&without_genres=27%2C18%2C99&with_watch_providers=8&include_video=true`,
+  ANIME: `discover/movie${extendedUrl}&page=1&with_original_language=ja&with_genres=16&with_watch_providers=8`,
+  KOREAN: `discover/movie${extendedUrl}&page=1&with_original_language=ko&without_genres=10749&with_watch_providers=8`,
+  ANIMATION: `discover/movie${extendedUrl}&page=1&with_genres=16&with_watch_providers=8`,
   TOP_RATED: `movie/top_rated${extendedUrl}`,
 };
 

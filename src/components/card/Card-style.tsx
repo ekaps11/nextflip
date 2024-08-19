@@ -52,10 +52,6 @@ export const CardInfo = styled.div`
       width: 3.5em !important;
     }
   }
-
-  @media (hover: none) {
-    display: none;
-  }
 `;
 
 export const CardContainer = styled.div`

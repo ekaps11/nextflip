@@ -1,13 +1,23 @@
 import { useState, useEffect } from "react";
-import { Outlet, useLocation } from "react-router-dom";
-import { NavContainer, NavLogo } from "./Navigation-style";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import { NavContainer } from "./Navigation-style";
 import Footer from "../footer/Footer";
 import NavigationMenu from "./NavigationMenu";
+import { useAppDispatch } from "../../store/store";
+import { removeQueryNresult } from "../../store/slices/persistedSlice";
 
 const Navigation = () => {
   const [navBg, setNavBg] = useState(false);
-  const { pathname, search } = useLocation();
-  const isMatched = pathname === "/" || (pathname === "/search" && search);
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+
+  const backToMainMenu = () => {
+    if (pathname !== "/") {
+      dispatch(removeQueryNresult());
+      navigate("/");
+    }
+  };
 
   useEffect(() => {
     const handleTransition = () => setNavBg(window.scrollY > 30 ? true : false);
@@ -20,13 +30,11 @@ const Navigation = () => {
   return (
     <>
       <NavContainer $bgCol={navBg}>
-        <NavLogo to="/">
-          <h1>nextflip</h1>
-        </NavLogo>
-        {isMatched && <NavigationMenu />}
+        <h1 onClick={backToMainMenu}>nextflip</h1>
+        <NavigationMenu />
       </NavContainer>
       <Outlet />
-      {isMatched && <Footer />}
+      <Footer />
     </>
   );
 };

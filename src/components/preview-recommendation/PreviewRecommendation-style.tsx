@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Recommendation = styled.div`
-  margin: 0 -2%;
+  padding: 1em 3% !important;
 
   h3 {
     margin-left: 2%;

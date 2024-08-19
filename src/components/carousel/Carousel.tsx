@@ -29,11 +29,12 @@ const Carousel = ({ url, title }: CarouselProps) => {
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 500,
         settings: {
-          slidesToShow: 2,
-          arrows: false,
           dots: false,
+          arrows: false,
+          slidesToShow: 2,
+          slidesToScroll: 2,
         },
       },
     ],

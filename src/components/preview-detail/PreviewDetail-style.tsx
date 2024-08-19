@@ -52,6 +52,7 @@ export const ActionButton = styled.div`
 
 export const PreviewDetailContainer = styled.div`
   display: block;
+  padding: 0 5% !important;
 
   @media (orientation: portrait) {
     margin-top: 70%;

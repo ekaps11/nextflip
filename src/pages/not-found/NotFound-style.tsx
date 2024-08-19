@@ -14,7 +14,6 @@ export const NotFoundContainer = styled.div`
   h1 {
     font-size: 2.3em;
     padding: 0 5%;
-    text-align: center;
   }
 
   @media (min-width: 60em) {

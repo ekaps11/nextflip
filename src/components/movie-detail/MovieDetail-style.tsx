@@ -46,7 +46,7 @@ export const MovieDetailModal = styled.div`
     border-radius: 10px;
     position: unset;
     color: white;
-    opacity: 1;
+    opacity: 1 !important;
     margin: unset;
     padding: unset;
 
@@ -77,7 +77,7 @@ export const MovieDetailContainer = styled.div<{
 
   img {
     width: 60%;
-    max-height: 10em;
+    max-height: 5em;
     margin-top: 1em;
   }
 
@@ -111,6 +111,9 @@ export const MovieDetailContainer = styled.div<{
   }
 
   @media (min-width: 60em) {
+    img {
+      max-height: 10em;
+    }
     ${ModalContainer} {
       width: 50%;
       top: 15vh !important;

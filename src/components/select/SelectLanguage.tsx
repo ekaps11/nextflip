@@ -1,6 +1,3 @@
-import { ChangeEvent } from "react";
-import { useAppDispatch, useAppSelector } from "../../store/store";
-import { setLanguage } from "../../store/slices/persistedSlice";
 import Select from "./Select";
 import i18n from "../../utils/i18n/i18n";
 
@@ -11,16 +8,10 @@ type SelectLanguageProps = {
 };
 
 const SelectLanguage = ({ id }: SelectLanguageProps) => {
-  const dispatch = useAppDispatch();
-  const { language } = useAppSelector(({ persisted }) => persisted);
+  const lng = i18n.language === "en";
 
-  const languageSwitcher = ({
-    target: { value },
-  }: ChangeEvent<HTMLSelectElement>) => {
-    const lng = language !== "english" ? "en" : "id";
-
-    dispatch(setLanguage(value));
-    i18n.changeLanguage(lng);
+  const lngSwitcher = () => {
+    i18n.changeLanguage(lng ? "id" : "en");
     location.reload();
   };
 
@@ -28,8 +19,8 @@ const SelectLanguage = ({ id }: SelectLanguageProps) => {
     <Select
       id={id}
       option={languages}
-      onChange={languageSwitcher}
-      value={language}
+      onChange={lngSwitcher}
+      value={lng ? "english" : "bahasa"}
     />
   );
 };

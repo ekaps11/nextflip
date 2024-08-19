@@ -4,8 +4,9 @@ import { useNavigate } from "react-router-dom";
 import { replaceAll, handleClickOutside } from "../../utils/helper/helper";
 import { Movie, extendedUrl, useGetMovieQuery } from "../../utils/tmdb";
 import { SearchContainer, SearchIcon, SearchInput } from "./Search-style";
-import { setSearchedMovies } from "../../store/slices/persistedSlice";
-import { useAppDispatch } from "../../store/store";
+import { setQuery, setSearchResults } from "../../store/slices/persistedSlice";
+import { useAppDispatch, useAppSelector } from "../../store/store";
+import { setIsLoading } from "../../store/slices/uiSlice";
 
 type SearchQuery = {
   q: string;
@@ -18,13 +19,12 @@ type SearchProps = {
 
 const Search = ({ placeholder, mouseEnter }: SearchProps) => {
   const [showInput, setShowInput] = useState(false);
-  const [inputQuery, setInputQuery] = useState("");
+  const { query } = useAppSelector(({ persisted }) => persisted);
   const inputRef = useRef<HTMLInputElement | null>(null);
   const { register, handleSubmit, reset } = useForm<SearchQuery>();
   const { ref, ...rest } = register("q");
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const query = replaceAll(inputQuery, "%20", " ");
 
   const newRef = (e: HTMLInputElement | null) => {
     ref(e);
@@ -32,12 +32,13 @@ const Search = ({ placeholder, mouseEnter }: SearchProps) => {
   };
 
   const onSubmit = ({ q }: SearchQuery) => {
-    setInputQuery(replaceAll(q, " ", "%20"));
+    dispatch(setQuery(replaceAll(q, " ", "%20")));
+    dispatch(setIsLoading(true));
     reset();
   };
 
   const { data } = useGetMovieQuery(
-    `search/multi${extendedUrl}&query=${inputQuery}&include_adult=false&language=en-US&page=1`
+    `search/multi${extendedUrl}&query=${query}&include_adult=false&language=en-US&page=1`
   );
 
   useEffect(() => {
@@ -45,10 +46,10 @@ const Search = ({ placeholder, mouseEnter }: SearchProps) => {
       .map((props: Movie) => {
         const { name, known_for, backdrop_path, media_type } = props;
         const actor = name && name.toLowerCase();
-        const query = inputQuery.replace("%20", " ");
+        const q = query?.replace("%20", " ");
         const movies: Movie[] = [];
 
-        actor === query && movies.push(known_for);
+        actor === q && movies.push(known_for);
 
         backdrop_path && media_type === "movie" && movies.push(props);
 
@@ -61,14 +62,14 @@ const Search = ({ placeholder, mouseEnter }: SearchProps) => {
           backdrop_path && genre_ids[0] !== 27
       );
 
-    if (inputQuery) {
+    if (query) {
       searchResults?.length && setShowInput(false);
-      dispatch(setSearchedMovies({ query, searchResults }));
-      navigate(`/search?q=${inputQuery}`);
+      dispatch(setSearchResults(searchResults));
+      navigate(`/search?q=${query}`);
     }
 
     handleClickOutside(inputRef, () => setShowInput(false));
-  }, [data?.results, dispatch, inputQuery, navigate, query]);
+  }, [data?.results, dispatch, query, navigate]);
 
   return (
     <SearchContainer $isShow={showInput}>
@@ -89,10 +90,7 @@ const Search = ({ placeholder, mouseEnter }: SearchProps) => {
             {...rest}
             ref={newRef}
           />
-          <button
-            type="submit"
-            disabled={Boolean(inputQuery.length) && false}
-          />
+          <button type="submit" disabled={Boolean(query) && false} />
         </SearchInput>
       )}
     </SearchContainer>

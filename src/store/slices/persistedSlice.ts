@@ -1,28 +1,29 @@
 import { createSlice } from "@reduxjs/toolkit";
-
-export const defaultSearchState = {
-  query: "",
-  searchResults: [],
-};
+import { Movie } from "../../utils/tmdb";
 
 const initialState = {
-  language: "english",
-  searchedMovies: defaultSearchState,
+  query: "",
+  searchResults: [] as Movie[],
 };
 
-export const persistedSlice = createSlice({
+const persistedSlice = createSlice({
   name: "persisted",
   initialState,
   reducers: {
-    setLanguage(state, { payload }) {
-      state.language = payload;
+    setQuery(state, { payload }) {
+      state.query = payload;
     },
-    setSearchedMovies(state, { payload }) {
-      state.searchedMovies = payload;
+    setSearchResults(state, { payload }) {
+      state.searchResults = payload;
+    },
+    removeQueryNresult(state) {
+      state.query = "";
+      state.searchResults = [];
     },
   },
 });
 
-export const { setLanguage, setSearchedMovies } = persistedSlice.actions;
+export const { setQuery, setSearchResults, removeQueryNresult } =
+  persistedSlice.actions;
 
 export default persistedSlice.reducer;

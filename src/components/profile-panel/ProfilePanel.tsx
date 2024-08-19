@@ -7,10 +7,7 @@ import { BsPerson } from "react-icons/bs";
 import CustomLink from "../custom-link/CustomLink";
 import { forwardRef } from "react";
 import { useAppDispatch } from "../../store/store";
-import {
-  defaultSearchState,
-  setSearchedMovies,
-} from "../../store/slices/persistedSlice";
+import { removeQueryNresult } from "../../store/slices/persistedSlice";
 
 type ProfilePanelProps = {
   mouseLeave: () => void;
@@ -25,7 +22,7 @@ const ProfilePanel = forwardRef<HTMLDivElement, ProfilePanelProps>(
     ).slice(1, 3);
 
     const signOut = async () => {
-      dispatch(setSearchedMovies(defaultSearchState));
+      dispatch(removeQueryNresult());
       await logOut();
       navigate("/");
     };

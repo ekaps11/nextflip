@@ -53,7 +53,7 @@ export const SignInContainer = styled.form<{ $error?: boolean }>`
   flex-direction: column;
   gap: 1em;
   padding: 6%;
-  padding-top: 5em;
+  padding-top: 3.5em;
 
   h1 {
     margin-left: 5px;

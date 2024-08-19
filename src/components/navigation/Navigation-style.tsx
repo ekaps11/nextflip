@@ -1,22 +1,9 @@
 import { styled } from "styled-components";
 import { colors, flex } from "../../utils/styles/commonStyle";
-import { LinkContainer } from "../custom-link/CustomLink-style";
 import { SelectContainer } from "../select/Select-style";
 import store from "../../store/store";
 
 const { user } = store.getState().user;
-
-export const NavLogo = styled(LinkContainer)`
-  letter-spacing: 0.2em;
-  text-decoration: none;
-  padding: -1em 0;
-
-  h1 {
-    font-family: "Bebas Neue", sans-serif;
-    color: ${colors.red[0]};
-    font-size: 1.75em;
-  }
-`;
 
 export const ProfileIcon = styled.div`
   background: url(images/profile.webp);
@@ -40,6 +27,13 @@ export const NavContainer = styled.div<{
   z-index: 1;
   height: ${`${user ? 2.5 : 3.5}em`};
   transition: 0.5s;
+
+  h1 {
+    font-family: "Bebas Neue", sans-serif;
+    color: ${colors.red[0]};
+    letter-spacing: 3px;
+    cursor: pointer;
+  }
 
   div {
     display: flex;
@@ -92,5 +86,9 @@ export const NavContainer = styled.div<{
 
   @media (min-width: 60em) {
     height: 3.5em;
+
+    h1 {
+      font-size: 2em;
+    }
   }
 `;

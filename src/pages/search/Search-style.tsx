@@ -1,7 +1,6 @@
 import { HiMagnifyingGlass } from "react-icons/hi2";
 import styled from "styled-components";
-import { animation, colors } from "../../utils/styles/commonStyle";
-import { ModalContainer } from "../../components/modal/Modal-style";
+import { animation } from "../../utils/styles/commonStyle";
 
 export const SearchIcon = styled(HiMagnifyingGlass)`
   width: 2em;
@@ -34,25 +33,6 @@ export const SearchInput = styled.form`
 `;
 
 export const SearchContainer = styled.div<{ $isShow: boolean }>`
-  ${ModalContainer} {
-    width: 60%;
-    background: ${colors.grey[0]};
-    color: white;
-    top: 30%;
-    animation: ${animation.popUp} 0.5s;
-
-    button {
-      width: max-content;
-      height: max-content;
-      margin-top: 10px;
-    }
-
-    div {
-      padding: 5%;
-      margin-top: 10px;
-    }
-  }
-
   ${SearchIcon} {
     background: ${({ $isShow }) => $isShow && "black"};
     opacity: ${({ $isShow }) => $isShow && "0.7"};

@@ -48,12 +48,12 @@ export const CardSlider = styled.div`
   }
 `;
 
-export const CarouselContainer = styled.div<{ $isShow?: boolean }>`
+export const CarouselContainer = styled.div<{ $isShow: boolean }>`
   padding: 5%;
   margin-bottom: -7%;
 
   .slick-arrow {
-    height: 100%;
+    height: 105%;
     width: 6%;
     color: white !important;
     background: black !important;
@@ -79,6 +79,8 @@ export const CarouselContainer = styled.div<{ $isShow?: boolean }>`
 
   .slick-prev {
     left: -6%;
+    opacity: ${({ $isShow }) => !$isShow && 0};
+    pointer-events: ${({ $isShow }) => !$isShow && "none"};
   }
 
   .slick-next {
@@ -94,12 +96,12 @@ export const CarouselContainer = styled.div<{ $isShow?: boolean }>`
 
     .slick-slide {
       padding-right: 3px;
+    }
+  }
 
-      &[data-index="-1"] {
-        img {
-          display: ${({ $isShow }) => !$isShow && "none"};
-        }
-      }
+  .slick-slide[data-index="-1"] {
+    img {
+      display: ${({ $isShow }) => !$isShow && "none"};
     }
   }
 

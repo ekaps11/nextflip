@@ -1,5 +1,4 @@
 import { Suspense, lazy, useEffect } from "react";
-import { User } from "firebase/auth";
 import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import { useAppSelector, useAppDispatch } from "./store/store";
 import { getUser } from "./utils/firebase/firebase.utils";
@@ -26,22 +25,21 @@ const AppContainer = styled.div`
 const App = () => {
   const dispatch = useAppDispatch();
   const { user } = useAppSelector(({ user }) => user);
-  const { pathname, search } = useLocation();
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     if (user) {
-      pathname === "/login" && navigate("/");
-    } else {
-      pathname === "/search" && navigate("pageNotFound");
+      location.pathname === "/login" && navigate("/");
+      location.pathname === "/search" && !location.search && navigate("/");
     }
 
-    const unsubscribe = getUser((user: User) => {
+    const unsubscribe = getUser((user) => {
       dispatch(setUser(user));
     });
 
     return unsubscribe;
-  }, [dispatch, navigate, pathname, user]);
+  }, [dispatch, navigate, location, user]);
 
   return (
     <AppContainer>
@@ -51,12 +49,14 @@ const App = () => {
           <Route path="/" Component={Navigation}>
             <Route index Component={!user ? Home : Dashboard} />
             <Route path="login" Component={Login} />
-            {user && search && (
-              <Route path="search/*" Component={SearchResults} />
+            {user && (
+              <>
+                {!device && <Route path={"/preview/*"} Component={Preview} />}
+                <Route path="search/*" Component={SearchResults} />
+              </>
             )}
-            <Route path="*" Component={NotFound} />
           </Route>
-          {!device && user && <Route path={"/preview/*"} Component={Preview} />}
+          <Route path="*" Component={NotFound} />
         </Routes>
       </Suspense>
     </AppContainer>

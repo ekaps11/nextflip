@@ -1,18 +1,4 @@
 import styled from "styled-components";
-import { FooterContainer } from "../../components/footer/Footer-style";
-import { SelectContainer } from "../../components/select/Select-style";
-
-export const PreviewNav = styled.div`
-  display: flex;
-  justify-content: space-between;
-  position: fixed;
-  background: black;
-  width: 100%;
-
-  svg {
-    font-size: 1.5em;
-  }
-`;
 
 export const PreviewContainer = styled.div`
   display: flex;
@@ -47,15 +33,6 @@ export const PreviewContainer = styled.div`
     }
   }
 
-  ${FooterContainer} {
-    margin-left: -2%;
-
-    a,
-    select {
-      margin-left: -4%;
-    }
-  }
-
   @media (orientation: portrait) {
     iframe {
       margin-top: 2.4em;
@@ -77,23 +54,9 @@ export const PreviewContainer = styled.div`
       margin-top: 3em;
       aspect-ratio: 2.1;
     }
-
-    ${FooterContainer} {
-      a {
-        margin-left: -7%;
-      }
-
-      ${SelectContainer} {
-        margin-left: -3.5%;
-      }
-    }
   }
 
   @media (min-width: 45em) and (orientation: portrait) {
-    ${PreviewNav} {
-      font-size: 1.5em;
-    }
-
     iframe,
     .banner {
       margin-top: 4em;
@@ -113,37 +76,11 @@ export const PreviewContainer = styled.div`
         border-radius: 5px;
       }
     }
-
-    ${FooterContainer} {
-      margin-left: -1%;
-
-      a {
-        margin-left: -13%;
-      }
-
-      ${SelectContainer} {
-        margin-left: -5.5%;
-      }
-    }
   }
 
   @media (min-width: 45em) and (orientation: landscape) {
     .banner {
       height: 90vh;
-    }
-  }
-
-  @media (min-width: 60em) {
-    ${PreviewNav} {
-      font-size: 2em;
-    }
-
-    ${FooterContainer} {
-      margin-left: -1%;
-
-      a {
-        margin-left: -18%;
-      }
     }
   }
 `;
