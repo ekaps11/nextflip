@@ -27,3 +27,5 @@ export const MoviesContainer = styled.div`
     margin-top: -5%;
   }
 `;
+
+export const DashboardContainer = styled.div``;

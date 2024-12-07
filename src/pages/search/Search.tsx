@@ -1,98 +1,80 @@
-import { useEffect, useRef, useState } from "react";
-import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
-import { replaceAll, handleClickOutside } from "../../utils/helper/helper";
-import { Movie, extendedUrl, useGetMovieQuery } from "../../utils/tmdb";
-import { SearchContainer, SearchIcon, SearchInput } from "./Search-style";
-import { setQuery, setSearchResults } from "../../store/slices/persistedSlice";
-import { useAppDispatch, useAppSelector } from "../../store/store";
-import { setIsLoading } from "../../store/slices/uiSlice";
+import { useMemo } from "react";
+import { t } from "i18next";
+import { NoResult, SearchContainer, SearchResults } from "./Search-style";
+import { Movie, useSearchMoviesQuery } from "../../utils/tmdb";
+import Spinner from "../../components/spinner/Spinner";
+import Card from "../../components/card/Card";
+import CustomLink from "../../components/custom-link/CustomLink";
+import { device } from "../../utils/helper/helper";
+import { useSearchParams } from "react-router-dom";
 
-type SearchQuery = {
-  q: string;
-};
+const Search = () => {
+  const [searchParams] = useSearchParams();
+  const movieResults = searchParams.get("q") as string;
 
-type SearchProps = {
-  placeholder: string;
-  mouseEnter?: () => void;
-};
+  const { data, isLoading } = useSearchMoviesQuery(movieResults);
 
-const Search = ({ placeholder, mouseEnter }: SearchProps) => {
-  const [showInput, setShowInput] = useState(false);
-  const { query } = useAppSelector(({ persisted }) => persisted);
-  const inputRef = useRef<HTMLInputElement | null>(null);
-  const { register, handleSubmit, reset } = useForm<SearchQuery>();
-  const { ref, ...rest } = register("q");
-  const dispatch = useAppDispatch();
-  const navigate = useNavigate();
+  const searchResults = useMemo(() => {
+    if (!data || !data.results) return [];
 
-  const newRef = (e: HTMLInputElement | null) => {
-    ref(e);
-    inputRef.current = e;
-  };
-
-  const onSubmit = ({ q }: SearchQuery) => {
-    dispatch(setQuery(replaceAll(q, " ", "%20")));
-    dispatch(setIsLoading(true));
-    reset();
-  };
-
-  const { data } = useGetMovieQuery(
-    `search/multi${extendedUrl}&query=${query}&include_adult=false&language=en-US&page=1`
-  );
-
-  useEffect(() => {
-    const searchResults: Movie[] = data?.results
-      .map((props: Movie) => {
+    return data.results
+      .flatMap((props: Movie) => {
         const { name, known_for, backdrop_path, media_type } = props;
         const actor = name && name.toLowerCase();
-        const q = query?.replace("%20", " ");
+        const q = movieResults.replace("%20", " ");
         const movies: Movie[] = [];
 
-        actor === q && movies.push(known_for);
+        if (actor === q) {
+          if (Array.isArray(known_for)) {
+            movies.push(...known_for);
+          } else {
+            movies.push(known_for);
+          }
+        }
 
-        backdrop_path && media_type === "movie" && movies.push(props);
+        if (backdrop_path && media_type === "movie") {
+          movies.push(props);
+        }
 
         return movies;
       })
-      .flat(2)
-      .filter(Boolean)
       .filter(
-        ({ backdrop_path, genre_ids }: Movie) =>
-          backdrop_path && genre_ids[0] !== 27
+        (movie: Movie) => movie?.backdrop_path && movie?.genre_ids[0] !== 27
       );
+  }, [data, movieResults]);
 
-    if (query) {
-      searchResults?.length && setShowInput(false);
-      dispatch(setSearchResults(searchResults));
-      navigate(`/search?q=${query}`);
+  const movie = searchResults.map(({ id, backdrop_path }: Movie) => {
+    const url = `/preview?movie=${id}`;
+
+    if (backdrop_path) {
+      return device ? (
+        <Card key={id} id={id} />
+      ) : (
+        <CustomLink key={id} to={url}>
+          <Card id={id} />
+        </CustomLink>
+      );
     }
+  });
 
-    handleClickOutside(inputRef, () => setShowInput(false));
-  }, [data?.results, dispatch, query, navigate]);
+  if (isLoading) return <Spinner />;
 
   return (
-    <SearchContainer $isShow={showInput}>
-      <SearchIcon
-        size="1.65em"
-        onMouseEnter={mouseEnter}
-        onClick={() => setShowInput(true)}
-      />
-
-      {showInput && (
-        <SearchInput onSubmit={handleSubmit(onSubmit)}>
-          <input
-            type="search"
-            placeholder={placeholder}
-            onMouseEnter={mouseEnter}
-            autoFocus={showInput}
-            autoComplete="off"
-            {...rest}
-            ref={newRef}
-          />
-          <button type="submit" disabled={Boolean(query) && false} />
-        </SearchInput>
+    <SearchContainer>
+      {searchResults.length ? (
+        <p>
+          {t("search.results")} "{movieResults}"
+        </p>
+      ) : (
+        <NoResult>
+          <h2>
+            {t("search.noResult")} "{movieResults}"
+          </h2>
+          <p>{t("search.tryAgain")}</p>
+        </NoResult>
       )}
+
+      <SearchResults>{movie}</SearchResults>
     </SearchContainer>
   );
 };

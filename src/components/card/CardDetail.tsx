@@ -12,7 +12,8 @@ type CardDetailProps = {
 
 const CardDetail = ({ data, isDisplay = true }: CardDetailProps) => {
   const { data: detail } = useGetMovieQuery(
-    `movie/${data?.id}/credits${extendedUrl}`
+    `movie/${data?.id}/credits${extendedUrl}&language=en-US`,
+    { skip: !data?.id }
   );
 
   const releaseDate = data?.release_date.slice(0, 4);

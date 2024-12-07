@@ -188,7 +188,7 @@
 
   "search": {
     "results": "Results for",
-    "noResults": "there is no search results  for",
+    "noResult": "there is no search results  for",
     "tryAgain": "try another movies or artists"
   },
 

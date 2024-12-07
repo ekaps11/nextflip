@@ -1,5 +1,5 @@
 import { getDuration } from "../../utils/helper/helper";
-import { useGetMovieQuery, extendedUrl } from "../../utils/tmdb";
+import { useGetMovieQuery, extendedUrl, Movie } from "../../utils/tmdb";
 import { FaPlus, FaShare } from "react-icons/fa";
 import { SlLike } from "react-icons/sl";
 import {
@@ -13,12 +13,7 @@ import Spinner from "../spinner/Spinner";
 
 type PreviewDetailProps = {
   movieID: string;
-  movieDetail: {
-    title: string;
-    release_date: string;
-    runtime: number;
-    overview: string;
-  };
+  movieDetail: Movie;
 };
 
 const PreviewDetail = ({ movieID, movieDetail }: PreviewDetailProps) => {
@@ -41,6 +36,10 @@ const PreviewDetail = ({ movieID, movieDetail }: PreviewDetailProps) => {
     ({ job }: { job: string }) => job === "Director"
   );
 
+  const genres = movieDetail?.genres
+    .map(({ id }) => t(`genres.${id}`).toLowerCase())
+    .join(", ");
+
   if (isLoading) return <Spinner />;
 
   return (
@@ -58,6 +57,7 @@ const PreviewDetail = ({ movieID, movieDetail }: PreviewDetailProps) => {
         <p>
           {t("preview.cast")}: {casts}
         </p>
+        <p>Genres: {genres}</p>
         <p>
           {t("preview.director")}: {director?.at(0)?.name}
         </p>

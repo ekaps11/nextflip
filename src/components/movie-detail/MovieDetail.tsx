@@ -13,6 +13,7 @@ import {
   MovieDetailModal,
 } from "./MovieDetail-style";
 import CardDetail from "../card/CardDetail";
+import Spinner from "../spinner/Spinner";
 
 type MovieDetailProps = {
   id: number;
@@ -24,17 +25,23 @@ const MovieDetail = ({ id, title }: MovieDetailProps) => {
   const navigate = useNavigate();
   const strLength = title?.length;
 
-  const { data } = useGetMovieQuery(
+  const { data, isLoading } = useGetMovieQuery(
     `movie/${id}/images${extendedUrl}&include_image_language=en`
   );
 
-  const logo = image + data?.logos?.at(0)?.file_path;
+  const logoResult: string = data?.logos?.at(0)?.file_path;
+
+  const MovieLogo = logoResult ? (
+    <img src={image + logoResult} alt={title} loading="lazy" />
+  ) : (
+    <h2>{title}</h2>
+  );
 
   const { data: detail } = useGetMovieQuery(`movie/${id}${extendedUrl}`);
 
   const toggleModal = () => setShowModal(!showModal);
 
-  if (!detail) return;
+  (isLoading || !id) && <Spinner />;
 
   return (
     <MovieDetailContainer $strLength={strLength}>
@@ -43,7 +50,8 @@ const MovieDetail = ({ id, title }: MovieDetailProps) => {
           <CardDetail data={detail} isDisplay={false} />
         </MovieDetailModal>
       </Modal>
-      {data?.logos?.length ? <img src={logo} alt={title} /> : <h2>{title}</h2>}
+
+      {MovieLogo}
 
       <MovieDetailButton>
         <Button onClick={() => !device && navigate(`/preview?movie=${id}`)}>

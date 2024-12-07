@@ -21,12 +21,11 @@ const PreviewRecommendation = ({
   const recommendations = data?.results
     .slice(0, 6)
     .map(({ id, title, backdrop_path }: Movie) => {
+      const url = `preview?movie=${id}`;
+
       if (backdrop_path)
         return (
-          <CustomLink
-            key={id}
-            to={{ pathname: "/preview", search: `?movie=${id}` }}
-          >
+          <CustomLink key={id} to={url}>
             <img src={image + backdrop_path} alt={title} />
           </CustomLink>
         );

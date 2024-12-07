@@ -13,9 +13,7 @@ const Home = lazy(() => import("./pages/home/Home"));
 const Dashboard = lazy(() => import("./pages/dashboard/Dashboard"));
 const Login = lazy(() => import("./pages/login/Login"));
 const Preview = lazy(() => import("./pages/preview/Preview"));
-const SearchResults = lazy(
-  () => import("./components/search-results/SearchResults")
-);
+const Search = lazy(() => import("./pages/search/Search"));
 const NotFound = lazy(() => import("./pages/not-found/NotFound"));
 
 const AppContainer = styled.div`
@@ -29,10 +27,7 @@ const App = () => {
   const location = useLocation();
 
   useEffect(() => {
-    if (user) {
-      location.pathname === "/login" && navigate("/");
-      location.pathname === "/search" && !location.search && navigate("/");
-    }
+    if (user && location.pathname === "/login") navigate("/");
 
     const unsubscribe = getUser((user) => {
       dispatch(setUser(user));
@@ -51,8 +46,8 @@ const App = () => {
             <Route path="login" Component={Login} />
             {user && (
               <>
-                {!device && <Route path={"/preview/*"} Component={Preview} />}
-                <Route path="search/*" Component={SearchResults} />
+                {!device && <Route path={"preview/*"} Component={Preview} />}
+                <Route path="search" Component={Search} />
               </>
             )}
           </Route>

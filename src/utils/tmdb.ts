@@ -35,7 +35,7 @@ export const extendedUrl = `?api_key=${apiKey}`;
 
 export const MOVIE_REQUESTS = {
   POPULAR: `discover/movie${extendedUrl}&page=1&with_original_language=en&without_genres=16%2C27&with_watch_providers=8`,
-  INDONESIAN: `discover/movie${extendedUrl}&page=1&with_original_language=id&without_genres=27%2C18%2C99&with_watch_providers=8&include_video=true`,
+  INDONESIAN: `discover/movie${extendedUrl}&page=1&with_original_language=id&without_genres=27%2C18%2C99&with_watch_providers=8`,
   ANIME: `discover/movie${extendedUrl}&page=1&with_original_language=ja&with_genres=16&with_watch_providers=8`,
   KOREAN: `discover/movie${extendedUrl}&page=1&with_original_language=ko&without_genres=10749&with_watch_providers=8`,
   ANIMATION: `discover/movie${extendedUrl}&page=1&with_genres=16&with_watch_providers=8`,
@@ -49,9 +49,13 @@ export const tmdb = createApi({
   tagTypes: ["Get"],
   endpoints: ({ query }) => ({
     getMovie: query({
-      query: (name: string) => name,
+      query: (q: string) => q,
+    }),
+    searchMovies: query({
+      query: (q: string) => `search/multi${extendedUrl}&query=${q}`,
+      keepUnusedDataFor: 60,
     }),
   }),
 });
 
-export const { useGetMovieQuery } = tmdb;
+export const { useGetMovieQuery, useSearchMoviesQuery } = tmdb;

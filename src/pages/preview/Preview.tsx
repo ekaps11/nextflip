@@ -38,6 +38,7 @@ const Preview = () => {
           className="banner"
           src={banner + detail?.backdrop_path}
           alt={detail?.title}
+          loading="lazy"
         />
       )}
 

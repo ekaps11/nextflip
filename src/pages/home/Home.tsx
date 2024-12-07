@@ -1,5 +1,5 @@
 import Faq from "../../components/faq/Faq";
-import { HomeContainer } from "./Home-style";
+import { Header, HomeContainer } from "./Home-style";
 import SignUp from "../../components/sign-up/SignUp";
 import { t } from "i18next";
 import Plan from "../../components/plan/Plan";
@@ -7,14 +7,14 @@ import Games from "../../components/games/Games";
 
 const Home = () => {
   return (
-    <>
-      <HomeContainer>
+    <HomeContainer>
+      <Header>
         <div>
           <h1>{t("Home.title")}</h1>
           <p className="description">{t("Home.desc")}</p>
           <SignUp />
         </div>
-      </HomeContainer>
+      </Header>
       <Plan
         title={t("plan.title")}
         items={t("plan.items", { returnObjects: true })}
@@ -25,7 +25,7 @@ const Home = () => {
         items={t("join.items", { returnObjects: true })}
       />
       <Faq />
-    </>
+    </HomeContainer>
   );
 };
 

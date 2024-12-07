@@ -27,8 +27,7 @@ export const TrailerDetail = styled.div`
     line-height: 1.2em;
     margin-bottom: 0.5em;
 
-    &:nth-child(2),
-    &:last-child {
+    &:not(:first-child) {
       font-size: 0.7em;
       color: grey;
     }
@@ -53,9 +52,10 @@ export const ActionButton = styled.div`
 export const PreviewDetailContainer = styled.div`
   display: block;
   padding: 0 5% !important;
+  margin-top: 70%;
 
-  @media (orientation: portrait) {
-    margin-top: 70%;
+  @media (orientation: landscape) {
+    margin-top: 5%;
   }
 
   @media (min-width: 45em) {

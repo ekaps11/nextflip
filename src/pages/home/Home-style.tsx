@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 import { gradientBg } from "../../utils/styles/commonStyle";
 import { SignUpContainer } from "../../components/sign-up/SignUp-style";
 
-export const HomeContainer = styled.div`
+export const Header = styled.div`
   background: ${gradientBg.top}, url(images/banner.webp);
   background-size: cover;
   padding: 5%;
@@ -40,3 +40,5 @@ export const HomeContainer = styled.div`
     }
   }
 `;
+
+export const HomeContainer = styled.div``;

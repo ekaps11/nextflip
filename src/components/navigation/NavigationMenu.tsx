@@ -6,7 +6,7 @@ import Button from "../button/Button";
 import ProfilePanel from "../profile-panel/ProfilePanel";
 import SelectLanguage from "../select/SelectLanguage";
 import { ProfileIcon } from "./Navigation-style";
-import Search from "../../pages/search/Search";
+import SearchMovies from "../searchbar/Searchbar";
 
 const NavigationMenu = () => {
   const [showPanel, setShowPanel] = useState(false);
@@ -27,10 +27,7 @@ const NavigationMenu = () => {
 
       {user && (
         <>
-          <Search
-            placeholder={t("dashboard.search")}
-            mouseEnter={() => setShowPanel(false)}
-          />
+          <SearchMovies mouseEnter={() => setShowPanel(false)} />
           <ProfileIcon
             ref={iconRef}
             onMouseEnter={() => setShowPanel(true)}

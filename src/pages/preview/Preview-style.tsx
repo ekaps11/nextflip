@@ -56,13 +56,6 @@ export const PreviewContainer = styled.div`
     }
   }
 
-  @media (min-width: 45em) and (orientation: portrait) {
-    iframe,
-    .banner {
-      margin-top: 4em;
-    }
-  }
-
   @media (min-width: 45em) {
     h2 {
       font-size: 2.5em;
@@ -79,8 +72,31 @@ export const PreviewContainer = styled.div`
   }
 
   @media (min-width: 45em) and (orientation: landscape) {
+    iframe {
+      aspect-ratio: 19.5/9;
+    }
+
     .banner {
-      height: 90vh;
+      aspect-ratio: 2.5;
+    }
+  }
+
+  @media (min-width: 60em) and (orientation: portrait) {
+    margin-top: 2%;
+  }
+
+  @media (min-width: 60em) and (orientation: landscape) {
+    iframe {
+      aspect-ratio: 16/9;
+      margin-top: 1.75em;
+    }
+
+    .banner {
+      margin-top: 3.5em;
+    }
+
+    h2 {
+      margin-top: -3vh;
     }
   }
 `;

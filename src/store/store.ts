@@ -4,24 +4,20 @@ import { useSelector, useDispatch } from "react-redux";
 import { TypedUseSelectorHook } from "react-redux/es/types";
 import { persistReducer, persistStore } from "redux-persist";
 import userReducer from "./slices/userSlice";
-import uiReducer from "./slices/uiSlice";
-import persistingReducer from "./slices/persistedSlice";
 import { tmdb } from "../utils/tmdb";
-import storage from "localforage";
-// import storage from "redux-persist/lib/storage";
 // import logger from "redux-logger";
-
-const rootReducer = combineReducers({
-  user: userReducer,
-  ui: uiReducer,
-  persisted: persistingReducer,
-  [tmdb.reducerPath]: tmdb.reducer,
-});
+import storage from "redux-persist/lib/storage";
 
 const persistConfig = {
   key: "root",
   storage,
+  // blacklist: ["tmdb"],
 };
+
+const rootReducer = combineReducers({
+  user: userReducer,
+  [tmdb.reducerPath]: tmdb.reducer,
+});
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 

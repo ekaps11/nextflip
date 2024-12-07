@@ -56,6 +56,7 @@ export const CardInfo = styled.div`
 
 export const CardContainer = styled.div`
   transition: 0.5s;
+  position: relative;
 
   img {
     width: 100%;
@@ -74,6 +75,7 @@ export const CardContainer = styled.div`
       transition-delay: 0.7s;
       transform: scale(1.3);
       margin-top: -5em;
+      z-index: 10;
 
       img {
         border-radius: 5px 5px 0 0;

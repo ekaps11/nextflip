@@ -5,17 +5,19 @@ import Spinner from "../spinner/Spinner";
 
 type CardProps = {
   id: number;
+  onClick?: () => void;
 };
 
-const Card = ({ id }: CardProps) => {
-  const { data, isLoading } = useGetMovieQuery(`movie/${id}${extendedUrl}`);
+const Card = ({ id, onClick }: CardProps) => {
+  const { data, isLoading } = useGetMovieQuery(
+    `movie/${id}${extendedUrl}&language=en-US`
+  );
 
   isLoading && <Spinner />;
-  if (!data) return;
 
   return (
-    <CardContainer key={id}>
-      <img src={image + data?.backdrop_path} alt={data?.title} />
+    <CardContainer key={id} onClick={onClick}>
+      <img src={image + data?.backdrop_path} alt={data?.title} loading="lazy" />
       <CardDetail data={data} />
     </CardContainer>
   );

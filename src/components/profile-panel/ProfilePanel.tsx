@@ -6,8 +6,6 @@ import { PiPencilLight, PiSignOut, PiQuestion } from "react-icons/pi";
 import { BsPerson } from "react-icons/bs";
 import CustomLink from "../custom-link/CustomLink";
 import { forwardRef } from "react";
-import { useAppDispatch } from "../../store/store";
-import { removeQueryNresult } from "../../store/slices/persistedSlice";
 
 type ProfilePanelProps = {
   mouseLeave: () => void;
@@ -15,16 +13,15 @@ type ProfilePanelProps = {
 
 const ProfilePanel = forwardRef<HTMLDivElement, ProfilePanelProps>(
   ({ mouseLeave }, ref) => {
-    const dispatch = useAppDispatch();
     const navigate = useNavigate();
     const [help, account] = Object.values(
       t("footer.links", { returnObjects: true })
     ).slice(1, 3);
 
     const signOut = async () => {
-      dispatch(removeQueryNresult());
       await logOut();
       navigate("/");
+      location.reload();
     };
 
     return (

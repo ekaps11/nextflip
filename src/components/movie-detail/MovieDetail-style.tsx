@@ -61,6 +61,10 @@ export const MovieDetailModal = styled.div`
       img {
         margin-top: -0.1em;
       }
+
+      @media (max-width: 25em) {
+        width: 93%;
+      }
     }
   }
 `;

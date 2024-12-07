@@ -1,19 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  isLoading: false,
+  isDirty: false,
 };
 
 const uiSlice = createSlice({
   name: "ui",
   initialState,
   reducers: {
-    setIsLoading(state, { payload }) {
-      state.isLoading = payload;
+    setIsDirty(state, { payload }) {
+      state.isDirty = payload;
     },
   },
 });
 
-export const { setIsLoading } = uiSlice.actions;
+export const { setIsDirty } = uiSlice.actions;
 
 export default uiSlice.reducer;

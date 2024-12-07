@@ -188,7 +188,7 @@
 
   "search": {
     "results": "Pencarian untuk",
-    "noResults": "tidak ada hasil pencarian untuk",
+    "noResult": "tidak ada hasil pencarian untuk",
     "tryAgain": "coba film atau artis lain"
   },
 

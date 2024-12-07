@@ -19,17 +19,13 @@ const CarouselContent = ({ url, title, settings }: CarouselProps) => {
   const { data } = useGetMovieQuery(url);
 
   const movies = data?.results.map(({ id, backdrop_path, title }: Movie) => {
+    const url = `preview?movie=${id}`;
+
     if (backdrop_path) {
       return device ? (
         <Card key={id} id={id} />
       ) : (
-        <CustomLink
-          key={id}
-          to={{
-            pathname: "/preview",
-            search: `?movie=${id}`,
-          }}
-        >
+        <CustomLink key={id} to={url}>
           <img src={image + backdrop_path} alt={title} />
         </CustomLink>
       );
