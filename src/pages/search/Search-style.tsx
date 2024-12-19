@@ -1,14 +1,12 @@
 import styled from "styled-components";
 import { CardContainer, CardInfo } from "../../components/card/Card-style";
+import { flex } from "../../utils/styles/commonStyle";
 
 export const NoResult = styled.div`
-  margin: 25% 0;
-  width: 90%;
+  ${flex}
+  flex-direction: column;
+  height: 70vh;
   text-align: center;
-
-  h2 {
-    padding-top: auto !important;
-  }
 `;
 
 export const SearchResults = styled.div`
@@ -25,6 +23,10 @@ export const SearchResults = styled.div`
   @media (hover: hover) {
     ${CardContainer}:hover {
       margin-top: -2.5em;
+
+      @media (max-width: 33em) {
+        transform: scale(1.2);
+      }
     }
   }
 

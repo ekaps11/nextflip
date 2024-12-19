@@ -1,7 +1,6 @@
-import { CardContainer } from "./Card-style";
+import { CardContainer, LoadingSkeleton } from "./Card-style";
 import { useGetMovieQuery, extendedUrl, image } from "../../utils/tmdb";
 import CardDetail from "./CardDetail";
-import Spinner from "../spinner/Spinner";
 
 type CardProps = {
   id: number;
@@ -13,11 +12,13 @@ const Card = ({ id, onClick }: CardProps) => {
     `movie/${id}${extendedUrl}&language=en-US`
   );
 
-  isLoading && <Spinner />;
-
   return (
     <CardContainer key={id} onClick={onClick}>
-      <img src={image + data?.backdrop_path} alt={data?.title} loading="lazy" />
+      {isLoading ? (
+        <LoadingSkeleton />
+      ) : (
+        <img src={image + data?.backdrop_path} alt={data?.title} />
+      )}
       <CardDetail data={data} />
     </CardContainer>
   );

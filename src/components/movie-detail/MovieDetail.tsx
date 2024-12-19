@@ -32,7 +32,7 @@ const MovieDetail = ({ id, title }: MovieDetailProps) => {
   const logoResult: string = data?.logos?.at(0)?.file_path;
 
   const MovieLogo = logoResult ? (
-    <img src={image + logoResult} alt={title} loading="lazy" />
+    <img src={image + logoResult} alt={title} />
   ) : (
     <h2>{title}</h2>
   );

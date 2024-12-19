@@ -29,6 +29,7 @@ const App = () => {
   useEffect(() => {
     if (user && location.pathname === "/login") navigate("/");
 
+    // subscription
     const unsubscribe = getUser((user) => {
       dispatch(setUser(user));
     });
@@ -47,7 +48,8 @@ const App = () => {
             {user && (
               <>
                 {!device && <Route path={"preview/*"} Component={Preview} />}
-                <Route path="search" Component={Search} />
+                <Route path="search/*" Component={Search} />
+                <Route path="my-list" Component={Search} />
               </>
             )}
           </Route>

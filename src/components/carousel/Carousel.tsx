@@ -17,6 +17,7 @@ const Carousel = ({ url, title }: CarouselProps) => {
     speed: 1000,
     slidesToShow: 5,
     slidesToScroll: 5,
+    lazyLoad: "ondemand",
     prevArrow: <CustomArrow icon={<FaChevronLeft />} />,
     nextArrow: <CustomArrow icon={<FaChevronRight />} />,
     beforeChange: () => setIsShow(true),

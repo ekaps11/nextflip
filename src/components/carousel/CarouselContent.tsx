@@ -7,6 +7,7 @@ import { device } from "../../utils/helper/helper";
 import Card from "../card/Card";
 import CustomLink from "../custom-link/CustomLink";
 import { CardSlider } from "./Carousel-style";
+import Spinner from "../spinner/Spinner";
 
 type CarouselProps = {
   url: string;
@@ -16,7 +17,7 @@ type CarouselProps = {
 
 const CarouselContent = ({ url, title, settings }: CarouselProps) => {
   const cardSliderRef = useRef<HTMLDivElement>(null);
-  const { data } = useGetMovieQuery(url);
+  const { data, isLoading } = useGetMovieQuery(url);
 
   const movies = data?.results.map(({ id, backdrop_path, title }: Movie) => {
     const url = `preview?movie=${id}`;
@@ -31,6 +32,8 @@ const CarouselContent = ({ url, title, settings }: CarouselProps) => {
       );
     }
   });
+
+  if (isLoading) return <Spinner />;
 
   return device ? (
     <Slider {...settings}>{movies}</Slider>

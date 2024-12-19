@@ -1,6 +1,15 @@
 import styled from "styled-components";
 import { colors } from "../../utils/styles/commonStyle";
 
+export const LoadingSkeleton = styled.div`
+  @media (hover: hover) {
+    width: 100%;
+    background-color: ${colors.grey[0]};
+    aspect-ratio: 16/9;
+    border-radius: 5px;
+  }
+`;
+
 export const CardInfo = styled.div`
   width: 100%;
   opacity: 0;

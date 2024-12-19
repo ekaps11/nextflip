@@ -8,9 +8,10 @@ import {
 import MovieDetail from "../../components/movie-detail/MovieDetail";
 import Carousel from "../../components/carousel/Carousel";
 import { t } from "i18next";
+import Spinner from "../../components/spinner/Spinner";
 
 const Dashboard = () => {
-  const { data } = useGetMovieQuery(MOVIE_REQUESTS.POPULAR);
+  const { data, isLoading } = useGetMovieQuery(MOVIE_REQUESTS.POPULAR);
 
   const filteredMovie: Movie[] = data?.results
     .slice(5)
@@ -20,12 +21,12 @@ const Dashboard = () => {
     getRandomNumber(filteredMovie?.length)
   ) as Movie;
 
-  const movieID = movie?.id;
+  if (isLoading) return <Spinner />;
 
   return (
     <DashboardContainer>
       <DashboardBg $bg={movie?.backdrop_path}>
-        <MovieDetail id={movieID} title={movie?.title} />
+        <MovieDetail id={movie?.id} title={movie?.title} />
       </DashboardBg>
 
       <MoviesContainer>

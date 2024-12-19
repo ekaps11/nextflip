@@ -5,6 +5,7 @@ export const Title = styled.p`
   margin-bottom: 5px;
 `;
 
+// for mobile
 export const CardSlider = styled.div`
   overflow-x: scroll;
 
@@ -48,10 +49,12 @@ export const CardSlider = styled.div`
   }
 `;
 
+// for web
 export const CarouselContainer = styled.div<{ $isShow: boolean }>`
   padding: 5%;
   margin-bottom: -7%;
 
+  /* class obtained from react-slick */
   .slick-arrow {
     height: 105%;
     width: 6%;
@@ -106,10 +109,11 @@ export const CarouselContainer = styled.div<{ $isShow: boolean }>`
   }
 
   .slick-dots {
+    display: flex !important;
+    justify-content: flex-end;
+    padding-right: 3%;
     top: -1.9em;
-    right: 0;
     height: 1.5em;
-    width: 40%;
 
     li button {
       &:before {
@@ -121,12 +125,11 @@ export const CarouselContainer = styled.div<{ $isShow: boolean }>`
   }
 
   @media (min-width: 60em) {
+    .slick-dots {
+      padding-right: 2%;
+    }
     .slick-arrow {
       font-size: 1.5em;
-    }
-
-    .slick-dots {
-      right: -14%;
     }
   }
 `;

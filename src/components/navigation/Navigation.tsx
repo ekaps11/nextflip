@@ -19,7 +19,6 @@ const Navigation = () => {
   const backToMainMenu = () => {
     if (pathname !== "/") {
       navigate("/");
-      location.reload();
     }
   };
 

@@ -4,6 +4,7 @@ import { banner, extendedUrl, useGetMovieQuery } from "../../utils/tmdb";
 import PreviewDetail from "../../components/preview-detail/PreviewDetail";
 import PreviewRecommendation from "../../components/preview-recommendation/PreviewRecommendation";
 import { PreviewContainer } from "./Preview-style";
+import Spinner from "../../components/spinner/Spinner";
 
 const Preview = () => {
   const [searchParams] = useSearchParams();
@@ -12,7 +13,9 @@ const Preview = () => {
 
   const { data } = useGetMovieQuery(`movie/${movieID}/videos${extendedUrl}`);
 
-  const { data: detail } = useGetMovieQuery(`movie/${movieID}${extendedUrl}`);
+  const { data: detail, isLoading } = useGetMovieQuery(
+    `movie/${movieID}${extendedUrl}`
+  );
 
   const trailer = data?.results.filter(
     ({ name }: { name: string }) => name === "Official Trailer"
@@ -21,6 +24,8 @@ const Preview = () => {
   useEffect(() => {
     document.documentElement.scrollTo(0, 0);
   }, [location]);
+
+  if (isLoading) return <Spinner />;
 
   return (
     <PreviewContainer>
