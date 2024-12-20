@@ -33,7 +33,7 @@ const CarouselContent = ({ url, title, settings }: CarouselProps) => {
     }
   });
 
-  if (isLoading) return <Spinner />;
+  if (isLoading && device) return <Spinner />;
 
   return device ? (
     <Slider {...settings}>{movies}</Slider>

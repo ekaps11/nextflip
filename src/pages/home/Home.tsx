@@ -1,9 +1,7 @@
 import Faq from "../../components/faq/Faq";
-import { Header, HomeContainer } from "./Home-style";
+import { Header, HomeContainer, PlanBox, PlanContainer } from "./Home-style";
 import SignUp from "../../components/sign-up/SignUp";
 import { t } from "i18next";
-import Plan from "../../components/plan/Plan";
-import Games from "../../components/games/Games";
 
 const Home = () => {
   return (
@@ -15,15 +13,24 @@ const Home = () => {
           <SignUp />
         </div>
       </Header>
-      <Plan
-        title={t("plan.title")}
-        items={t("plan.items", { returnObjects: true })}
-      />
-      <Games />
-      <Plan
-        title={t("join.title")}
-        items={t("join.items", { returnObjects: true })}
-      />
+
+      <PlanContainer>
+        <h2>{t("storycard.title")}</h2>
+        <div>
+          {Object.values(t("storycard.items", { returnObjects: true })).map(
+            ({ benefit, description }, i) => {
+              return (
+                <PlanBox key={benefit}>
+                  <h3>{benefit}</h3>
+                  <p>{description}</p>
+                  <img src={`images/icon${++i}.webp`} alt={benefit} />
+                </PlanBox>
+              );
+            }
+          )}
+        </div>
+      </PlanContainer>
+
       <Faq />
     </HomeContainer>
   );

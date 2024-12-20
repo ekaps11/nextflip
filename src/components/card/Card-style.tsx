@@ -4,9 +4,17 @@ import { colors } from "../../utils/styles/commonStyle";
 export const LoadingSkeleton = styled.div`
   @media (hover: hover) {
     width: 100%;
-    background-color: ${colors.grey[0]};
     aspect-ratio: 16/9;
     border-radius: 5px;
+    background: linear-gradient(90deg, #222222 8%, #333333 18%, #222222 100%);
+    background-size: 200% 100%;
+    animation: 1.5s skeleton-loading ease-in-out infinite;
+
+    @keyframes skeleton-loading {
+      to {
+        background-position: -200%;
+      }
+    }
   }
 `;
 

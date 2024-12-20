@@ -29,6 +29,7 @@ export const NavContainer = styled.div<{
   transition: 0.5s;
 
   h1 {
+    user-select: none;
     font-family: "Bebas Neue", sans-serif;
     color: ${colors.red[0]};
     letter-spacing: 3px;
