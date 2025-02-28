@@ -5,9 +5,10 @@
     "max": "max {{qty}} characters"
   },
 
-  "Home": {
+  "home": {
     "title": "Unlimited movies and more",
-    "desc": "Starts at IDR 54,000. Cancel anytime."
+    "desc": "Starts at IDR 54,000. Cancel anytime.",
+    "trend": "Trending Now"
   },
 
   "dashboard": {

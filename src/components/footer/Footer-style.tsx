@@ -56,6 +56,16 @@ export const FooterContainer = styled.footer<{ $user: boolean }>`
     }
   }
 
+  @media (hover: none) {
+    ${SelectContainer} {
+      margin-left: -1px;
+
+      svg {
+        display: none;
+      }
+    }
+  }
+
   @media (min-width: 65em) {
     padding: ${({ $user }) => $user && "3% 10%"};
   }

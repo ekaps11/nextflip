@@ -40,3 +40,12 @@ export const handleEsc = (callback: () => void) => {
 
   return () => document.removeEventListener("keydown", pressEsc);
 };
+
+export const unscrolledModalEffect = (isOpen: boolean) => {
+  const bodyStyle = document.body.style;
+  const scrollbarWidth =
+    window.innerWidth - document.documentElement.clientWidth;
+
+  bodyStyle.overflow = isOpen ? "hidden" : "auto";
+  bodyStyle.paddingRight = isOpen ? `${scrollbarWidth}px` : "";
+};

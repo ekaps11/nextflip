@@ -1,20 +1,70 @@
 import { styled } from "styled-components";
-import { gradientBg } from "../../utils/styles/commonStyle";
+import { flex, gradientBg } from "../../utils/styles/commonStyle";
 import { SignUpContainer } from "../../components/sign-up/SignUp-style";
+import { CarouselContainer } from "../../components/carousel/Carousel-style";
 
 export const Header = styled.div`
+  ${flex}
   background: ${gradientBg.top}, url(images/banner.webp);
   background-size: cover;
   padding: 5%;
-  padding-bottom: 3.5em;
-  border-bottom: 3px solid #6c1f41;
+  text-align: center;
 
-  h1 {
-    margin-top: 3.5em;
+  @media (orientation: portrait) {
+    height: 80vh;
+
+    @media (min-width: 45em) {
+      height: 60vh;
+    }
+  }
+
+  @media (orientation: landscape) {
+    height: 100vh;
+
+    @media (min-width: 60em) and (hover: none) {
+      height: 80vh;
+    }
+  }
+
+  @media (min-width: 35em) {
+    ${SignUpContainer} {
+      width: 90%;
+      margin-left: 10%;
+    }
+  }
+
+  @media (min-width: 65em) {
+    ${SignUpContainer} {
+      width: 100%;
+      margin-left: unset;
+    }
   }
 `;
 
-export const PlanBox = styled.div<{ $bg?: boolean }>`
+export const TrendingMovies = styled.div`
+  margin-top: -5%;
+
+  img {
+    width: 100%;
+  }
+
+  div {
+    margin: 5%;
+    margin-top: 0;
+
+    div {
+      margin: unset;
+      margin-top: 1em;
+
+      ${CarouselContainer} {
+        padding: unset;
+        margin: -2em 0;
+      }
+    }
+  }
+`;
+
+export const PlanBox = styled.div`
   padding: 5%;
   background: linear-gradient(149deg, #192247 0%, #210e17 96.86%);
   border-radius: 1em;
@@ -53,26 +103,6 @@ export const PlanContainer = styled.div`
 `;
 
 export const HomeContainer = styled.div`
-  @media (min-width: 35em) {
-    ${Header} {
-      div {
-        margin-bottom: 3.5em;
-      }
-    }
-  }
-
-  @media (min-width: 45em) {
-    ${Header} {
-      div {
-        width: 85%;
-      }
-
-      h1 {
-        width: 75%;
-      }
-    }
-  }
-
   @media (min-width: 60em) {
     ${PlanContainer} {
       div {
@@ -88,15 +118,10 @@ export const HomeContainer = styled.div`
   }
 
   @media (min-width: 65em) {
-    ${Header} {
+    ${TrendingMovies} {
       div {
-        margin: 0 auto;
-        margin-bottom: 4em;
+        padding: 0 5%;
       }
-    }
-
-    ${SignUpContainer} {
-      margin: 1em 0;
     }
 
     ${PlanContainer} {

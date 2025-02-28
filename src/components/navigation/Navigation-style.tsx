@@ -45,7 +45,6 @@ export const NavContainer = styled.div<{
   button {
     width: 6em;
     height: 2.6em;
-    margin-top: 0.1em;
     margin-left: -0.5em;
   }
 
@@ -66,7 +65,7 @@ export const NavContainer = styled.div<{
     }
 
     button {
-      margin-top: 0.5em;
+      margin-top: 0.25em;
     }
   }
 
@@ -80,7 +79,8 @@ export const NavContainer = styled.div<{
       }
 
       select {
-        padding: 0.65em 2em;
+        padding: 0 2em;
+        height: 2.55em;
       }
     }
   }

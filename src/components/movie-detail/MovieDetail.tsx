@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { BsInfoCircle } from "react-icons/bs";
 import { FaPlay } from "react-icons/fa";
 import Button from "../button/Button";
 import { t } from "i18next";
 import { useGetMovieQuery, extendedUrl, image } from "../../utils/tmdb";
-import { device } from "../../utils/helper/helper";
+import { device, unscrolledModalEffect } from "../../utils/helper/helper";
 import Modal from "../modal/Modal";
 import {
   MovieDetailButton,
@@ -18,9 +18,10 @@ import Spinner from "../spinner/Spinner";
 type MovieDetailProps = {
   id: number;
   title: string;
+  showButton?: boolean;
 };
 
-const MovieDetail = ({ id, title }: MovieDetailProps) => {
+const MovieDetail = ({ id, title, showButton = true }: MovieDetailProps) => {
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
   const strLength = title?.length;
@@ -43,6 +44,10 @@ const MovieDetail = ({ id, title }: MovieDetailProps) => {
 
   (isLoading || !id) && <Spinner />;
 
+  useEffect(() => {
+    unscrolledModalEffect(showModal);
+  }, [showModal]);
+
   return (
     <MovieDetailContainer $strLength={strLength}>
       <Modal isOpen={showModal} onClose={toggleModal}>
@@ -53,21 +58,23 @@ const MovieDetail = ({ id, title }: MovieDetailProps) => {
 
       {MovieLogo}
 
-      <MovieDetailButton>
-        <Button onClick={() => !device && navigate(`/preview?movie=${id}`)}>
-          <i>
-            <FaPlay />
-          </i>
-          {t("dashboard.playButton")}
-        </Button>
+      {showButton && (
+        <MovieDetailButton>
+          <Button onClick={() => !device && navigate(`/preview?movie=${id}`)}>
+            <i>
+              <FaPlay />
+            </i>
+            {t("dashboard.playButton")}
+          </Button>
 
-        <Button onClick={toggleModal} disabled={showModal}>
-          <i>
-            <BsInfoCircle />
-          </i>
-          {t("dashboard.infoButton")}
-        </Button>
-      </MovieDetailButton>
+          <Button onClick={toggleModal} disabled={showModal}>
+            <i>
+              <BsInfoCircle />
+            </i>
+            {t("dashboard.infoButton")}
+          </Button>
+        </MovieDetailButton>
+      )}
     </MovieDetailContainer>
   );
 };

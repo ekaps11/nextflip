@@ -93,9 +93,13 @@ export const SignInContainer = styled.form<{ $error?: boolean }>`
 
     &[type="password"],
     &[type="text"] {
-      margin-bottom: -2em;
+      margin-bottom: -1em;
       outline: none;
     }
+  }
+
+  ${ShowPassword} {
+    top: -1.75em;
   }
 
   ${ShowPassword}:hover {

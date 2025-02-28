@@ -15,7 +15,6 @@ export const SearchIcon = styled(HiMagnifyingGlass)`
 export const SearchInput = styled.div`
   input {
     animation: ${animation.fullWidth} 0.5s;
-    height: 2.4em;
     margin-right: 5px;
     background: black;
     opacity: 0.7;

@@ -2,6 +2,7 @@ import { styled } from "styled-components";
 import { colors } from "../../utils/styles/commonStyle";
 
 export const ShowPassword = styled.div`
+  user-select: none;
   width: fit-content;
   cursor: pointer;
   padding: 4px 3px 0 3px;
@@ -38,7 +39,7 @@ export const InputField = styled.input<{
   &:not(:placeholder-shown) + span,
   &:focus + span {
     font-size: 10px;
-    transform: translateX(3px) translateY(-8.5px);
+    transform: translateX(6px) translateY(-8.5px);
     transition: 0.3s;
   }
 
@@ -80,7 +81,6 @@ export const InputError = styled.p`
     text-align: left;
     font-size: 0.8em;
     padding-right: 0.1em;
-    margin-top: 2px;
   }
 `;
 

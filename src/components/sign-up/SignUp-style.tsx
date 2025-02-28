@@ -41,6 +41,8 @@ export const SignUpContainer = styled.div`
   }
 
   ${InputField} {
+    height: 3em;
+
     &[type="password"],
     &[type="text"] {
       margin-bottom: -1.5em;
@@ -49,20 +51,16 @@ export const SignUpContainer = styled.div`
 
   ${ShowPassword} {
     width: 1.35em;
-    top: -0.9em;
+    top: -0.6em;
+  }
+
+  button {
+    margin: auto;
   }
 
   @media (min-width: 35em) {
-    ${InputField} {
-      &[type="password"],
-      &[type="text"] {
-        margin-bottom: -6em;
-      }
-    }
-
     ${ShowPassword} {
-      top: 2.8em;
-      left: 85%;
+      left: 80%;
     }
   }
 
@@ -79,16 +77,8 @@ export const SignUpContainer = styled.div`
   }
 
   @media (min-width: 65em) {
-    ${InputField} {
-      &[type="password"],
-      &[type="text"] {
-        margin-bottom: -6.65em;
-      }
-    }
-
     ${ShowPassword} {
-      left: 40%;
-      top: 3.35em;
+      left: 85%;
     }
   }
 `;

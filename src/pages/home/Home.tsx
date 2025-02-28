@@ -1,18 +1,34 @@
 import Faq from "../../components/faq/Faq";
-import { Header, HomeContainer, PlanBox, PlanContainer } from "./Home-style";
+import {
+  Header,
+  HomeContainer,
+  PlanBox,
+  PlanContainer,
+  TrendingMovies,
+} from "./Home-style";
 import SignUp from "../../components/sign-up/SignUp";
 import { t } from "i18next";
+import HomeCarousel from "../../components/carousel/home-carousel/HomeCarousel";
 
 const Home = () => {
   return (
     <HomeContainer>
       <Header>
         <div>
-          <h1>{t("Home.title")}</h1>
-          <p className="description">{t("Home.desc")}</p>
+          <h1>{t("home.title")}</h1>
+          <p>{t("home.desc")}</p>
           <SignUp />
         </div>
       </Header>
+
+      <TrendingMovies>
+        <img src="images/down-light.png" alt="curved-line" />
+
+        <div>
+          <h2>{t("home.trend")}</h2>
+          <HomeCarousel />
+        </div>
+      </TrendingMovies>
 
       <PlanContainer>
         <h2>{t("storycard.title")}</h2>

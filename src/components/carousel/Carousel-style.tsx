@@ -128,6 +128,7 @@ export const CarouselContainer = styled.div<{ $isShow: boolean }>`
     .slick-dots {
       padding-right: 2%;
     }
+
     .slick-arrow {
       font-size: 1.5em;
     }

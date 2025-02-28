@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
-export const Backdrop = styled.div`
+export const Backdrop = styled.div<{ $useBackdrop?: boolean }>`
+  display: ${({ $useBackdrop }) => ($useBackdrop ? "block" : "none")};
   position: fixed;
   top: 0;
   left: 0;
@@ -27,6 +28,7 @@ export const ModalContainer = styled.dialog`
     background: none;
     font-size: 1.25em;
     padding: 0 7px;
+    padding-bottom: 3px;
     border: 1px solid;
     border-radius: 50%;
     margin-top: 0.2em;

@@ -46,6 +46,7 @@ const SignUpForm = () => {
           {...register("email", { onChange: handleChange })}
           errors={email && errors.email?.message}
         />
+
         {validEmail && (
           <Input
             type="password"
@@ -54,6 +55,7 @@ const SignUpForm = () => {
             errors={password && errors.password?.message}
           />
         )}
+
         <Button>
           {t("signup.button")}
           <FaChevronRight />

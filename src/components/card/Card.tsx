@@ -17,7 +17,11 @@ const Card = ({ id, onClick }: CardProps) => {
       {isLoading ? (
         <LoadingSkeleton />
       ) : (
-        <img src={image + data?.backdrop_path} alt={data?.title} />
+        <img
+          src={image + data?.backdrop_path}
+          alt={data?.title}
+          loading="lazy"
+        />
       )}
       <CardDetail data={data} />
     </CardContainer>
