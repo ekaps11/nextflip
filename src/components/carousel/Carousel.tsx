@@ -6,7 +6,7 @@ import CarouselContent from "./CarouselContent";
 
 type CarouselProps = {
   url: string;
-  title: string;
+  title?: string;
 };
 
 const Carousel = ({ url, title }: CarouselProps) => {
@@ -17,7 +17,6 @@ const Carousel = ({ url, title }: CarouselProps) => {
     speed: 1000,
     slidesToShow: 5,
     slidesToScroll: 5,
-    lazyLoad: "ondemand",
     prevArrow: <CustomArrow icon={<FaChevronLeft />} />,
     nextArrow: <CustomArrow icon={<FaChevronRight />} />,
     beforeChange: () => setIsShow(true),
@@ -44,7 +43,7 @@ const Carousel = ({ url, title }: CarouselProps) => {
   return (
     <CarouselContainer $isShow={isShow}>
       <Title>{title}</Title>
-      <CarouselContent url={url} settings={settings} title={title} />
+      <CarouselContent url={url} settings={settings} title={title || ""} />
     </CarouselContainer>
   );
 };

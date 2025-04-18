@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { t } from "i18next";
 import { NoResult, SearchContainer, SearchResults } from "./Search-style";
-import { Movie, useSearchMoviesQuery } from "../../utils/tmdb";
+import { image, Movie, useSearchMoviesQuery } from "../../utils/tmdb";
 import Spinner from "../../components/spinner/Spinner";
 import Card from "../../components/card/Card";
 import CustomLink from "../../components/custom-link/CustomLink";
@@ -43,19 +43,21 @@ const Search = () => {
       );
   }, [data, movieResults]);
 
-  const movie = searchResults.map(({ id, backdrop_path }: Movie) => {
-    const url = `/preview?movie=${id}`;
+  const movie = searchResults.map(
+    ({ id, backdrop_path, poster_path, title }: Movie) => {
+      const url = `/preview?movie=${id}`;
 
-    if (backdrop_path) {
-      return device ? (
-        <Card key={id} id={id} />
-      ) : (
-        <CustomLink key={id} to={url}>
-          <Card id={id} />
-        </CustomLink>
-      );
+      if (backdrop_path) {
+        return device ? (
+          <Card key={id} id={id} />
+        ) : (
+          <CustomLink key={id} to={url}>
+            <img src={image + poster_path} alt={title} />
+          </CustomLink>
+        );
+      }
     }
-  });
+  );
 
   if (isLoading) return <Spinner />;
 

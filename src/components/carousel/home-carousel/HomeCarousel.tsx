@@ -17,10 +17,9 @@ import CustomArrow from "../CustomArrow";
 import Spinner from "../../spinner/Spinner";
 import Slider from "react-slick";
 import Modal from "../../modal/Modal";
-import { DashboardBg } from "../../../pages/dashboard/Dashboard-style";
-import MovieDetail from "../../movie-detail/MovieDetail";
 import { t } from "i18next";
 import { unscrolledModalEffect } from "../../../utils/helper/helper";
+import Banner from "../../banner/Banner";
 
 const HomeCarousel = () => {
   const [currSlide, setCurrSlide] = useState(0);
@@ -84,13 +83,7 @@ const HomeCarousel = () => {
       <Modal isOpen={showModal} onClose={toggleModal} useBackdrop={false}>
         {movieDetail && (
           <>
-            <DashboardBg $bg={movieDetail.backdrop_path}>
-              <MovieDetail
-                id={movieDetail.id}
-                title={movieDetail.title}
-                showButton={false}
-              />
-            </DashboardBg>
+            <Banner movie={movieDetail} showButton={false} />
 
             <Detail>
               <div>

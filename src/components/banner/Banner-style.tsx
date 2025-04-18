@@ -1,9 +1,15 @@
 import styled from "styled-components";
+import {
+  animation,
+  colors,
+  flex,
+  gradientBg,
+} from "../../utils/styles/commonStyle";
+import { banner } from "../../utils/tmdb";
 import { CardInfo } from "../card/Card-style";
 import { ModalContainer } from "../modal/Modal-style";
-import { animation, colors } from "../../utils/styles/commonStyle";
 
-export const MovieDetailButton = styled.div`
+export const ButtonContainer = styled.div`
   display: flex;
   flex-direction: row;
   gap: 0.5em;
@@ -41,7 +47,7 @@ export const MovieDetailButton = styled.div`
   }
 `;
 
-export const MovieDetailModal = styled.div`
+export const ModalContent = styled.div`
   ${CardInfo} {
     border-radius: 10px;
     position: unset;
@@ -69,7 +75,7 @@ export const MovieDetailModal = styled.div`
   }
 `;
 
-export const MovieDetailContainer = styled.div<{
+export const MovieDetail = styled.div<{
   $strLength?: number;
 }>`
   width: 50%;
@@ -131,5 +137,23 @@ export const MovieDetailContainer = styled.div<{
       width: 60%;
       font-size: 1.75em;
     }
+  }
+`;
+
+export const BannerContainer = styled.div<{ $bg: string }>`
+  ${flex}
+  justify-content: flex-start;
+  background: ${gradientBg.bot}, url(${({ $bg }) => banner + $bg});
+  background-size: cover;
+  aspect-ratio: 2;
+  padding-left: 5%;
+  margin-bottom: -10%;
+
+  @media (max-width: 45em) and (max-height: 25em) and (orientation: landscape) {
+    aspect-ratio: 16/9;
+  }
+
+  @media (min-width: 65em) {
+    margin-bottom: unset;
   }
 `;

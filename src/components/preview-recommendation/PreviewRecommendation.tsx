@@ -1,5 +1,7 @@
 import { t } from "i18next";
 import { Movie, extendedUrl, image, useGetMovieQuery } from "../../utils/tmdb";
+import Card from "../card/Card";
+import { device } from "../../utils/helper/helper";
 import CustomLink from "../custom-link/CustomLink";
 import { Recommendation } from "./PreviewRecommendation-style";
 
@@ -20,13 +22,15 @@ const PreviewRecommendation = ({
 
   const recommendations = data?.results
     .slice(0, 6)
-    .map(({ id, title, backdrop_path }: Movie) => {
+    .map(({ id, title, backdrop_path, poster_path }: Movie) => {
       const url = `preview?movie=${id}`;
 
       if (backdrop_path)
-        return (
+        return device ? (
+          <Card key={id} id={id} />
+        ) : (
           <CustomLink key={id} to={url}>
-            <img src={image + backdrop_path} alt={title} />
+            <img src={image + poster_path} alt={title} />
           </CustomLink>
         );
     });

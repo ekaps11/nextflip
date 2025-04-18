@@ -1,11 +1,16 @@
+import { forwardRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { logOut } from "../../utils/firebase/firebase.utils";
 import { t } from "i18next";
 import { ProfilePanelContainer, ProfileIndicator } from "./ProfilePanel-style";
-import { PiPencilLight, PiSignOut, PiQuestion } from "react-icons/pi";
+import {
+  PiListNumbersLight,
+  PiPencilLight,
+  PiSignOut,
+  PiQuestion,
+} from "react-icons/pi";
 import { BsPerson } from "react-icons/bs";
 import CustomLink from "../custom-link/CustomLink";
-import { forwardRef } from "react";
 
 type ProfilePanelProps = {
   mouseLeave: () => void;
@@ -27,6 +32,11 @@ const ProfilePanel = forwardRef<HTMLDivElement, ProfilePanelProps>(
     return (
       <ProfilePanelContainer ref={ref} onMouseLeave={mouseLeave}>
         <ProfileIndicator />
+
+        <CustomLink to={account.url} target="_blank">
+          <PiListNumbersLight />
+          {t("profile.myList")}
+        </CustomLink>
 
         <CustomLink to={account.url} target="_blank">
           <PiPencilLight />

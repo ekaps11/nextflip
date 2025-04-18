@@ -14,6 +14,7 @@ const Dashboard = lazy(() => import("./pages/dashboard/Dashboard"));
 const Login = lazy(() => import("./pages/login/Login"));
 const Preview = lazy(() => import("./pages/preview/Preview"));
 const Search = lazy(() => import("./pages/search/Search"));
+const BrowseByGenre = lazy(() => import("./pages/browse/Browse"));
 const NotFound = lazy(() => import("./pages/not-found/NotFound"));
 
 const AppContainer = styled.div`
@@ -50,6 +51,7 @@ const App = () => {
                 {!device && <Route path={"preview/*"} Component={Preview} />}
                 <Route path="search/*" Component={Search} />
                 <Route path="my-list" Component={Search} />
+                <Route path="browse/*" Component={BrowseByGenre} />
               </>
             )}
           </Route>

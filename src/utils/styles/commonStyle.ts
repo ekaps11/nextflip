@@ -48,6 +48,14 @@ export const animation = {
     }
   `,
 
+  nineties: keyframes`
+  from {
+    width: 0;
+  } to {
+    width: 90%;
+  }
+  `,
+
   popUp: keyframes`
     from {
       transform: scale(0);

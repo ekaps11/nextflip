@@ -23,6 +23,7 @@
   },
 
   "profile": {
+    "myList": "Daftar Saya",
     "manage": "Kelola Profil",
     "transfer": "Transfer  Profil",
     "account": "Akun",
@@ -71,7 +72,7 @@
 
   "preview": {
     "home": "Beranda",
-    "browse": "Telusuri Film",
+    "browse": "telusuri",
     "cast": "Pemeran",
     "director": "Sutradara",
     "list": "Daftar Saya",

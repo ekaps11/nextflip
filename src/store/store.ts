@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { TypedUseSelectorHook } from "react-redux/es/types";
 import { persistReducer, persistStore } from "redux-persist";
 import userReducer from "./slices/userSlice";
+import uiReducer from "./slices/uiSlice";
 import { tmdb } from "../utils/tmdb";
 // import logger from "redux-logger";
 import storage from "redux-persist/lib/storage";
@@ -16,6 +17,7 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   user: userReducer,
+  ui: uiReducer,
   [tmdb.reducerPath]: tmdb.reducer,
 });
 

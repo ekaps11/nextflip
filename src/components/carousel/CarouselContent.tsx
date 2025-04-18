@@ -19,19 +19,21 @@ const CarouselContent = ({ url, title, settings }: CarouselProps) => {
   const cardSliderRef = useRef<HTMLDivElement>(null);
   const { data, isLoading } = useGetMovieQuery(url);
 
-  const movies = data?.results.map(({ id, backdrop_path, title }: Movie) => {
-    const url = `preview?movie=${id}`;
+  const movies = data?.results.map(
+    ({ id, backdrop_path, poster_path, title }: Movie) => {
+      const url = `/preview?movie=${id}`;
 
-    if (backdrop_path) {
-      return device ? (
-        <Card key={id} id={id} />
-      ) : (
-        <CustomLink key={id} to={url}>
-          <img src={image + backdrop_path} alt={title} />
-        </CustomLink>
-      );
+      if (backdrop_path) {
+        return device ? (
+          <Card key={id} id={id} />
+        ) : (
+          <CustomLink key={id} to={url}>
+            <img src={image + poster_path} alt={title} />
+          </CustomLink>
+        );
+      }
     }
-  });
+  );
 
   if (isLoading && device) return <Spinner />;
 

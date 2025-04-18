@@ -23,6 +23,7 @@
   },
 
   "profile": {
+    "myList": "My List",
     "manage": "Manage Profile",
     "transfer": "Transfer  Profile",
     "account": "Account",
@@ -71,7 +72,7 @@
 
   "preview": {
     "home": "Home",
-    "browse": "Browse a Movie",
+    "browse": "browse",
     "cast": "Casts",
     "director": "Director",
     "list": "My List",

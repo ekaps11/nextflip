@@ -9,7 +9,7 @@ export const Recommendation = styled.div`
 
   div {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 10px;
     margin-top: 5px;
     margin-bottom: 5px;
@@ -22,7 +22,8 @@ export const Recommendation = styled.div`
 
   @media (min-width: 40em) {
     div {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(6, 1fr);
+      gap: 5px;
     }
   }
 

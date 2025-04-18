@@ -1,14 +1,10 @@
 import { useGetMovieQuery, MOVIE_REQUESTS, Movie } from "../../utils/tmdb";
 import { getRandomNumber } from "../../utils/helper/helper";
-import {
-  DashboardBg,
-  DashboardContainer,
-  MoviesContainer,
-} from "./Dashboard-style";
-import MovieDetail from "../../components/movie-detail/MovieDetail";
+import { DashboardContainer, MoviesContainer } from "./Dashboard-style";
 import Carousel from "../../components/carousel/Carousel";
 import { t } from "i18next";
 import Spinner from "../../components/spinner/Spinner";
+import Banner from "../../components/banner/Banner";
 
 const Dashboard = () => {
   const { data, isLoading } = useGetMovieQuery(MOVIE_REQUESTS.POPULAR);
@@ -25,9 +21,7 @@ const Dashboard = () => {
 
   return (
     <DashboardContainer>
-      <DashboardBg $bg={movie?.backdrop_path}>
-        <MovieDetail id={movie?.id} title={movie?.title} />
-      </DashboardBg>
+      <Banner movie={movie} />
 
       <MoviesContainer>
         <Carousel url={MOVIE_REQUESTS.POPULAR} title={t("dashboard.popular")} />

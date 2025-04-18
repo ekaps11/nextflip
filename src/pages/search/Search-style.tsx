@@ -20,6 +20,12 @@ export const SearchResults = styled.div`
     margin-top: -0.3em;
   }
 
+  img {
+    width: 100%;
+    border-radius: 5px;
+  }
+
+  /* web */
   @media (hover: hover) {
     ${CardContainer}:hover {
       margin-top: -2.5em;
@@ -30,11 +36,15 @@ export const SearchResults = styled.div`
     }
   }
 
-  @media (min-width: 35em) {
+  @media (min-width: 20em) {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  @media (min-width: 65em) {
+  @media (min-width: 40em) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (min-width: 60em) {
     grid-template-columns: repeat(5, 1fr);
   }
 `;

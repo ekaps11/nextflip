@@ -1,5 +1,6 @@
 import Select from "./Select";
 import i18n from "../../utils/i18n/i18n";
+import { IoLanguage } from "react-icons/io5";
 
 const languages = ["english", "bahasa"];
 
@@ -18,6 +19,7 @@ const SelectLanguage = ({ id }: SelectLanguageProps) => {
   return (
     <Select
       id={id}
+      icon={<IoLanguage />}
       option={languages}
       onChange={lngSwitcher}
       value={lng ? "english" : "bahasa"}

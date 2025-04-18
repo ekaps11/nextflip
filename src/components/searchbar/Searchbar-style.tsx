@@ -35,14 +35,24 @@ export const SearchbarContainer = styled.div<{ $isShow: boolean }>`
     margin-right: ${({ $isShow }) => `${$isShow ? -0.83 : -0.3}em`};
   }
 
-  @media (max-width: 25em) {
+  @media (max-width: 30em) {
+    position: absolute;
+    right: ${({ $isShow }) => ($isShow ? 10 : 15) + "%"};
+
     ${SearchIcon} {
       display: ${({ $isShow }) => ($isShow ? "none" : "block")};
     }
 
     ${SearchInput} {
+      margin-left: 10px;
       border-left: 1px solid white;
       border-radius: 3px;
+
+      input {
+        width: 90%;
+        height: 2em;
+        animation: ${animation.nineties} 0.5s;
+      }
     }
   }
 `;

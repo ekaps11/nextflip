@@ -20,29 +20,16 @@ export const CardSlider = styled.div`
 
   img {
     border-radius: 5px;
-    width: 42vw;
-    aspect-ratio: 16/9;
+    width: 27vw;
   }
 
-  @media (min-width: 35em) {
+  @media (min-width: 40em) {
     img {
-      width: 28vw;
+      width: 20vw;
     }
   }
 
-  @media (min-width: 45em) {
-    img {
-      width: 21.5vw;
-    }
-  }
-
-  @media (min-width: 45em) and (orientation: portrait) {
-    img {
-      width: 28vw;
-    }
-  }
-
-  @media (min-width: 65em) {
+  @media (min-width: 60em) {
     img {
       width: 17vw;
     }

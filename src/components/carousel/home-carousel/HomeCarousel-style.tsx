@@ -63,10 +63,15 @@ export const HomeMoviesContainer = styled(Slider)<{
       `${$slideIndex < 6 ? "block" : "none"} !important`};
   }
 
+  .slick-list {
+    padding-bottom: 0.55em !important;
+  }
+
   @media (hover: hover) {
     img:hover {
       transition: 0.5s;
-      transform: scale(1.05);
+      transition-delay: 0.15s;
+      transform: scale(1.1);
     }
 
     .slick-arrow:hover {

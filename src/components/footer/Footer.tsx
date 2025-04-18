@@ -14,8 +14,10 @@ type FooterLinkProps = {
 const Footer = () => {
   const { pathname } = useLocation();
   const { user } = useAppSelector(({ user }) => user);
+  const getYear = new Date().getFullYear();
 
-  const isMatched = pathname === "/" || pathname === "/search";
+  const matchedLink =
+    pathname === "/" || pathname === "/search" || pathname === "/browse";
 
   const links: FooterLinkProps[] = Object.values(
     t("footer.links", { returnObjects: true })
@@ -31,12 +33,12 @@ const Footer = () => {
         {(!user ? links : links.slice(4)).map(({ title, url, element }) => {
           const footer = <FooterLinks key={title} title={title} to={url} />;
 
-          if (isMatched) return footer;
-          if (!isMatched && element !== "footer") return footer;
+          if (matchedLink) return footer;
+          if (!matchedLink && element !== "footer") return footer;
         })}
       </Links>
       <SelectLanguage id="footer-language" />
-      <p>{!user ? "Nextflip Indonesia" : "© 2023-2024 Nextflip, Inc."}</p>
+      <p>{!user ? "Nextflip Indonesia" : `© 2023-${getYear} Nextflip, Inc.`}</p>
     </FooterContainer>
   );
 };
