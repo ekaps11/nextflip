@@ -30,12 +30,6 @@ export const BrowseIndicator = styled(BiSolidUpArrow)`
   }
 `;
 
-export const GenreLink = styled.p<{ $isSelected: boolean }>`
-  pointer-events: ${({ $isSelected }) => ($isSelected ? "none" : "auto")};
-  color: ${({ $isSelected }) => ($isSelected ? colors.red[0] : "white")};
-  font-weight: ${({ $isSelected }) => ($isSelected ? "bold" : "normal")};
-`;
-
 export const Left = styled.div`
   display: flex;
   align-items: center;

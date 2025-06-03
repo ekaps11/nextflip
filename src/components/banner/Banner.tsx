@@ -13,7 +13,7 @@ import {
   MovieDetail,
   ModalContent,
 } from "./Banner-style";
-import { useGetMovieQuery, extendedUrl, image, Movie } from "../../utils/tmdb";
+import { useGetMovieQuery, extendedUrl, image, Movie } from "../../api/tmdb";
 import Spinner from "../spinner/Spinner";
 
 type BannerProps = {

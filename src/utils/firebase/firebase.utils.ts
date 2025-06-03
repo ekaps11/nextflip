@@ -13,6 +13,7 @@ import {
 import "../i18n/i18n";
 import i18n from "../i18n/i18n";
 import { handleAuthError } from "../helper/helper";
+import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE,
@@ -29,6 +30,7 @@ const { t } = i18n;
 const app = initializeApp(firebaseConfig);
 // const analytics = getAnalytics(app);
 export const auth = getAuth(app);
+export const db = getFirestore(app);
 
 export const signUpWithEmail = async (
   email: string,

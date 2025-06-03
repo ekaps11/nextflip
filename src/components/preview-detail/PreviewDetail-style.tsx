@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { animation } from "../../utils/styles/commonStyle";
 
 export const TrailerYear = styled.div`
   display: flex;
@@ -34,7 +35,7 @@ export const TrailerDetail = styled.div`
   }
 `;
 
-export const ActionButton = styled.div`
+export const ActionButton = styled.div<{ $isInList?: boolean }>`
   display: flex;
   margin-bottom: 1em;
 
@@ -45,6 +46,15 @@ export const ActionButton = styled.div`
     p {
       font-size: 0.5em;
       margin-top: 3px;
+    }
+
+    &:first-child {
+      svg {
+        transition: transform 0.3s;
+        animation: ${({ $isInList }) =>
+            $isInList ? animation.rotateRight : animation.rotateLeft}
+          0.3s;
+      }
     }
   }
 `;

@@ -5,7 +5,8 @@ import { TypedUseSelectorHook } from "react-redux/es/types";
 import { persistReducer, persistStore } from "redux-persist";
 import userReducer from "./slices/userSlice";
 import uiReducer from "./slices/uiSlice";
-import { tmdb } from "../utils/tmdb";
+import { tmdb } from "../api/tmdb";
+import { firestore } from "../api/firestore";
 // import logger from "redux-logger";
 import storage from "redux-persist/lib/storage";
 
@@ -19,9 +20,12 @@ const rootReducer = combineReducers({
   user: userReducer,
   ui: uiReducer,
   [tmdb.reducerPath]: tmdb.reducer,
+  [firestore.reducerPath]: firestore.reducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
+
+const middlewares = [tmdb.middleware, firestore.middleware];
 
 export const store = configureStore({
   reducer: persistedReducer,
@@ -30,7 +34,7 @@ export const store = configureStore({
     getDefaultMiddleware({
       serializableCheck: false,
       immutableCheck: false,
-    }).concat(tmdb.middleware),
+    }).concat(...[middlewares]),
 });
 
 export const persistor = persistStore(store);

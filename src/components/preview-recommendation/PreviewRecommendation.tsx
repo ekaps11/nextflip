@@ -1,5 +1,5 @@
 import { t } from "i18next";
-import { Movie, extendedUrl, image, useGetMovieQuery } from "../../utils/tmdb";
+import { Movie, extendedUrl, image, useGetMovieQuery } from "../../api/tmdb";
 import Card from "../card/Card";
 import { device } from "../../utils/helper/helper";
 import CustomLink from "../custom-link/CustomLink";

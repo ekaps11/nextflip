@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import {
   BrowseIndicator,
-  GenreLink,
   Left,
   NavContainer,
   ProfileIcon,
@@ -51,9 +50,9 @@ const Navigation = () => {
     };
 
     return (
-      <GenreLink key={id} onClick={handleGenreClick} $isSelected={isActive}>
+      <p key={id} onClick={handleGenreClick}>
         {genre}
-      </GenreLink>
+      </p>
     );
   });
 
@@ -71,13 +70,15 @@ const Navigation = () => {
   };
 
   useEffect(() => {
+    setShowGenre(false);
+
     // navbar transition
     const handleTransition = () => setNavBg(window.scrollY > 20 ? true : false);
 
     window.addEventListener("scroll", handleTransition);
 
     return () => window.removeEventListener("scroll", handleTransition);
-  }, []);
+  }, [pathname]);
 
   return (
     <>

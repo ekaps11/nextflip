@@ -1,6 +1,6 @@
 import { useSearchParams } from "react-router-dom";
 import { BrowseContainer, MoviesContainer } from "./Browse-style";
-import { extendedUrl, Movie, useGetMovieQuery } from "../../utils/tmdb";
+import { extendedUrl, Movie, useGetMovieQuery } from "../../api/tmdb";
 import Banner from "../../components/banner/Banner";
 import { getRandomNumber } from "../../utils/helper/helper";
 import Carousel from "../../components/carousel/Carousel";

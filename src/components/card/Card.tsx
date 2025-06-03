@@ -1,5 +1,5 @@
 import { CardContainer, LoadingSkeleton } from "./Card-style";
-import { useGetMovieQuery, extendedUrl, image } from "../../utils/tmdb";
+import { useGetMovieQuery, extendedUrl, image } from "../../api/tmdb";
 import CardDetail from "./CardDetail";
 
 type CardProps = {

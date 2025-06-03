@@ -1,6 +1,6 @@
 import { getDuration } from "../../utils/helper/helper";
-import { useGetMovieQuery, extendedUrl, Movie } from "../../utils/tmdb";
-import { FaPlus, FaShare } from "react-icons/fa";
+import { useGetMovieQuery, extendedUrl, Movie } from "../../api/tmdb";
+import { FaPlus, FaCheck } from "react-icons/fa";
 import { SlLike } from "react-icons/sl";
 import {
   PreviewDetailContainer,
@@ -10,6 +10,11 @@ import {
 } from "./PreviewDetail-style";
 import { t } from "i18next";
 import Spinner from "../spinner/Spinner";
+import {
+  useAddToListMutation,
+  useCheckIsInListQuery,
+  useRemoveFromListMutation,
+} from "../../api/firestore";
 
 type PreviewDetailProps = {
   movieID: string;
@@ -20,6 +25,9 @@ const PreviewDetail = ({ movieID, movieDetail }: PreviewDetailProps) => {
   const { data, isLoading } = useGetMovieQuery(
     `movie/${movieID}/credits${extendedUrl}&language=en-US`
   );
+  const { data: isInList, refetch } = useCheckIsInListQuery(movieID);
+  const [addToList] = useAddToListMutation();
+  const [removeFromList] = useRemoveFromListMutation();
 
   const overview =
     movieDetail?.overview.length > 400
@@ -39,6 +47,16 @@ const PreviewDetail = ({ movieID, movieDetail }: PreviewDetailProps) => {
   const genres = movieDetail?.genres
     .map(({ id }) => t(`genres.${id}`).toLowerCase())
     .join(", ");
+
+  const handleClick = async () => {
+    if (isInList) {
+      await removeFromList(movieID);
+    } else {
+      await addToList(movieDetail);
+    }
+
+    refetch();
+  };
 
   if (isLoading) return <Spinner />;
 
@@ -63,9 +81,9 @@ const PreviewDetail = ({ movieID, movieDetail }: PreviewDetailProps) => {
         </p>
       </TrailerDetail>
 
-      <ActionButton>
-        <div>
-          <FaPlus />
+      <ActionButton $isInList={isInList}>
+        <div onClick={handleClick}>
+          {isInList ? <FaCheck /> : <FaPlus />}
           <p>{t("preview.list")}</p>
         </div>
 
@@ -73,12 +91,8 @@ const PreviewDetail = ({ movieID, movieDetail }: PreviewDetailProps) => {
           <SlLike />
           <p>{t("preview.rate")}</p>
         </div>
-
-        <div>
-          <FaShare />
-          <p>{t("preview.share")}</p>
-        </div>
       </ActionButton>
+
       <hr />
     </PreviewDetailContainer>
   );

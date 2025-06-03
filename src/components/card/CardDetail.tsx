@@ -3,7 +3,12 @@ import { SlLike } from "react-icons/sl";
 import { CardInfo } from "./Card-style";
 import { t } from "i18next";
 import { getDuration } from "../../utils/helper/helper";
-import { Movie, extendedUrl, useGetMovieQuery } from "../../utils/tmdb";
+import { Movie, extendedUrl, useGetMovieQuery } from "../../api/tmdb";
+// import {
+//   useAddToListMutation,
+//   useCheckIsInListQuery,
+//   useRemoveFromListMutation,
+// } from "../../api/firestore";
 
 type CardDetailProps = {
   data: Movie;
@@ -15,6 +20,13 @@ const CardDetail = ({ data, isDisplay = true }: CardDetailProps) => {
     `movie/${data?.id}/credits${extendedUrl}&language=en-US`,
     { skip: !data?.id }
   );
+
+  // const { data: isInList, refetch } = useCheckIsInListQuery(
+  //   data?.id.toString() || ""
+  // );
+
+  // const [addToList] = useAddToListMutation();
+  // const [removeFromList] = useRemoveFromListMutation();
 
   const releaseDate = data?.release_date.slice(0, 4);
 
@@ -30,6 +42,16 @@ const CardDetail = ({ data, isDisplay = true }: CardDetailProps) => {
       .map(({ name }: { name: string }) => name)
       .join(", ") + ", ...more";
 
+  // const addMovie = async () => {
+  //   if (!isInList) await addToList(data);
+  //   refetch();
+  // };
+
+  // const removeMovie = async () => {
+  //   if (isInList) await removeFromList(data?.id.toString() || "");
+  //   refetch();
+  // };
+
   return (
     <CardInfo>
       <p>
@@ -39,6 +61,11 @@ const CardDetail = ({ data, isDisplay = true }: CardDetailProps) => {
       {isDisplay && (
         <div>
           <FaPlay />
+          {/* {isInList ? (
+            <FaCheck onClick={removeMovie} />
+          ) : (
+            <FaPlus onClick={addMovie} />
+          )} */}
           <FaPlus />
           <SlLike />
           <FaChevronDown />

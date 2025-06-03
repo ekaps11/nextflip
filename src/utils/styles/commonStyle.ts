@@ -29,44 +29,59 @@ export const animation = {
       opacity: 0;
     } to {
       opacity: 1;
-    }
-  `,
+    }`,
 
   fadeIn2: keyframes`
     from {
       opacity: 0;
     } to {
       opacity: 0.7;
-    }
-  `,
+    }`,
 
   fullWidth: keyframes`
     from {
       width: 0;
     } to {
       width: 100%;
-    }
-  `,
+    }`,
 
   nineties: keyframes`
   from {
     width: 0;
   } to {
     width: 90%;
-  }
-  `,
+  }`,
 
   popUp: keyframes`
     from {
       transform: scale(0);
     } to {
       transform: scale(1);
-    }
-  `,
+    }`,
 
   spin: keyframes`
     to {
       transform: rotate(360deg);
-    }
-  `,
+    }`,
+
+  slideUp: keyframes`
+    from {
+      transform: translateY(100%);
+    } to {
+      transform: translateY(0);
+    }`,
+
+  rotateRight: keyframes`
+  from {
+    transform: rotate(0deg);
+  } to {
+    transform: rotate(360deg);
+  }`,
+
+  rotateLeft: keyframes`
+  from {
+    transform: rotate(180deg);
+  } to {
+    transform: rotate(0deg);
+  }`,
 };

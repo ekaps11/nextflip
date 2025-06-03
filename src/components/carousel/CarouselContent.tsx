@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { Movie, image, useGetMovieQuery } from "../../utils/tmdb";
+import { Movie, image, useGetMovieQuery } from "../../api/tmdb";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";

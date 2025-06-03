@@ -33,7 +33,7 @@ const ProfilePanel = forwardRef<HTMLDivElement, ProfilePanelProps>(
       <ProfilePanelContainer ref={ref} onMouseLeave={mouseLeave}>
         <ProfileIndicator />
 
-        <CustomLink to={account.url} target="_blank">
+        <CustomLink to="my-list" onClick={mouseLeave}>
           <PiListNumbersLight />
           {t("profile.myList")}
         </CustomLink>

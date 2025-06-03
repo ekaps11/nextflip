@@ -7,6 +7,7 @@ import Spinner from "./components/spinner/Spinner";
 import GlobalStyles from "./GlobalStyles";
 import styled from "styled-components";
 import { device } from "./utils/helper/helper";
+import { firestore } from "./api/firestore";
 
 const Navigation = lazy(() => import("./components/navigation/Navigation"));
 const Home = lazy(() => import("./pages/home/Home"));
@@ -15,6 +16,7 @@ const Login = lazy(() => import("./pages/login/Login"));
 const Preview = lazy(() => import("./pages/preview/Preview"));
 const Search = lazy(() => import("./pages/search/Search"));
 const BrowseByGenre = lazy(() => import("./pages/browse/Browse"));
+const MyList = lazy(() => import("./pages/my-list/MyList"));
 const NotFound = lazy(() => import("./pages/not-found/NotFound"));
 
 const AppContainer = styled.div`
@@ -33,6 +35,7 @@ const App = () => {
     // subscription
     const unsubscribe = getUser((user) => {
       dispatch(setUser(user));
+      dispatch(firestore.util.resetApiState());
     });
 
     return unsubscribe;
@@ -43,19 +46,19 @@ const App = () => {
       <GlobalStyles />
       <Suspense fallback={<Spinner />}>
         <Routes>
-          <Route path="/" Component={Navigation}>
-            <Route index Component={!user ? Home : Dashboard} />
-            <Route path="login" Component={Login} />
+          <Route path="/" element={<Navigation />}>
+            <Route index element={!user ? <Home /> : <Dashboard />} />
+            <Route path="login" element={<Login />} />
             {user && (
               <>
-                {!device && <Route path={"preview/*"} Component={Preview} />}
-                <Route path="search/*" Component={Search} />
-                <Route path="my-list" Component={Search} />
-                <Route path="browse/*" Component={BrowseByGenre} />
+                {!device && <Route path={"preview/*"} element={<Preview />} />}
+                <Route path="search/*" element={<Search />} />
+                <Route path="my-list" element={<MyList />} />
+                <Route path="browse/*" element={<BrowseByGenre />} />
               </>
             )}
           </Route>
-          <Route path="*" Component={NotFound} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
     </AppContainer>

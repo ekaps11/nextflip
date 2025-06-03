@@ -1,4 +1,4 @@
-import { useGetMovieQuery, MOVIE_REQUESTS, Movie } from "../../utils/tmdb";
+import { useGetMovieQuery, MOVIE_REQUESTS, Movie } from "../../api/tmdb";
 import { getRandomNumber } from "../../utils/helper/helper";
 import { DashboardContainer, MoviesContainer } from "./Dashboard-style";
 import Carousel from "../../components/carousel/Carousel";

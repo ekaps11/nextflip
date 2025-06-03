@@ -6,7 +6,7 @@ import {
   Movie,
   MOVIE_REQUESTS,
   useGetMovieQuery,
-} from "../../../utils/tmdb";
+} from "../../../api/tmdb";
 import {
   Detail,
   HomeCarouselContainer,

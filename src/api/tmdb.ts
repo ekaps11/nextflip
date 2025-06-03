@@ -51,6 +51,7 @@ export const tmdb = createApi({
     getMovie: query({
       query: (q: string) => q,
     }),
+
     searchMovies: query({
       query: (q: string) => `search/multi${extendedUrl}&query=${q}`,
       keepUnusedDataFor: 60,

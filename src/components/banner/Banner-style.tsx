@@ -5,7 +5,7 @@ import {
   flex,
   gradientBg,
 } from "../../utils/styles/commonStyle";
-import { banner } from "../../utils/tmdb";
+import { banner } from "../../api/tmdb";
 import { CardInfo } from "../card/Card-style";
 import { ModalContainer } from "../modal/Modal-style";
 

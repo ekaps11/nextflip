@@ -1,14 +1,14 @@
 import { useEffect } from "react";
 import { useLocation, useSearchParams } from "react-router-dom";
-import { banner, extendedUrl, useGetMovieQuery } from "../../utils/tmdb";
+import { banner, extendedUrl, useGetMovieQuery } from "../../api/tmdb";
 import PreviewDetail from "../../components/preview-detail/PreviewDetail";
 import PreviewRecommendation from "../../components/preview-recommendation/PreviewRecommendation";
 import { PreviewContainer } from "./Preview-style";
 import Spinner from "../../components/spinner/Spinner";
 
 const Preview = () => {
-  const [searchParams] = useSearchParams();
   const location = useLocation();
+  const [searchParams] = useSearchParams(location.search);
   const movieID = searchParams.get("movie") as string;
 
   const { data } = useGetMovieQuery(`movie/${movieID}/videos${extendedUrl}`);

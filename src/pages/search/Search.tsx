@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { t } from "i18next";
 import { NoResult, SearchContainer, SearchResults } from "./Search-style";
-import { image, Movie, useSearchMoviesQuery } from "../../utils/tmdb";
+import { image, Movie, useSearchMoviesQuery } from "../../api/tmdb";
 import Spinner from "../../components/spinner/Spinner";
 import Card from "../../components/card/Card";
 import CustomLink from "../../components/custom-link/CustomLink";
